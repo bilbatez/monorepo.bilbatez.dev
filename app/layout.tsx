@@ -18,13 +18,11 @@ export default function RootLayout({
         <div className="py-4 mt-4 text-center">
           <h1>BILBATEZ.DEV | Wazzup (˵ •̀ ᴗ - ˵ ) ✧</h1>
         </div>
-        <nav className="grid grid-cols-4 text-center">
-          <Link className="py-3.5" href="/">Intro</Link>
-          <Link className="py-3.5" href="/profile">The Story So Far...</Link>
-          <Link className="py-3.5" href="/experiences">Stats & EXPs</Link>
-          <Link className="py-3.5" href="/projects">Net Stuffs</Link>
+        <nav className="grid grid-cols-2 text-center">
+          <Link className="py-3.5 border-r" href="/">Intro</Link>
+          <Link className="py-3.5" href="/projects">Prjx</Link>
         </nav>
-        <hr />
+        <hr className="mt-2" />
         <main className="mt-4">
           {children}
         </main>

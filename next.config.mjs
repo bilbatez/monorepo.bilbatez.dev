@@ -11,6 +11,11 @@ const nextConfig = {
                 source: '/linkedin',
                 destination: 'https://www.linkedin.com/in/albertjt/',
                 permanent: false
+            },
+            {
+                source: '/old',
+                destination: 'https://albertjtan.com/',
+                permanent: false
             }
         ]
     }
