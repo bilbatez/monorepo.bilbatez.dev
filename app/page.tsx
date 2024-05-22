@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <>
-      <p>Yo! Nice to meet ya. I go with the nickname Bilbatez on the net.</p>
+      <p>Yo! Nice to meet ya. I go with the alias <i>Bilbatez</i> on the net.</p>
       <p className="mt-2">
         My real name however, is Albert. And I&apos;m just your average friendly neighbourhood programmer! Most of the time, my work involves in making and maintaining websites.
         Whether it&apos;s the front facing side (the visuals you see on a site) or the back end side (which handles the operational side of things).
