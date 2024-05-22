@@ -1,0 +1,9 @@
+{
+  "name": "bilbatez.dev",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next lint && next dev -p 3001",
+    "prod": "next lint && next build && next start"
+  } 
+}
