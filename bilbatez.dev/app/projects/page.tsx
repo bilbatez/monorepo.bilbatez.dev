@@ -1,7 +1,13 @@
 import Link from "next/link"
 
+type Project = {
+    title: string,
+    link: string,
+    description: string,
+}
+
 export default function Projects() {
-    const projects = [
+    const projects: Project[] = [
         {
             title: "KPR for Dummies",
             link: "",
