@@ -13,10 +13,20 @@ const nextConfig = {
                 permanent: false
             },
             {
-                source: '/old',
-                destination: 'https://albertjtan.com/',
+                source: '/bofa',
+                destination: 'https://about.bankofamerica.com/en/our-company',
                 permanent: false
-            }
+            },
+            {
+                source: '/shopee',
+                destination: 'https://careers.shopee.sg/about',
+                permanent: false
+            },
+            {
+                source: '/blibli',
+                destination: 'https://about.blibli.com/en/about',
+                permanent: false,
+            }            
         ]
     }
 };
