@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "workspace": [
-    "./bilbatez.dev"
+    "./bilbatez.dev",
+    "./kprfordummies"
   ],
   "scripts": {
     "clean-all": "rm -rf node_modules && find . -type d -name '.next' -exec rm -rf {} +",
+    "refresh-all": "bun clean-all && bun install",
     "hub-dev": "cd ./bilbatez.dev && npm run dev"
   },
   "dependencies": {

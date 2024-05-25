@@ -1,3 +1,5 @@
+'use-client'
+
 import Link from "next/link"
 
 type Experience = {
@@ -14,8 +16,6 @@ type Position = {
 }
 
 export default function Experience() {
-
-
     const experiences: Experience[] = [
         {
             company: "Bank of America",
