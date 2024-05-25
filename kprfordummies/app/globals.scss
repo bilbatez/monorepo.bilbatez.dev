@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$black: #212121;
+$green: #9ccc65;
+$green-dark: #7cb342;
+$green-light: #dcedc8;
+
+html {
+    background-color: $green-light;
+    color: $black;
+
+    body {
+        @apply mx-auto justify-between p-24;
+
+        button {
+            @apply px-5 py-3 mr-2 rounded;
+            @apply shadow-sm;
+            @apply transition duration-150;
+
+            background-color: $green;
+
+            &:hover {
+                background-color: $green-dark;
+            }
+
+            &:focus {
+                background-color: $green;
+            }
+
+            &:disabled {
+                background-color: $green-dark;
+            }
+        }
+
+        .footer-hero {
+            @apply border-dashed border-2 border-white rounded-md m-2 p-1;
+            @apply transition duration-75;
+            
+            &:hover {
+                @apply border-solid;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "kprfordummies",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next lint && next dev -p 3002",
+    "prod": "next lint && next build && next start -p 3002"
+  } 
+}
