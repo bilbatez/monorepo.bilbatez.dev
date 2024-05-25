@@ -9,7 +9,9 @@
   "scripts": {
     "clean-all": "rm -rf node_modules && find . -type d -name '.next' -exec rm -rf {} +",
     "refresh-all": "bun clean-all && bun install",
-    "hub-dev": "cd ./bilbatez.dev && npm run dev"
+    "dev-all": "concurrently \"bun hub-dev\" \"bun kpr-dev\"",
+    "hub-dev": "cd ./bilbatez.dev && bun dev",
+    "kpr-dev": "cd ./kprfordummies && bun dev"
   },
   "dependencies": {
     "next": "^14.2.3",
@@ -21,9 +23,11 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "concurrently": "^8.2.2",
     "eslint": "^8",
     "eslint-config-next": "^14.2.3",
     "postcss": "^8",
+    "sass": "^1.77.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
