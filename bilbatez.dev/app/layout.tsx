@@ -7,11 +7,6 @@ export const metadata: Metadata = {
   title: "Bilbatez.dev ( •⩊• )",
 };
 
-type Nav = {
-  name: string,
-  link: string,
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,13 +22,13 @@ export default function RootLayout({
   }
 
   function NavComponent() {
-    const navs: Nav[] = [
+    const navs = [
       {
         name: 'Intro',
         link: '/',
       },
       {
-        name: 'Exp',
+        name: 'Corpo Exp',
         link: '/experience',
       },
       {
@@ -43,7 +38,7 @@ export default function RootLayout({
     ]
 
     return (
-      <nav className={`grid grid-cols-${navs.length} text-center`}>
+      <nav className="grid grid-cols-3 text-center">
         {
           navs.map((nav, index, navs) => {
             return (

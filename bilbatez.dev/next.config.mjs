@@ -26,7 +26,7 @@ const nextConfig = {
                 source: '/blibli',
                 destination: 'https://about.blibli.com/en/about',
                 permanent: false,
-            }            
+            }
         ]
     }
 };
