@@ -9,7 +9,7 @@ type Project = {
 }
 
 export default function Projects() {
-    const projects: Project[] = [
+    const projects: readonly Project[] = [
         {
             title: "KPR for Dummies",
             link: "",
@@ -41,7 +41,7 @@ export default function Projects() {
         <>
             <p>Here are the tech projects that I&apos;ve worked on!</p>
             <ul className="mt-4 list-disc list-inside">
-                <ProjectItemComponents/>
+                <ProjectItemComponents />
             </ul>
         </>
     )
