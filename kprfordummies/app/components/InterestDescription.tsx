@@ -1,17 +1,16 @@
-import { INTERESTS, InterestType, InterestKey } from "@/types/interest"
-import { memo } from "react"
+import { memo, useContext } from "react"
+import { CurrentInterestTypeContext } from "../context"
+import { CurrentInterestType } from "@/types/context"
+import InterestFormula from "./InterestFormula"
+import { INTERESTS } from "../_constants/interest"
 
-function InterestDescription({
-    activeType,
-}: {
-    activeType: InterestType
-}) {
-
-    const key: InterestKey = InterestType[activeType] as InterestKey
+function InterestDescription() {
+    const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
 
     return (
         <div>
-            {INTERESTS[key].display?.description}
+            {INTERESTS[currentInterestType].display?.description}
+            <InterestFormula />
         </div>
     )
 }
