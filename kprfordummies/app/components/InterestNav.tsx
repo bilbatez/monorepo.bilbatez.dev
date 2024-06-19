@@ -1,18 +1,20 @@
-import { Dispatch, SetStateAction, memo } from "react";
-import { INTERESTS, Interest, InterestType } from "@/types/interest";
+import { memo, useContext } from "react";
+import { Interest, InterestType } from "@/types/interest";
 import InterestButton from "./InterestButton";
+import { CurrentInterestTypeContext } from "../context";
+import { CurrentInterestType } from "@/types/context";
+import { INTERESTS } from "../_constants/interest";
 
 
-function InterestNav({
-    activeType,
-    setActiveType
-}: {
-    activeType: InterestType,
-    setActiveType: Dispatch<SetStateAction<InterestType>>
-}) {
+function InterestNav() {
+
+    const {
+        currentInterestType,
+        setCurrentInterestType
+    }: CurrentInterestType = useContext(CurrentInterestTypeContext)
 
     function handleClick(interestType: InterestType) {
-        setActiveType(interestType)
+        setCurrentInterestType(interestType)
     }
 
     return (
@@ -23,7 +25,7 @@ function InterestNav({
                         <InterestButton
                             key={interest.type}
                             interest={interest}
-                            disabled={activeType === interest.type}
+                            disabled={currentInterestType === interest.type}
                             onClick={() => handleClick(interest.type)}
                         />
                     )
