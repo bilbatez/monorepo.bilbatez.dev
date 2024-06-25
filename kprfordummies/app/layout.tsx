@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Merriweather } from "next/font/google";
+import { PT_Serif } from "next/font/google";
 import "./globals.scss";
 import Footer from "./components/Footer";
 import Title from "./components/Title";
 
-const merriweather = Merriweather({
+const ptserif = PT_Serif({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={merriweather.className}>
+      <body className={ptserif.className}>
         <Title />
         {children}
         <Footer />
