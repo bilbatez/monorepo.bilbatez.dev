@@ -8,7 +8,7 @@ function InterestDescription() {
     const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
 
     return (
-        <div>
+        <div className="mb-12">
             {INTERESTS[currentInterestType].display?.description}
             <InterestFormula />
         </div>

@@ -4,10 +4,11 @@
 
 $black: #212121;
 $green: #9ccc65;
-$green-dark: #7cb342;
+$green-dark: #639131;
 $green-light: #dcedc8;
 
 html {
+    font-size: 100%;
     background-color: $green-light;
     color: $black;
 
@@ -21,23 +22,40 @@ html {
 
             background-color: $green;
 
-            &:hover {
+            &:hover,
+            &:disabled {
+                @apply text-white;
                 background-color: $green-dark;
             }
 
             &:focus {
                 background-color: $green;
             }
+        }
+        form {
+            @apply max-w-lg my-2 p-3;
+            @apply border-2 rounded-lg;
 
-            &:disabled {
-                background-color: $green-dark;
+            border-color: $green-dark;
+
+            label {
+                @apply block mb-2 w-full;
+            }
+
+            input {
+                @apply block w-full rounded px-2 py-2;
+                @apply border-gray-50;
+
+                &:focus {
+                    outline-color: $green-dark;
+                }
             }
         }
 
         .footer-hero {
             @apply border-dashed border-2 border-white rounded-md m-2 p-1;
             @apply transition duration-75;
-            
+
             &:hover {
                 @apply border-solid;
             }

@@ -5,8 +5,8 @@ export class InterestPeriod {
     readonly period!: number
 }
 
-
 export class LoanRequest {
+    readonly startDate!: Date
     readonly principal!: number
     readonly interestPeriod!: InterestPeriod[]
 }
