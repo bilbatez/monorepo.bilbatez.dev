@@ -17,10 +17,14 @@ html {
 
         button {
             @apply px-5 py-3 mr-2 rounded;
-            @apply shadow-sm;
+            @apply shadow-md;
             @apply transition duration-150;
 
             background-color: $green;
+
+            &.btn-sd {
+                @apply bg-gray-100;
+            }
 
             &:hover,
             &:disabled {
@@ -35,6 +39,7 @@ html {
         form {
             @apply max-w-lg my-2 p-3;
             @apply border-2 rounded-lg;
+            @apply shadow-md;
 
             border-color: $green-dark;
 
@@ -45,6 +50,7 @@ html {
             input {
                 @apply block w-full rounded px-2 py-2;
                 @apply border-gray-50;
+                @apply shadow-md;
 
                 &:focus {
                     outline-color: $green-dark;
@@ -53,8 +59,9 @@ html {
         }
 
         .footer-hero {
-            @apply border-dashed border-2 border-white rounded-md m-2 p-1;
+            @apply border-dashed border-2 rounded-md m-2 p-1;
             @apply transition duration-75;
+            border-color: $green-dark;
 
             &:hover {
                 @apply border-solid;
