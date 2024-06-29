@@ -1,4 +1,4 @@
-import { memo, useContext, useState } from "react";
+import { Fragment, memo, useContext, useEffect, useState } from "react";
 import NumberInputField from "./NumberInputField";
 import { CurrentInterestType } from "@/types/context";
 import { CurrentInterestTypeContext } from "../context";
@@ -12,6 +12,10 @@ function InterestPeriodField() {
 
     const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
     const [currentNumberOfField, setCurrentNumberOfField] = useState(MIN_FIELD)
+
+    useEffect(() => {
+        setCurrentNumberOfField(MIN_FIELD)
+    }, [currentInterestType])
 
     function hasMultipleInterestPeriod(): boolean {
         return new Set<InterestType>([
@@ -44,9 +48,9 @@ function InterestPeriodField() {
         const result = new Array(currentNumberOfField)
         for (let index = 0; index < currentNumberOfField; index++) {
             result[index] = (
-                <div className="flex" key={"interestperiod_" + index}>
-                    <NumberInputField id="interest" label="Suku Bunga (%)" min={0} max={20} width="w-1/2" placeholder="5" />
-                    <NumberInputField id="period" label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-1/2" placeholder="15" containerClassName="ml-1" />
+                <div className="flex" key={'interestperiod_' + index}>
+                    <NumberInputField id={`interest[${index}]`} label="Suku Bunga (%)" min={0} max={20} width="w-1/2" placeholder="5" />
+                    <NumberInputField id={`period[${index}]`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-1/2" placeholder="15" containerClassName="ml-1" roundNumber={true} />
                 </div>
             )
         }

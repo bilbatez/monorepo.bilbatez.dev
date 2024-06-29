@@ -1,15 +1,17 @@
 import { MouseEventHandler, memo } from "react"
 import { Interest } from "@/types/interest"
 
+interface Props {
+  interest: Interest,
+  disabled: boolean,
+  onClick: MouseEventHandler<HTMLButtonElement>,
+}
+
 function InterestButton({
   interest,
   disabled,
   onClick,
-}: {
-  interest: Interest,
-  disabled: boolean,
-  onClick: MouseEventHandler<HTMLButtonElement>,
-}) {
+}: Props) {
   return (
     <button
       key={interest.type}
