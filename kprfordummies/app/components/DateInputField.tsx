@@ -1,21 +1,44 @@
 import clsx from "clsx";
 import { memo } from "react";
+import { RegisterOptions, useFormContext } from "react-hook-form";
+import { ErrorMessage as em } from "../_constants/error-messages";
+import { ErrorMessage } from "@hookform/error-message";
+
+interface Props {
+    id: string,
+    label: string,
+    placeholder?: string,
+    inputClassName?: string,
+}
 
 function DateInputField({
     id,
     label,
     placeholder,
     inputClassName,
-}: {
-    id: string,
-    label: string,
-    placeholder?: string,
-    inputClassName?: string,
-}) {
+}: Props) {
+
+    const {
+        register,
+        trigger,
+        formState: { errors },
+    } = useFormContext()
+
+    const options: RegisterOptions = {
+        required: em.REQUIRED,
+        onChange: () => trigger(id)
+    }
+
     return (
         <div className="mb-5">
             <label htmlFor={id}>{label}</label>
-            <input type="date" id={id} name={id} placeholder={placeholder} className={clsx("std-in", inputClassName)} required />
+            <input type="date"
+                placeholder={placeholder}
+                className={clsx("std-in", inputClassName)}
+                {...register(id, options)}
+            />
+
+            <ErrorMessage name={id} errors={errors} />
         </div>
     )
 }

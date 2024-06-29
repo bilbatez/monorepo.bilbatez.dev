@@ -7,8 +7,10 @@
     "prod": "next lint && next build && next start -p 3002"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
     "better-react-mathjax": "^2.0.3",
     "clsx": "^2.1.1",
-    "mathjax": "3"
+    "mathjax": "3",
+    "react-hook-form": "^7.52.0"
   }
 }

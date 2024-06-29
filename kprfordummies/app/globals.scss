@@ -56,6 +56,11 @@ html {
                     outline-color: $green-dark;
                 }
             }
+
+            .error-message {
+                @apply h-4 text-xs mt-1;
+                @apply text-red-500;
+            }
         }
 
         .footer-hero {

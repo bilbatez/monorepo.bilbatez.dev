@@ -5,6 +5,7 @@ import InterestFormula from "./InterestFormula"
 import { INTERESTS } from "../_constants/interest"
 
 function InterestDescription() {
+
     const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
 
     return (
