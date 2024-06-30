@@ -33,7 +33,7 @@ html {
             }
         }
         form {
-            @apply max-w-lg my-2 p-3;
+            @apply max-w-lg my-3 p-3;
             @apply border-2 rounded-lg;
             @apply shadow-md;
 
@@ -60,12 +60,25 @@ html {
         }
 
         table {
-            @apply table-auto;
-            @apply mx-auto my-5;
+            @apply table-auto w-full;
+            @apply my-5;
+            @apply shadow-md;
 
-            td,
+            th,
+            td {
+                @apply border;
+                @apply px-3 py-1;
+                @apply text-center;
+
+                border-color: $green-dark;
+            }
+
             th {
-                @apply px-2 py-1;
+                background-color: $green;
+            }
+
+            tr:nth-child(even) {
+                @apply bg-gray-100;
             }
         }
 

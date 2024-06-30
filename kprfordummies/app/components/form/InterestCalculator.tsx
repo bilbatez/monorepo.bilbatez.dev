@@ -1,8 +1,8 @@
 import { CurrentFormDataContext, CurrentInterestTypeContext } from "@/app/context";
 import { LoanRequest } from "@/types/formula";
-import clsx from "clsx/lite";
 import { memo, useContext } from "react";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 import DateInputField from "./DateInputField";
 import InterestPeriodField from "./InterestPeriodField";
 import NumberInputField from "./NumberInputField";
@@ -34,7 +34,7 @@ function InterestCalculator({
     return (
         <div className="max-w-lg mx-auto">
             <FormProvider {...methods}>
-                <form className={clsx(hidden && "hidden", className)} onSubmit={methods.handleSubmit(submit)}>
+                <form className={twMerge(className, hidden && "hidden")} onSubmit={methods.handleSubmit(submit)}>
                     <NumberInputField id="principal" label="Pokok Pinjaman (Rp.)" placeholder="100000000" />
                     <InterestPeriodField />
                     <DateInputField id="startDate" label="Tanggal Mulai" placeholder="30/07/2015" />
