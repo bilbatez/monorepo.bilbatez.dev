@@ -1,7 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message";
-import clsx from "clsx";
 import { memo } from "react";
 import { RegisterOptions, useFormContext } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 import { ErrorMessage as em } from "../../_constants/error-messages";
 
 interface Props {
@@ -34,7 +34,7 @@ function DateInputField({
             <label htmlFor={id}>{label}</label>
             <input type="date"
                 placeholder={placeholder}
-                className={clsx("std-in", inputClassName)}
+                className={twMerge("std-in", inputClassName)}
                 {...register(id, options)}
             />
 

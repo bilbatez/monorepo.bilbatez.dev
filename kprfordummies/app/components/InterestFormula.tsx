@@ -11,7 +11,9 @@ function InterestFormula() {
 
     return (
         <MathJax>
-            {INTEREST_FORMULAS[currentInterestType].display}
+            <div className="relative overflow-x-auto overflow-y-hidden">
+                {INTEREST_FORMULAS[currentInterestType].display}
+            </div>
         </MathJax>
     )
 }

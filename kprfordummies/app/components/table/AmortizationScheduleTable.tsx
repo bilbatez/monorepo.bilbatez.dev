@@ -41,11 +41,13 @@ interface Props {
 
 function AmortizationScheduleTable({ paymentDetails }: Props) {
     return (
-        <Table<PaymentSchedule> tableOptions={{
-            data: paymentDetails.paymentSchedules,
-            columns: columns,
-            getCoreRowModel: getCoreRowModel(),
-        }} />
+        <div className="relative overflow-x-auto overflow-y-hidden">
+            <Table<PaymentSchedule> tableOptions={{
+                data: paymentDetails.paymentSchedules,
+                columns: columns,
+                getCoreRowModel: getCoreRowModel(),
+            }} />
+        </div>
     )
 }
 

@@ -1,7 +1,7 @@
 import { ErrorMessage } from "@hookform/error-message"
-import clsx from "clsx/lite"
 import { memo } from "react"
 import { RegisterOptions, useFormContext } from "react-hook-form"
+import { twMerge } from "tailwind-merge"
 import { ErrorMessage as em } from "../../_constants/error-messages"
 
 interface Props {
@@ -65,13 +65,13 @@ function NumberInputField({
 
     return (
         <>
-            <div className={clsx("mb-2", width, containerClassName)}>
+            <div className={twMerge("mb-2", width, containerClassName)}>
                 <label htmlFor={id}>{label}</label>
-                <input className={clsx(
+                <input className={twMerge(
                     "std-in",
-                    hidden && "hidden",
                     inputClassName,
                     errors?.[id] && "has-error",
+                    hidden && "hidden",
                 )}
                     placeholder={placeholder}
                     {...register(id, options)}

@@ -1,7 +1,7 @@
 import { CurrentInterestType } from "@/types/context";
 import { InterestType } from "@/types/interest";
-import clsx from "clsx/lite";
 import { memo, useContext, useEffect, useState } from "react";
+import { twMerge } from "tailwind-merge";
 import { CurrentInterestTypeContext } from "../../context";
 import NumberInputField from "./NumberInputField";
 
@@ -60,13 +60,16 @@ function InterestPeriodField() {
     return (
         <>
             {getFields()}
-            <div className="flex mb-5" hidden={!hasMultipleInterestPeriod()}>
-                <button type="button" onClick={handleClickDelete} className={clsx(
+            <div className={twMerge(
+                "flex mb-5",
+                !hasMultipleInterestPeriod() && "hidden"
+            )}>
+                <button type="button" onClick={handleClickDelete} className={twMerge(
                     "btn-sd",
                     isMaximumNumberOfField() ? 'w-full' : 'w-1/2',
                     !hasDeletableField() && 'hidden'
                 )}>Hapus Suku Bunga</button>
-                <button type="button" onClick={handleClickAdd} className={clsx(
+                <button type="button" onClick={handleClickAdd} className={twMerge(
                     "btn-sd",
                     isMinimumNumberOfField() ? 'w-full' : 'w-1/2',
                     (!hasMultipleInterestPeriod() || isMaximumNumberOfField()) && 'hidden'

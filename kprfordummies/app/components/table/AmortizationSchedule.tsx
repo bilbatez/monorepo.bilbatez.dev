@@ -11,8 +11,9 @@ function AmortizationSchedule() {
         () => currentFormData && INTEREST_FORMULAS[currentInterestType].formulaFunc(currentFormData)
         , [currentFormData, currentInterestType])
 
-    return (
-        <div className="min-h-2">
+    return paymentDetails && (
+        <div className="mt-10">
+            <h1 className="text-center text-xl font-bold">Jadwal Amortisasi</h1>
             {paymentDetails && (<AmortizationScheduleTable paymentDetails={paymentDetails} />)}
         </div>
     )
