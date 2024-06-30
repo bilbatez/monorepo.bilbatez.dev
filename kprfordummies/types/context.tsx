@@ -8,6 +8,6 @@ export class CurrentInterestType {
 }
 
 export class CurrentFormData {
-    currentFormData!: LoanRequest
-    setCurrentFormData!: Dispatch<SetStateAction<LoanRequest>>
+    currentFormData?: LoanRequest
+    setCurrentFormData!: Dispatch<SetStateAction<LoanRequest | undefined>>
 }

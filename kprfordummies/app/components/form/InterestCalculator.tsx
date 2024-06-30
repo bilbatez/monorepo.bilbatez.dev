@@ -1,12 +1,11 @@
-import { HTMLAttributes, memo, useContext } from "react";
+import { CurrentFormDataContext, CurrentInterestTypeContext } from "@/app/context";
+import { LoanRequest } from "@/types/formula";
 import clsx from "clsx/lite";
-import NumberInputField from "./NumberInputField";
+import { memo, useContext } from "react";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import DateInputField from "./DateInputField";
 import InterestPeriodField from "./InterestPeriodField";
-import { FieldValues, FormProvider, useForm } from "react-hook-form";
-import { CurrentFormData } from "@/types/context";
-import { CurrentFormDataContext } from "@/app/context";
-import { LoanRequest } from "@/types/formula";
+import NumberInputField from "./NumberInputField";
 
 interface Props {
     className?: string,
@@ -18,13 +17,14 @@ function InterestCalculator({
     hidden = false,
 }: Props) {
 
+    const { currentInterestType } = useContext(CurrentInterestTypeContext)
     const { setCurrentFormData } = useContext(CurrentFormDataContext)
 
     const methods = useForm()
 
     function submit(data: FieldValues) {
         console.log(data)
-        setCurrentFormData(new LoanRequest(data))
+        setCurrentFormData(new LoanRequest(data, currentInterestType))
     }
 
     function handleReset() {

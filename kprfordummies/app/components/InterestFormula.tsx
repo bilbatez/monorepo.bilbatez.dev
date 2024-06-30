@@ -1,7 +1,7 @@
-import { memo, useContext } from "react";
-import { CurrentInterestTypeContext } from "../context";
 import { MathJax } from "better-react-mathjax";
+import { memo, useContext } from "react";
 import { INTEREST_FORMULAS } from "../_constants/formula";
+import { CurrentInterestTypeContext } from "../context";
 
 function InterestFormula() {
 
