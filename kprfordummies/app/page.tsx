@@ -6,7 +6,7 @@ import InterestDescription from "./components/InterestDescription";
 import { InterestType } from "@/types/interest";
 import { CurrentInterestTypeContext } from "./context";
 import { MathJaxContext } from "better-react-mathjax";
-import InterestCalculator from "./components/InterestCalculator";
+import InterestCalculator from "./components/form/InterestCalculator";
 import Title from "./components/Title";
 import Footer from "./components/Footer";
 

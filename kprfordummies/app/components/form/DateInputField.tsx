@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { memo } from "react";
 import { RegisterOptions, useFormContext } from "react-hook-form";
-import { ErrorMessage as em } from "../_constants/error-messages";
+import { ErrorMessage as em } from "../../_constants/error-messages";
 import { ErrorMessage } from "@hookform/error-message";
 
 interface Props {
@@ -38,7 +38,9 @@ function DateInputField({
                 {...register(id, options)}
             />
 
-            <ErrorMessage name={id} errors={errors} />
+            <div className="error-message">
+                <ErrorMessage name={id} errors={errors} />
+            </div>
         </div>
     )
 }

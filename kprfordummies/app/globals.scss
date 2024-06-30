@@ -31,10 +31,6 @@ html {
                 @apply text-white;
                 background-color: $green-dark;
             }
-
-            &:focus {
-                background-color: $green;
-            }
         }
         form {
             @apply max-w-lg my-2 p-3;
