@@ -1,7 +1,7 @@
 import { Fragment, memo, useContext, useEffect, useState } from "react";
 import NumberInputField from "./NumberInputField";
 import { CurrentInterestType } from "@/types/context";
-import { CurrentInterestTypeContext } from "../context";
+import { CurrentInterestTypeContext } from "../../context";
 import clsx from "clsx/lite";
 import { InterestType } from "@/types/interest";
 
@@ -14,7 +14,7 @@ function InterestPeriodField() {
     const [currentNumberOfField, setCurrentNumberOfField] = useState(MIN_FIELD)
 
     useEffect(() => {
-        setCurrentNumberOfField(MIN_FIELD)
+        setCurrentNumberOfField(() => MIN_FIELD)
     }, [currentInterestType])
 
     function hasMultipleInterestPeriod(): boolean {
