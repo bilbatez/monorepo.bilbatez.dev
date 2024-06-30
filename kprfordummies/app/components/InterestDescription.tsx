@@ -1,8 +1,8 @@
-import { memo, useContext } from "react"
-import { CurrentInterestTypeContext } from "../context"
 import { CurrentInterestType } from "@/types/context"
-import InterestFormula from "./InterestFormula"
+import { memo, useContext } from "react"
 import { INTERESTS } from "../_constants/interest"
+import { CurrentInterestTypeContext } from "../context"
+import InterestFormula from "./InterestFormula"
 
 function InterestDescription() {
 

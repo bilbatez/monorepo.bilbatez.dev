@@ -1,9 +1,9 @@
-import { Fragment, memo, useContext, useEffect, useState } from "react";
-import NumberInputField from "./NumberInputField";
 import { CurrentInterestType } from "@/types/context";
-import { CurrentInterestTypeContext } from "../../context";
-import clsx from "clsx/lite";
 import { InterestType } from "@/types/interest";
+import clsx from "clsx/lite";
+import { memo, useContext, useEffect, useState } from "react";
+import { CurrentInterestTypeContext } from "../../context";
+import NumberInputField from "./NumberInputField";
 
 function InterestPeriodField() {
 

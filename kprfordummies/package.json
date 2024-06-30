@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
+    "@tanstack/react-table": "^8.19.1",
     "better-react-mathjax": "^2.0.3",
     "clsx": "^2.1.1",
     "mathjax": "3",

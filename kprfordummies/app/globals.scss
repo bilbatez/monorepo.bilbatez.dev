@@ -59,6 +59,16 @@ html {
             }
         }
 
+        table {
+            @apply table-auto;
+            @apply mx-auto my-5;
+
+            td,
+            th {
+                @apply px-2 py-1;
+            }
+        }
+
         .footer-hero {
             @apply border-dashed border-2 rounded-md m-2 p-1;
             @apply transition duration-75;

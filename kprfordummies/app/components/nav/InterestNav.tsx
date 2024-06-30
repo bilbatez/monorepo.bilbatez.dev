@@ -1,9 +1,9 @@
 import { memo, useContext } from "react";
 import { Interest, InterestType } from "@/types/interest";
-import InterestButton from "./InterestButton";
-import { CurrentInterestTypeContext } from "../context";
+import InterestButton from "./InterestNavButton";
+import { CurrentInterestTypeContext } from "../../context";
 import { CurrentInterestType } from "@/types/context";
-import { INTERESTS } from "../_constants/interest";
+import { INTERESTS } from "../../_constants/interest";
 
 
 function InterestNav() {
