@@ -17,7 +17,7 @@ html {
         @apply p-4 sm:p-8 md:p-16 lg:p-24;
 
         button {
-            @apply px-5 py-3 mr-2 rounded;
+            @apply px-5 py-2 mr-2 rounded;
             @apply shadow-md;
             @apply transition duration-150;
 
@@ -60,26 +60,37 @@ html {
             }
         }
 
-        table {
-            @apply table-auto w-full;
-            @apply my-5;
-            @apply shadow-md;
+        .amortization-table {
+            table {
+                @apply table-auto w-full;
+                @apply my-5;
+                @apply shadow-md;
 
-            th,
-            td {
-                @apply border;
-                @apply px-3 py-1;
-                @apply text-center;
+                th,
+                td {
+                    @apply border;
+                    @apply px-3 py-1;
+                    @apply text-center;
 
-                border-color: $green-dark;
+                    border-color: $green-dark;
+                }
+
+                th {
+                    background-color: $green;
+                }
+
+                tr:nth-child(even) {
+                    @apply bg-gray-100;
+                }
             }
 
-            th {
-                background-color: $green;
+            .pagination-input,
+            .pagination-max-item-selection {
+                @apply p-2 rounded shadow-md;
             }
 
-            tr:nth-child(even) {
-                @apply bg-gray-100;
+            .pagination-input {
+                @apply w-16;
             }
         }
 

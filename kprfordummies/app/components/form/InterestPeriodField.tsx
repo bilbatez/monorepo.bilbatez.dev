@@ -1,5 +1,4 @@
 import { CurrentInterestType } from "@/types/context";
-import { InterestType } from "@/types/interest";
 import { memo, useContext, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { CurrentInterestTypeContext } from "../../context";
@@ -16,13 +15,6 @@ function InterestPeriodField() {
     useEffect(() => {
         setCurrentNumberOfField(() => MIN_FIELD)
     }, [currentInterestType])
-
-    function hasMultipleInterestPeriod(): boolean {
-        return new Set<InterestType>([
-            InterestType.EFFECTIVE,
-            InterestType.FLOATING
-        ]).has(currentInterestType)
-    }
 
     function hasDeletableField(): boolean {
         return currentNumberOfField > 1
@@ -62,7 +54,6 @@ function InterestPeriodField() {
             {getFields()}
             <div className={twMerge(
                 "flex mb-5",
-                !hasMultipleInterestPeriod() && "hidden"
             )}>
                 <button type="button" onClick={handleClickDelete} className={twMerge(
                     "btn-sd",
@@ -72,7 +63,7 @@ function InterestPeriodField() {
                 <button type="button" onClick={handleClickAdd} className={twMerge(
                     "btn-sd",
                     isMinimumNumberOfField() ? 'w-full' : 'w-1/2',
-                    (!hasMultipleInterestPeriod() || isMaximumNumberOfField()) && 'hidden'
+                    isMaximumNumberOfField() && 'hidden'
                 )}>Tambah Suku Bunga</button>
             </div>
         </>

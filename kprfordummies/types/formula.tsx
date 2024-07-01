@@ -28,13 +28,9 @@ export class LoanRequest {
         if (data && interestType) {
             this.startDate = data["startDate"]
             this.principal = parseFloat(data["principal"])
-            const interestPeriodMaxLength = new Set([
-                InterestType.FLAT,
-                InterestType.ANNUITY,
-            ]).has(interestType) ? 1 : data["interest"].length
 
-            this.interestPeriod = new Array(interestPeriodMaxLength)
-            for (let index = 0; index < interestPeriodMaxLength; index++) {
+            this.interestPeriod = new Array(data["interest"].length)
+            for (let index = 0; index < data["interest"].length; index++) {
                 this.interestPeriod[index] = new InterestPeriod(data["interest"][index], data["period"][index])
             }
         }
