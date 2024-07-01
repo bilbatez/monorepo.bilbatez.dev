@@ -1,7 +1,6 @@
-import { CurrentInterestType } from "@/types/context";
-import { memo, useContext, useEffect, useState } from "react";
+import { memo } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import { CurrentInterestTypeContext } from "../../context";
 import NumberInputField from "./NumberInputField";
 
 function InterestPeriodField() {
@@ -9,12 +8,13 @@ function InterestPeriodField() {
     const MIN_FIELD = 1
     const MAX_FIELD = 5
 
-    const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
-    const [currentNumberOfField, setCurrentNumberOfField] = useState(MIN_FIELD)
+    const { control } = useFormContext()
+    const { fields, append, remove } = useFieldArray({
+        control: control,
+        name: "interestPeriod"
+    })
 
-    useEffect(() => {
-        setCurrentNumberOfField(() => MIN_FIELD)
-    }, [currentInterestType])
+    const currentNumberOfField = fields.length
 
     function hasDeletableField(): boolean {
         return currentNumberOfField > 1
@@ -29,24 +29,20 @@ function InterestPeriodField() {
     }
 
     function handleClickAdd(): void {
-        setCurrentNumberOfField(() => currentNumberOfField + 1)
+        append({ interest: null, period: null })
     }
 
     function handleClickDelete(): void {
-        setCurrentNumberOfField(() => currentNumberOfField - 1)
+        remove(currentNumberOfField - 1)
     }
 
     function getFields() {
-        const result = new Array(currentNumberOfField)
-        for (let index = 0; index < currentNumberOfField; index++) {
-            result[index] = (
-                <div className="sm:flex" key={'interestperiod_' + index}>
-                    <NumberInputField id={`interest[${index}]`} label="Suku Bunga (%)" min={0} max={20} width="w-full sm:w-1/2" placeholder="5" />
-                    <NumberInputField id={`period[${index}]`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-full sm:w-1/2" placeholder="15" containerClassName="sm:ml-1" roundNumber={true} />
-                </div>
-            )
-        }
-        return result
+        return fields.map((field, index) => (
+            <div className="sm:flex" key={field.id}>
+                <NumberInputField id={`interestPeriod.${index}].interest`} label="Suku Bunga (%)" min={0} max={20} width="w-full sm:w-1/2" placeholder="5" />
+                <NumberInputField id={`interestPeriod.${index}].period`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-full sm:w-1/2" placeholder="15" containerClassName="sm:ml-1" roundNumber={true} />
+            </div>
+        ))
     }
 
     return (

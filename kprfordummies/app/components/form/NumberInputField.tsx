@@ -73,7 +73,7 @@ function NumberInputField({
                     hidden && "hidden",
                 )}
                     placeholder={placeholder}
-                    {...register(id, options)}
+                    {...register(id as const, options)}
                 />
                 <div className="error-message">
                     <ErrorMessage name={id} errors={errors} />

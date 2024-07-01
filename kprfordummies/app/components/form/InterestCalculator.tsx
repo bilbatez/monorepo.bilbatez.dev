@@ -20,7 +20,11 @@ function InterestCalculator({
     const { currentInterestType } = useContext(CurrentInterestTypeContext)
     const { setCurrentFormData } = useContext(CurrentFormDataContext)
 
-    const methods = useForm()
+    const methods = useForm({
+        defaultValues: {
+            interestPeriod: [{}]
+        }
+    })
 
     function submit(data: FieldValues) {
         console.log(data)
