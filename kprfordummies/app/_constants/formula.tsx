@@ -18,9 +18,9 @@ export const INTEREST_FORMULAS: AvailableFormula = {
         formulaFunc: (request: LoanRequest) => {
             const totalMonths: number = request.calculateTotalMonths()
             const totalInterest: number = request.principal * (request.interestPeriod[0].interestRate / 100) * (totalMonths / 12)
-            const totalRepayment: number = request.principal + totalInterest
+            const totalPayment: number = request.principal + totalInterest
             const monthlyInterest: number = totalInterest / totalMonths
-            const monthlyPayment: number = totalRepayment / totalMonths
+            const monthlyPayment: number = totalPayment / totalMonths
             const monthlyRepayment: number = request.principal / totalMonths
 
             let initialLoanBalance = request.principal
@@ -28,13 +28,13 @@ export const INTEREST_FORMULAS: AvailableFormula = {
             const paymentSchedules: PaymentSchedule[] = []
             for (let index = 0; index < totalMonths; index++) {
                 const periodDate = addMonth(request.startDate, index)
-                const finalLoanBalance = initialLoanBalance - monthlyRepayment
+                const finalLoanBalance = Math.abs(initialLoanBalance - monthlyRepayment)
                 const paymentSchedule = new PaymentSchedule(index + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
                 paymentSchedules.push(paymentSchedule)
                 initialLoanBalance = finalLoanBalance
             }
 
-            return new PaymentDetails(paymentSchedules, totalInterest, totalRepayment)
+            return new PaymentDetails(paymentSchedules, request.principal, totalInterest, totalPayment)
         }
     },
     [InterestType.EFFECTIVE]: {
