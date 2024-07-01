@@ -48,9 +48,9 @@ function InterestPeriodField() {
         const result = new Array(currentNumberOfField)
         for (let index = 0; index < currentNumberOfField; index++) {
             result[index] = (
-                <div className="flex" key={'interestperiod_' + index}>
-                    <NumberInputField id={`interest[${index}]`} label="Suku Bunga (%)" min={0} max={20} width="w-1/2" placeholder="5" />
-                    <NumberInputField id={`period[${index}]`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-1/2" placeholder="15" containerClassName="ml-1" roundNumber={true} />
+                <div className="sm:flex" key={'interestperiod_' + index}>
+                    <NumberInputField id={`interest[${index}]`} label="Suku Bunga (%)" min={0} max={20} width="w-full sm:w-1/2" placeholder="5" />
+                    <NumberInputField id={`period[${index}]`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-full sm:w-1/2" placeholder="15" containerClassName="sm:ml-1" roundNumber={true} />
                 </div>
             )
         }

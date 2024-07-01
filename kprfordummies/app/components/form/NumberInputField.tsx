@@ -56,7 +56,6 @@ function NumberInputField({
     const isRoundNumber: boolean = roundNumber ?? false
 
     if (isRoundNumber) {
-        options.valueAsNumber = true
         options.validate = {
             validateIsNumber: (num) => !isNaN(num) || em.MUST_BE_NUMBER,
             validateRoundNumber: (num) => num % 1 === 0 || em.MUST_BE_ROUND_NUMBER,
