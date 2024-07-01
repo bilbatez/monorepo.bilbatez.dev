@@ -11,27 +11,41 @@ export const INTEREST_FORMULAS: AvailableFormula = {
     [InterestType.FLAT]: {
         display: String.raw`
     \[\text{Bunga Per Bulan} = 
-        \frac{\text{Pokok Pinjaman} \times \text{Suku Bunga Per Tahun} \times \text{Jumlah Tahun Jangka Waktu Kredit}}
-        {\text{Jumlah Bulan Dalam Jangka Waktu Kredit}}
+        \text{Pokok Pinjaman} \times \text{Suku Bunga Per Tahun}
         \]
     `,
         formulaFunc: (request: LoanRequest) => {
-            const totalMonths: number = request.calculateTotalMonths()
-            const totalInterest: number = request.principal * (request.interestPeriod[0].interestRate / 100) * (totalMonths / 12)
-            const totalPayment: number = request.principal + totalInterest
-            const monthlyInterest: number = totalInterest / totalMonths
-            const monthlyPayment: number = totalPayment / totalMonths
-            const monthlyRepayment: number = request.principal / totalMonths
-
-            let initialLoanBalance = request.principal
-
+            let principal = request.principal
+            let totalMonths: number = request.calculateTotalMonths()
+            let initialLoanBalance = principal
+            let totalInterest = 0
+            let totalPayment = 0
+            let periodDate = request.startDate
+            let indexOffset = 0
             const paymentSchedules: PaymentSchedule[] = []
-            for (let index = 0; index < totalMonths; index++) {
-                const periodDate = addMonth(request.startDate, index)
-                const finalLoanBalance = Math.abs(initialLoanBalance - monthlyRepayment)
-                const paymentSchedule = new PaymentSchedule(index + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
-                paymentSchedules.push(paymentSchedule)
-                initialLoanBalance = finalLoanBalance
+
+            for (let index = 0; index < request.interestPeriod.length; index++) {
+                const totalMonthsPeriod = request.interestPeriod[index].period * 12
+
+                const totalInterestPeriod: number = principal * (request.interestPeriod[0].interestRate / 100) * (totalMonths / 12)
+                const totalPaymentPeriod: number = principal + totalInterestPeriod
+                const monthlyInterest: number = totalInterestPeriod / totalMonths
+                const monthlyPayment: number = totalPaymentPeriod / totalMonths
+                const monthlyRepayment: number = principal / totalMonths
+
+                for (let index = 0; index < totalMonthsPeriod; index++) {
+                    periodDate = addMonth(request.startDate, index)
+                    const finalLoanBalance = Math.abs(initialLoanBalance - monthlyRepayment)
+                    const paymentSchedule = new PaymentSchedule(indexOffset + index + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
+                    paymentSchedules.push(paymentSchedule)
+                    initialLoanBalance = finalLoanBalance
+                    totalInterest += monthlyInterest
+                    totalPayment += monthlyPayment
+                }
+
+                totalMonths = totalMonths - totalMonthsPeriod
+                principal = initialLoanBalance
+                indexOffset = indexOffset + totalMonthsPeriod
             }
 
             return new PaymentDetails(paymentSchedules, request.principal, totalInterest, totalPayment)
@@ -48,7 +62,19 @@ export const INTEREST_FORMULAS: AvailableFormula = {
         \frac{\text{Jumlah Hari Sebulan}}{\text{Jumlah Hari Dalam Setahun}}
         \]
     `,
-        formulaFunc: (request: LoanRequest) => { return new PaymentDetails() }
+        formulaFunc: (request: LoanRequest) => {
+            function calculateEffectiveMonthlyPayment(
+                principal: number,
+                annualInterestRate: number,
+                totalMonths: number
+            ): number {
+                const monthlyInterestRate = annualInterestRate / 12;
+                const numerator = principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalMonths);
+                const denominator = Math.pow(1 + monthlyInterestRate, totalMonths) - 1;
+                return numerator / denominator;
+            }
+            return new PaymentDetails()
+        }
     },
     [InterestType.ANNUITY]: {
         display: String.raw`

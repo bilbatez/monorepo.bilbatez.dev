@@ -12,7 +12,7 @@ export const INTERESTS: AvailableInterest = {
         display: {
             name: "Suku Bunga Flat",
             description:
-                "Suku bunga flat adalah suku bunga yang penghitungannya mengacu pada jumlah pokok pinjaman di awal untuk setiap periode cicilan. Penghitungannya sangat sederhana dibandingkan dengan suku bunga lainnya, sehingga umumnya digunakan untuk kredit jangka pendek untuk barang-barang konsumsi seperti handphone, peralatan rumah tangga, motor atau Kredit Tanpa Agunan (KTA).",
+                "Suku bunga flat adalah jenis suku bunga yang digunakan dalam perhitungan pinjaman di mana bunga dihitung berdasarkan jumlah pinjaman awal tanpa memperhitungkan sisa saldo pinjaman yang tersisa. Artinya, besaran bunga yang harus dibayar setiap bulan tetap sama selama periode pinjaman, meskipun sisa saldo pinjaman berkurang setiap bulan.",
         },
     },
     [InterestType.EFFECTIVE]: {

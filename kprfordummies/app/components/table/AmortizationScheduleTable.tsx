@@ -1,7 +1,7 @@
 import { CurrencyUtils, DateUtils } from "@/app/_utils";
 import { PaymentDetails, PaymentSchedule } from "@/types/formula";
-import { createColumnHelper, getCoreRowModel } from "@tanstack/react-table";
-import { memo } from "react";
+import { PaginationState, createColumnHelper, getCoreRowModel, getPaginationRowModel } from "@tanstack/react-table";
+import { memo, useState } from "react";
 import Table from "./Table";
 
 const columnHelper = createColumnHelper<PaymentSchedule>()
@@ -40,12 +40,21 @@ interface Props {
 }
 
 function AmortizationScheduleTable({ paymentDetails }: Props) {
+    const [pagination, setPagination] = useState<PaginationState>({
+        pageIndex: 0,
+        pageSize: 30,
+    })
     return (
-        <div className="relative overflow-x-auto overflow-y-hidden">
+        <div className="relative overflow-x-auto overflow-y-hidden amortization-table">
             <Table<PaymentSchedule> tableOptions={{
                 data: paymentDetails.paymentSchedules,
                 columns: columns,
                 getCoreRowModel: getCoreRowModel(),
+                getPaginationRowModel: getPaginationRowModel(),
+                onPaginationChange: setPagination,
+                state: {
+                    pagination,
+                },
             }} />
         </div>
     )
