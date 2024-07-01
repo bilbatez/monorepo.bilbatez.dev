@@ -26,12 +26,12 @@ export class LoanRequest {
 
     constructor(data?: FieldValues, interestType?: InterestType) {
         if (data && interestType) {
-            this.startDate = data["startDate"]
-            this.principal = parseFloat(data["principal"])
+            this.startDate = data.startDate
+            this.principal = parseFloat(data.principal)
 
-            this.interestPeriod = new Array(data["interest"].length)
-            for (let index = 0; index < data["interest"].length; index++) {
-                this.interestPeriod[index] = new InterestPeriod(data["interest"][index], data["period"][index])
+            this.interestPeriod = new Array(data.interestPeriod.length)
+            for (let index = 0; index < data.interestPeriod.length; index++) {
+                this.interestPeriod[index] = new InterestPeriod(data.interestPeriod[index].interest, data.interestPeriod[index].period)
             }
         }
     }
