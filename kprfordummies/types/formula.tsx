@@ -8,10 +8,10 @@ export class InterestPeriod {
     constructor();
     constructor(interestRate: number, period: number);
 
-    constructor(interestRate?: number, period?: number) {
+    constructor(interestRate?: any, period?: any) {
         if (interestRate && period) {
-            this.interestRate = interestRate
-            this.period = period
+            this.interestRate = parseFloat(interestRate)
+            this.period = parseInt(period)
         }
     }
 }
@@ -27,7 +27,7 @@ export class LoanRequest {
     constructor(data?: FieldValues, interestType?: InterestType) {
         if (data && interestType) {
             this.startDate = data["startDate"]
-            this.principal = data["principal"]
+            this.principal = parseFloat(data["principal"])
             const interestPeriodMaxLength = new Set([
                 InterestType.FLAT,
                 InterestType.ANNUITY,
@@ -74,15 +74,17 @@ export class PaymentSchedule {
 
 export class PaymentDetails {
     readonly paymentSchedules!: PaymentSchedule[]
+    readonly totalPrincipal!: number
     readonly totalPaidInterest!: number
     readonly totalPaid!: number
 
     constructor()
-    constructor(paymentSchedules: PaymentSchedule[], totalPaidInterest: number, totalPaid: number)
+    constructor(paymentSchedules: PaymentSchedule[], totalPrincipal: number, totalPaidInterest: number, totalPaid: number)
 
-    constructor(paymentSchedules?: PaymentSchedule[], totalPaidInterest?: number, totalPaid?: number) {
-        if (paymentSchedules && totalPaidInterest && totalPaid) {
+    constructor(paymentSchedules?: PaymentSchedule[], totalPrincipal?: number, totalPaidInterest?: number, totalPaid?: number) {
+        if (paymentSchedules && totalPrincipal && totalPaidInterest && totalPaid) {
             this.paymentSchedules = paymentSchedules
+            this.totalPrincipal = totalPrincipal
             this.totalPaidInterest = totalPaidInterest
             this.totalPaid = totalPaid
         }
