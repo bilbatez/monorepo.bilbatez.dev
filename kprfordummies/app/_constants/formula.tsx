@@ -22,7 +22,7 @@ export const INTEREST_FORMULAS: AvailableFormula = {
             let totalPayment = 0
             let periodDate = request.startDate
             let indexOffset = 0
-            const paymentSchedules: PaymentSchedule[] = []
+            const paymentSchedules: PaymentSchedule[] = new Array(totalMonths)
 
             for (let index = 0; index < request.interestPeriod.length; index++) {
                 const totalMonthsPeriod = request.interestPeriod[index].period * 12
@@ -34,10 +34,14 @@ export const INTEREST_FORMULAS: AvailableFormula = {
                 const monthlyRepayment: number = principal / totalMonths
 
                 for (let index = 0; index < totalMonthsPeriod; index++) {
+                    console.log("-----")
                     periodDate = addMonth(request.startDate, index)
-                    const finalLoanBalance = Math.abs(initialLoanBalance - monthlyRepayment)
+                    const finalLoanBalance = (initialLoanBalance - monthlyRepayment) < 0 ? 0 : initialLoanBalance - monthlyRepayment
+                    console.log("Final: " + finalLoanBalance)
+                    console.log("Offset: " + (indexOffset + index + 1))
                     const paymentSchedule = new PaymentSchedule(indexOffset + index + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
-                    paymentSchedules.push(paymentSchedule)
+                    console.log(paymentSchedule)
+                    paymentSchedules[indexOffset + index] = paymentSchedule
                     initialLoanBalance = finalLoanBalance
                     totalInterest += monthlyInterest
                     totalPayment += monthlyPayment
@@ -47,6 +51,7 @@ export const INTEREST_FORMULAS: AvailableFormula = {
                 principal = initialLoanBalance
                 indexOffset = indexOffset + totalMonthsPeriod
             }
+            console.log(paymentSchedules)
 
             return new PaymentDetails(paymentSchedules, request.principal, totalInterest, totalPayment)
         }

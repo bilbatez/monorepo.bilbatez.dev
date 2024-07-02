@@ -27,7 +27,6 @@ function InterestCalculator({
     })
 
     function submit(data: FieldValues) {
-        console.log(data)
         setCurrentFormData(new LoanRequest(data, currentInterestType))
     }
 
