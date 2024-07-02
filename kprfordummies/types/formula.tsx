@@ -56,15 +56,13 @@ export class PaymentSchedule {
     constructor(period: number, date: Date, initialLoanBalance: number, payment: number, interest: number, repayment: number, finalLoanBalance: number)
 
     constructor(period?: number, date?: Date, initialLoanBalance?: number, payment?: number, interest?: number, repayment?: number, finalLoanBalance?: number) {
-        if (period && date && initialLoanBalance && payment && interest && repayment && finalLoanBalance) {
-            this.period = period
-            this.date = date
-            this.initialLoanBalance = initialLoanBalance
-            this.payment = payment
-            this.interest = interest
-            this.repayment = repayment
-            this.finalLoanBalance = finalLoanBalance
-        }
+        this.period = period ?? 0
+        this.date = date ?? new Date()
+        this.initialLoanBalance = initialLoanBalance ?? 0
+        this.payment = payment ?? 0
+        this.interest = interest ?? 0
+        this.repayment = repayment ?? 0
+        this.finalLoanBalance = finalLoanBalance ?? 0
     }
 }
 
@@ -78,12 +76,10 @@ export class PaymentDetails {
     constructor(paymentSchedules: PaymentSchedule[], totalPrincipal: number, totalPaidInterest: number, totalPaid: number)
 
     constructor(paymentSchedules?: PaymentSchedule[], totalPrincipal?: number, totalPaidInterest?: number, totalPaid?: number) {
-        if (paymentSchedules && totalPrincipal && totalPaidInterest && totalPaid) {
-            this.paymentSchedules = paymentSchedules
-            this.totalPrincipal = totalPrincipal
-            this.totalPaidInterest = totalPaidInterest
-            this.totalPaid = totalPaid
-        }
+        this.paymentSchedules = paymentSchedules ?? []
+        this.totalPrincipal = totalPrincipal ?? 0
+        this.totalPaidInterest = totalPaidInterest ?? 0
+        this.totalPaid = totalPaid ?? 0
     }
 }
 

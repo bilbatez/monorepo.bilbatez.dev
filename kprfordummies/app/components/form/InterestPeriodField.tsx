@@ -39,8 +39,8 @@ function InterestPeriodField() {
     function getFields() {
         return fields.map((field, index) => (
             <div className="sm:flex" key={field.id}>
-                <NumberInputField id={`interestPeriod.${index}].interest`} label="Suku Bunga (%)" min={0} max={20} width="w-full sm:w-1/2" placeholder="5" />
-                <NumberInputField id={`interestPeriod.${index}].period`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={30} width="w-full sm:w-1/2" placeholder="15" containerClassName="sm:ml-1" roundNumber={true} />
+                <NumberInputField id={`interestPeriod.${index}].interest`} label="Suku Bunga (%)" min={0} max={30} width="w-full sm:w-1/2" placeholder="5" />
+                <NumberInputField id={`interestPeriod.${index}].period`} label="Lama Pinjaman (Dalam Tahun)" min={1} max={150} width="w-full sm:w-1/2" placeholder="15" containerClassName="sm:ml-1" roundNumber={true} />
             </div>
         ))
     }
