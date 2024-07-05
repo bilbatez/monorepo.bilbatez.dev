@@ -42,7 +42,7 @@ interface Props {
 function AmortizationScheduleTable({ paymentDetails }: Props) {
     const [pagination, setPagination] = useState<PaginationState>({
         pageIndex: 0,
-        pageSize: 30,
+        pageSize: 36,
     })
     return (
         <div className="relative overflow-x-auto overflow-y-hidden amortization-table">
