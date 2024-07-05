@@ -1,18 +1,15 @@
 import { MathJax } from "better-react-mathjax";
-import { memo, useContext } from "react";
-import { INTEREST_FORMULAS } from "../_constants/formula";
-import { CurrentInterestTypeContext } from "../context";
+import { memo } from "react";
 
-function InterestFormula() {
+interface Props {
+    formula: string
+}
 
-    const {
-        currentInterestType
-    } = useContext(CurrentInterestTypeContext)
-
+function InterestFormula({ formula }: Props) {
     return (
         <MathJax>
             <div className="relative overflow-x-auto overflow-y-hidden">
-                {INTEREST_FORMULAS[currentInterestType].display}
+                {formula}
             </div>
         </MathJax>
     )
