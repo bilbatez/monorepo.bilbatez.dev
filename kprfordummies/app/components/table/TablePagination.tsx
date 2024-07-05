@@ -57,7 +57,7 @@ function TablePagination<T>({ table }: Props<T>) {
                     table.setPageSize(Number(e.target.value))
                 }}
             >
-                {[30, 60, 120].map(pageSize => (
+                {[36, 60, 120].map(pageSize => (
                     <option key={pageSize} value={pageSize}>
                         Tunjukan {pageSize} baris
                     </option>
