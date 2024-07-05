@@ -1,15 +1,20 @@
-import { INTEREST_FORMULAS } from "@/app/_constants/formula"
-import { CurrencyUtils } from "@/app/_utils"
+import { CurrencyUtils, FormulaUtils } from "@/app/_utils"
 import { CurrentFormDataContext, CurrentInterestTypeContext } from "@/app/context"
 import { PaymentDetails } from "@/types/formula"
+import { InterestType } from "@/types/interest"
 import { memo, useContext, useMemo } from "react"
 import AmortizationScheduleTable from "./AmortizationScheduleTable"
 
 function AmortizationSchedule() {
     const { currentInterestType } = useContext(CurrentInterestTypeContext)
     const { currentFormData } = useContext(CurrentFormDataContext)
+
     const paymentDetails: PaymentDetails | undefined = useMemo(
-        () => currentFormData && INTEREST_FORMULAS[currentInterestType].formulaFunc(currentFormData)
+        () => {
+            if (InterestType.NONE != currentInterestType && !!currentFormData) {
+                return FormulaUtils.generateAmortizationTable(currentFormData, currentInterestType)
+            }
+        }
         , [currentFormData, currentInterestType])
 
     return paymentDetails && (

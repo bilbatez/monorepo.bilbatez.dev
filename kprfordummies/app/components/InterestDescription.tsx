@@ -8,12 +8,15 @@ function InterestDescription() {
 
     const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
 
+    const description = INTERESTS[currentInterestType].display?.description
+    const formula = INTERESTS[currentInterestType].display?.formula
+
     return (
         <div className="mb-5">
             <span className="block mb-3">
-                {INTERESTS[currentInterestType].display?.description}
+                {description}
             </span>
-            <InterestFormula />
+            {formula && <InterestFormula formula={formula} />}
         </div>
     )
 }
