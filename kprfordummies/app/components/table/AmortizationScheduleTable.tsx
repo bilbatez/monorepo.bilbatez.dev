@@ -11,7 +11,7 @@ const columns = [
     }),
     columnHelper.accessor("date", {
         header: "Tanggal",
-        cell: props => DateUtils.format(props.getValue())
+        cell: props => DateUtils.displayFormat(props.getValue())
     }),
     columnHelper.accessor("payment", {
         header: "Pembayaran",
