@@ -45,7 +45,7 @@ function AmortizationScheduleTable({ paymentDetails }: Props) {
         pageSize: 36,
     })
     return (
-        <div className="relative overflow-x-auto overflow-y-hidden amortization-table">
+        <div className="amortization-table">
             <Table<PaymentSchedule> tableOptions={{
                 data: paymentDetails.paymentSchedules,
                 columns: columns,

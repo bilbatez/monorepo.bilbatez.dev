@@ -18,9 +18,9 @@ function AmortizationSchedule() {
         , [currentFormData, currentInterestType])
 
     return paymentDetails && (
-        <div className="mt-10">
-            <h1 className="text-center text-xl font-bold mb-5">Jadwal Amortisasi</h1>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-1 max-w-md">
+        <div className="my-5">
+            <h1 className="text-center text-xl font-bold mb-3">Jadwal Amortisasi</h1>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-1 max-w-md mb-3">
                 <div>Pokok Pinjaman:</div>
                 <div className="font-bold">{CurrencyUtils.format(paymentDetails.totalPrincipal)}</div>
                 <div>Total Bunga yang dibayarkan: </div>
