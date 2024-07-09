@@ -11,10 +11,13 @@ function Table<T>({ tableOptions }: Props<T>) {
     const table = useReactTable<T>(tableOptions)
     return (
         <>
-            <table>
-                <TableHeader<T> headerGroups={table.getHeaderGroups()} />
-                <TableBody<T> rowModel={table.getRowModel()} />
-            </table>
+            <div className="relative overflow-x-auto overflow-y-hidden">
+                <table>
+                    <TableHeader<T> headerGroups={table.getHeaderGroups()} />
+                    <TableBody<T> rowModel={table.getRowModel()} />
+                </table>
+            </div>
+
             <TablePagination<T> table={table} />
         </>
     )

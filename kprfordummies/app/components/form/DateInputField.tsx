@@ -31,7 +31,7 @@ function DateInputField({
     }
 
     return (
-        <div className="mb-5">
+        <div className="mb-3">
             <label htmlFor={id}>{label}</label>
             <input type="date"
                 placeholder={placeholder}

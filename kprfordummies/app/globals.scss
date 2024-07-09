@@ -13,7 +13,7 @@ html {
     color: $black;
 
     body {
-        @apply mx-auto justify-between;
+        @apply sm:mx-auto justify-between;
         @apply p-4 sm:p-8 md:p-16 lg:p-24;
 
         button {
@@ -45,7 +45,7 @@ html {
             }
 
             input {
-                @apply block w-full rounded px-2 py-2;
+                @apply block w-full rounded p-2;
                 @apply border-gray-50;
                 @apply shadow-md;
 
@@ -63,7 +63,6 @@ html {
         .amortization-table {
             table {
                 @apply table-auto w-full;
-                @apply my-5;
                 @apply shadow-md;
 
                 th,
@@ -87,10 +86,19 @@ html {
             .pagination-input,
             .pagination-max-item-selection {
                 @apply p-2 rounded shadow-md;
+
+                &:focus {
+                    outline-color: $green-dark;
+                }
             }
 
             .pagination-input {
+                @apply sm:mr-3;
                 @apply w-16;
+            }
+
+            .pagination-max-item-selection {
+                height: 40px;
             }
         }
 
