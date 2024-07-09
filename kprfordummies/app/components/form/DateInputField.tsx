@@ -26,6 +26,7 @@ function DateInputField({
 
     const options: RegisterOptions = {
         required: em.REQUIRED,
+        valueAsDate: true,
         onChange: () => trigger(id)
     }
 

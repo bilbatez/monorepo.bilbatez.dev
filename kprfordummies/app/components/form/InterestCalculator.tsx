@@ -1,4 +1,4 @@
-import { CurrencyUtils } from "@/app/_utils";
+import { CurrencyUtils, DateUtils } from "@/app/_utils";
 import { CurrentFormDataContext, CurrentInterestTypeContext } from "@/app/context";
 import { LoanRequest } from "@/types/formula";
 import { memo, useContext } from "react";
@@ -23,7 +23,8 @@ function InterestCalculator({
 
     const methods = useForm({
         defaultValues: {
-            interestPeriod: [{}]
+            interestPeriod: [{}],
+            startDate: DateUtils.htmlInputFormat(new Date()),
         }
     })
 
