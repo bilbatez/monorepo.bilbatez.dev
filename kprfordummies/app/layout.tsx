@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { PT_Serif } from "next/font/google";
 import "./globals.scss";
-
 const ptserif = PT_Serif({
   subsets: ["latin"],
   weight: ["400", "700"],
