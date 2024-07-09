@@ -4,7 +4,17 @@ import { RegisterOptions, useFormContext } from "react-hook-form"
 import { twMerge } from "tailwind-merge"
 import { ErrorMessage as em } from "../../_constants/error-messages"
 
-interface Props {
+interface DisplayInputValueProps {
+    displayInputValue: boolean,
+    inputValueFormatter: (s: string) => string,
+}
+
+interface DisplayInputValueRefProps {
+    displayInputValue?: undefined,
+    inputValueFormatter?: never,
+}
+
+interface MainProps {
     id: string,
     label: string,
     min?: number,
@@ -17,6 +27,8 @@ interface Props {
     roundNumber?: boolean,
 }
 
+type Props = MainProps & (DisplayInputValueProps | DisplayInputValueRefProps)
+
 function NumberInputField({
     id,
     label,
@@ -28,11 +40,14 @@ function NumberInputField({
     hidden = false,
     placeholder,
     roundNumber,
+    displayInputValue,
+    inputValueFormatter,
 }: Props) {
 
     const {
         register,
         trigger,
+        getValues,
         formState: { errors },
     } = useFormContext()
 
@@ -62,10 +77,18 @@ function NumberInputField({
         }
     }
 
+    function displayInputFormatterValue() {
+        if (displayInputValue) {
+            return (
+                <span key={`display_${id}`}>{inputValueFormatter(getValues(id))}</span>
+            )
+        }
+    }
+
     return (
         <>
             <div className={twMerge("mb-2", width, containerClassName)}>
-                <label htmlFor={id}>{label}</label>
+                <label htmlFor={id}>{label} {displayInputFormatterValue()}</label>
                 <input className={twMerge(
                     "std-in",
                     inputClassName,
@@ -73,7 +96,7 @@ function NumberInputField({
                     hidden && "hidden",
                 )}
                     placeholder={placeholder}
-                    {...register(id as const, options)}
+                    {...register(id, options)}
                 />
                 <div className="error-message">
                     <ErrorMessage name={id} errors={errors} />

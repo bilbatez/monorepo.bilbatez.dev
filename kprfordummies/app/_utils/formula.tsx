@@ -3,22 +3,20 @@ import { InterestType } from "@/types/interest"
 import { DateUtils } from "."
 
 function generateAmortizationTableWithFlatInterestRate(request: LoanRequest): PaymentDetails {
-    let currentPrincipal = request.principal
     let totalMonths: number = request.calculateTotalMonths()
-    let initialLoanBalance = currentPrincipal
-    let totalInterest = 0
-    let totalPayment = 0
+    let initialLoanBalance = request.principal
+    let totalPaidInterest = 0
+    let totalPaid = 0
     let indexOffset = 0
     const paymentSchedules: PaymentSchedule[] = new Array(totalMonths)
 
     for (let index = 0; index < request.interestPeriod.length; index++) {
         const totalMonthsPeriod = request.interestPeriod[index].period * 12
-
-        const totalInterestPeriod: number = currentPrincipal * (request.interestPeriod[0].interestRate / 100) * (totalMonths / 12)
-        const totalPaymentPeriod: number = currentPrincipal + totalInterestPeriod
+        const totalInterestPeriod: number = initialLoanBalance * (request.interestPeriod[0].interestRate / 100) * (totalMonths / 12)
+        const totalPaymentPeriod: number = initialLoanBalance + totalInterestPeriod
         const monthlyInterest: number = totalInterestPeriod / totalMonths
         const monthlyPayment: number = totalPaymentPeriod / totalMonths
-        const monthlyRepayment: number = currentPrincipal / totalMonths
+        const monthlyRepayment: number = initialLoanBalance / totalMonths
 
         for (let index = 0; index < totalMonthsPeriod; index++) {
             const periodDate = DateUtils.addMonth(request.startDate, index + indexOffset)
@@ -26,28 +24,26 @@ function generateAmortizationTableWithFlatInterestRate(request: LoanRequest): Pa
             const paymentSchedule = new PaymentSchedule(indexOffset + index + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
             paymentSchedules[indexOffset + index] = paymentSchedule
             initialLoanBalance = finalLoanBalance
-            totalInterest += monthlyInterest
-            totalPayment += monthlyPayment
+            totalPaidInterest += monthlyInterest
+            totalPaid += monthlyPayment
         }
 
         totalMonths -= totalMonthsPeriod
         indexOffset += totalMonthsPeriod
-        currentPrincipal = initialLoanBalance
     }
 
-    return new PaymentDetails(paymentSchedules, request.principal, totalInterest, totalPayment)
+    return new PaymentDetails(paymentSchedules, request.principal, totalPaidInterest, totalPaid)
 }
 
 function generateAmortizationTableWithEffectiveInterestRate(request: LoanRequest): PaymentDetails {
     const totalMonths = request.calculateTotalMonths()
     const monthlyRepayment = request.principal / totalMonths
 
-    let currentPrincipal = request.principal
     let totalPaidInterest = 0
 
     let indexOffset = 0
 
-    let initialLoanBalance = currentPrincipal
+    let initialLoanBalance = request.principal
 
     const paymentSchedules = new Array(totalMonths)
 
@@ -59,8 +55,7 @@ function generateAmortizationTableWithEffectiveInterestRate(request: LoanRequest
             const periodDate = DateUtils.addMonth(request.startDate, index + indexOffset)
             const monthlyInterest = initialLoanBalance * monthlyInterestRate
             const monthlyPayment = monthlyRepayment + monthlyInterest
-
-            const finalLoanBalance = initialLoanBalance - monthlyRepayment
+            const finalLoanBalance = (initialLoanBalance - monthlyRepayment) < 0 ? 0 : initialLoanBalance - monthlyRepayment
             const paymentSchedule = new PaymentSchedule(index + indexOffset + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
             paymentSchedules[index + indexOffset] = paymentSchedule
 
@@ -74,12 +69,53 @@ function generateAmortizationTableWithEffectiveInterestRate(request: LoanRequest
     return new PaymentDetails(paymentSchedules, request.principal, totalPaidInterest, totalPaid)
 }
 
+function generateAmortizationTableWithAnnuityInterestRate(request: LoanRequest): PaymentDetails {
+    function calculateMonthlyPayment(principal: number, monthlyInterestRate: number, totalMonths: number) {
+        const numerator = principal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalMonths)
+        const denominator = Math.pow(1 + monthlyInterestRate, totalMonths) - 1
+        return numerator / denominator
+    }
+
+    let initialLoanBalance = request.principal
+    let indexOffset = 0
+    let totalMonths = request.calculateTotalMonths()
+    let totalPaidInterest = 0
+
+    const paymentSchedules = new Array(totalMonths)
+
+    for (let index = 0; index < request.interestPeriod.length; index++) {
+        const totalMonthsPeriod = request.interestPeriod[index].period * 12
+        const monthlyInterestRate = request.interestPeriod[index].interestRate / 12 / 100
+        const monthlyPayment = calculateMonthlyPayment(initialLoanBalance, monthlyInterestRate, totalMonths)
+
+        for (let index = 0; index < totalMonthsPeriod; index++) {
+            const periodDate = DateUtils.addMonth(request.startDate, index + indexOffset)
+            const monthlyInterest = initialLoanBalance * monthlyInterestRate
+            const monthlyRepayment = monthlyPayment - monthlyInterest
+            const finalLoanBalance = (initialLoanBalance - monthlyRepayment) < 0 ? 0 : initialLoanBalance - monthlyRepayment
+            const paymentSchedule = new PaymentSchedule(index + indexOffset + 1, periodDate, initialLoanBalance, monthlyPayment, monthlyInterest, monthlyRepayment, finalLoanBalance)
+            paymentSchedules[index + indexOffset] = paymentSchedule
+
+            initialLoanBalance = finalLoanBalance
+            totalPaidInterest += monthlyInterest
+        }
+
+        indexOffset += totalMonthsPeriod
+        totalMonths -= totalMonthsPeriod
+    }
+    const totalPaid = request.principal + totalPaidInterest
+
+    return new PaymentDetails(paymentSchedules, request.principal, totalPaidInterest, totalPaid)
+}
+
 export function generateAmortizationTable(loanRequest: LoanRequest, interestType: InterestType): PaymentDetails {
     switch (interestType) {
         case InterestType.FLAT:
             return generateAmortizationTableWithFlatInterestRate(loanRequest)
         case InterestType.EFFECTIVE:
             return generateAmortizationTableWithEffectiveInterestRate(loanRequest)
+        case InterestType.ANNUITY:
+            return generateAmortizationTableWithAnnuityInterestRate(loanRequest)
         default:
             return new PaymentDetails()
     }

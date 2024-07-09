@@ -14,7 +14,6 @@ export enum InterestType {
   FLAT,
   EFFECTIVE,
   ANNUITY,
-  FLOATING,
 }
 
 export type AvailableInterest = { [key in InterestType]: Interest }

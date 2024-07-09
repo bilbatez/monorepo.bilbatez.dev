@@ -34,12 +34,4 @@ export const INTERESTS: AvailableInterest = {
             formula: ""
         },
     },
-    [InterestType.FLOATING]: {
-        type: InterestType.FLOATING,
-        display: {
-            name: "Suku Bunga Mengambang",
-            description:
-                "Suku bunga mengambang adalah suku bunga yang selalu berubah mengikuti suku bunga di pasaran. Jika suku bunga di pasaran naik, maka suku bunganya juga ikut naik, begitupun sebaliknya.",
-        },
-    }
 }

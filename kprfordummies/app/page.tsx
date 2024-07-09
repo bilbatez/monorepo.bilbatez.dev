@@ -1,16 +1,16 @@
 'use client'
 
-import { memo, useState } from "react";
-import InterestNav from "./components/nav/InterestNav";
-import InterestDescription from "./components/InterestDescription";
-import { InterestType } from "@/types/interest";
-import { CurrentFormDataContext, CurrentInterestTypeContext } from "./context";
-import { MathJaxContext } from "better-react-mathjax";
-import InterestCalculator from "./components/form/InterestCalculator";
-import Title from "./components/Title";
-import Footer from "./components/Footer";
 import { LoanRequest } from "@/types/formula";
+import { InterestType } from "@/types/interest";
+import { MathJaxContext } from "better-react-mathjax";
+import { memo, useState } from "react";
+import Footer from "./components/Footer";
+import InterestDescription from "./components/InterestDescription";
+import Title from "./components/Title";
+import InterestCalculator from "./components/form/InterestCalculator";
+import InterestNav from "./components/nav/InterestNav";
 import AmortizationSchedule from "./components/table/AmortizationSchedule";
+import { CurrentFormDataContext, CurrentInterestTypeContext } from "./context";
 
 function Home() {
 
