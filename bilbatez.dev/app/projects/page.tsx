@@ -12,18 +12,18 @@ export default function Projects() {
     const projects: readonly Project[] = [
         {
             title: "KPR for Dummies",
-            link: "",
+            link: "https://github.com/bilbatez/monorepo.bilbatez.dev/tree/main/kprfordummies",
             description: "Home mortgage calculator based on Indonesia.",
         },
         {
             title: "Impractical Python Projects",
-            link: "",
+            link: "https://github.com/bilbatez/impractical-python-projects",
             description: "A collection of small python scripts.",
         },
         {
-            title: "Miniature Javascripts Projects",
-            link: "",
-            description: "A collection of small javascript projects.",
+            title: "And other stuff on my github...",
+            link: "https://github.com/bilbatez",
+            description: "I don't remember all of them hehe...",
         }
     ]
 
