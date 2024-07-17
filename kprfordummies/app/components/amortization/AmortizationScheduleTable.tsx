@@ -2,7 +2,7 @@ import { CurrencyUtils, DateUtils } from "@/app/_utils";
 import { PaymentDetails, PaymentSchedule } from "@/types/formula";
 import { PaginationState, createColumnHelper, getCoreRowModel, getPaginationRowModel } from "@tanstack/react-table";
 import { memo, useState } from "react";
-import Table from "./Table";
+import Table from "../table/Table";
 
 const columnHelper = createColumnHelper<PaymentSchedule>()
 const columns = [

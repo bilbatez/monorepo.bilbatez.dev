@@ -4,12 +4,12 @@ import { LoanRequest } from "@/types/formula";
 import { InterestType } from "@/types/interest";
 import { MathJaxContext } from "better-react-mathjax";
 import { memo, useState } from "react";
+import AmortizationSchedule from "./components/amortization/AmortizationSchedule";
 import Footer from "./components/Footer";
-import InterestDescription from "./components/InterestDescription";
-import Title from "./components/Title";
 import InterestCalculator from "./components/form/InterestCalculator";
+import InterestDescription from "./components/InterestDescription";
 import InterestNav from "./components/nav/InterestNav";
-import AmortizationSchedule from "./components/table/AmortizationSchedule";
+import Title from "./components/Title";
 import { CurrentFormDataContext, CurrentInterestTypeContext } from "./context";
 
 function Home() {
