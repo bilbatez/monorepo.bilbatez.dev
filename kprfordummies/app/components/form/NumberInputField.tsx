@@ -22,7 +22,6 @@ interface MainProps {
     width?: string,
     containerClassName?: string,
     inputClassName?: string,
-    hidden?: boolean,
     placeholder?: string,
     roundNumber?: boolean,
 }
@@ -37,7 +36,6 @@ function NumberInputField({
     width,
     containerClassName,
     inputClassName,
-    hidden = false,
     placeholder,
     roundNumber,
     displayInputValue,
@@ -93,7 +91,6 @@ function NumberInputField({
                     "std-in",
                     inputClassName,
                     errors?.[id] && "has-error",
-                    hidden && "hidden",
                 )}
                     placeholder={placeholder}
                     {...register(id, options)}

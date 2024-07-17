@@ -10,12 +10,10 @@ import NumberInputField from "./NumberInputField";
 
 interface Props {
     className?: string,
-    hidden?: boolean,
 }
 
 function InterestCalculator({
     className,
-    hidden = false,
 }: Props) {
 
     const { currentInterestType } = useContext(CurrentInterestTypeContext)
@@ -39,7 +37,7 @@ function InterestCalculator({
     return (
         <div className="max-w-lg mx-auto">
             <FormProvider {...methods}>
-                <form className={twMerge(className, hidden && "hidden")} onSubmit={methods.handleSubmit(submit)}>
+                <form className={twMerge(className)} onSubmit={methods.handleSubmit(submit)}>
                     <NumberInputField id="principal" label="Pokok Pinjaman" placeholder="100000000" displayInputValue={true} inputValueFormatter={(val) => `(${CurrencyUtils.format(parseFloat(val))})`} />
                     <InterestPeriodField />
                     <DateInputField id="startDate" label="Tanggal Mulai" placeholder="30/07/2015" />
