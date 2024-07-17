@@ -31,7 +31,7 @@ function Home() {
             currentFormData,
             setCurrentFormData,
           }}>
-            <InterestCalculator hidden={currentInterestType == InterestType.NONE} />
+            {currentInterestType !== InterestType.NONE && <InterestCalculator />}
             <AmortizationSchedule />
           </CurrentFormDataContext.Provider>
         </main>
