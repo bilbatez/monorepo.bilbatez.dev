@@ -7,6 +7,7 @@
     "./kprfordummies"
   ],
   "scripts": {
+    "test-all": "bun playwright test && bunx playwright show-report",
     "update-all": "concurrently \"bun hub-update\" \"bun kpr-update\"",
     "install-all": "concurrently \"bun install\" \"bun run hub-install\" \"bun run kpr-install\"",
     "clean-all": "find . -type d \\( -name 'node_modules' -o -name '.next' \\) -exec rm -rf {} +",
@@ -25,6 +26,7 @@
     "react-dom": "^19.0.0-rc-fb9a90fa48-20240614"
   },
   "devDependencies": {
+    "@playwright/test": "^1.45.2",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
