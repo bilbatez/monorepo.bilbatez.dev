@@ -54,3 +54,7 @@ vscode/*
 .bloop/
 .ammonite/
 metals.sbt
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
