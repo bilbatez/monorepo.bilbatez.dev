@@ -16,9 +16,11 @@
     "hub-update": "cd ./bilbatez.dev && bun update",
     "hub-dev": "cd ./bilbatez.dev && bun dev",
     "hub-install": "cd ./bilbatez.dev && bun install",
+    "hub-test": "bun playwright test tests/bilbatez.dev",
     "kpr-update": "cd ./kprfordummies && bun update",
     "kpr-dev": "cd ./kprfordummies && bun dev",
-    "kpr-install": "cd ./kprfordummies && bun install"
+    "kpr-install": "cd ./kprfordummies && bun install",
+    "kpr-test": "bun playwright test tests/kprfordummies"
   },
   "dependencies": {
     "next": "^15.0.0-rc.0",
