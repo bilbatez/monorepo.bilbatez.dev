@@ -3,14 +3,14 @@ import { memo } from "react";
 
 function Footer() {
     return (
-        <div className="mt-5">
+        <footer className="mt-5">
             Dibuat oleh
             <Link href={"bilbatez.dev"}
                 target="_blank"
                 className="footer-hero">
                 Bilbatez.dev 👽
             </Link>
-        </div>
+        </footer>
     )
 }
 

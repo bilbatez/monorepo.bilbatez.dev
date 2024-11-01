@@ -51,11 +51,11 @@ function InterestPeriodField() {
             <div className={twMerge(
                 "flex mb-5",
             )}>
-                {!hasDeletableField() && <button type="button" onClick={handleClickDelete} className={twMerge(
+                {hasDeletableField() && <button type="button" onClick={handleClickDelete} className={twMerge(
                     "btn-sd",
                     isMaximumNumberOfField() ? 'w-full' : 'w-1/2'
                 )}>Hapus Suku Bunga</button>}
-                {isMaximumNumberOfField() && <button type="button" onClick={handleClickAdd} className={twMerge(
+                {!isMaximumNumberOfField() && <button type="button" onClick={handleClickAdd} className={twMerge(
                     "btn-sd",
                     isMinimumNumberOfField() ? 'w-full' : 'w-1/2'
                 )}>Tambah Suku Bunga</button>}
