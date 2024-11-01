@@ -1,8 +1,13 @@
 import { expect, Page } from "@playwright/test";
+import { Footer } from "./components/footer";
 import { Nav } from "./components/nav";
 
 export class HomePage {
-  constructor(public readonly page: Page, public readonly nav: Nav) {}
+  constructor(
+    public readonly page: Page,
+    public readonly nav: Nav,
+    public readonly footer: Footer
+  ) {}
 
   async hasValidTitle() {
     const title = this.page.locator("h1");
@@ -11,6 +16,6 @@ export class HomePage {
   }
 
   static factory(page: Page): HomePage {
-    return new HomePage(page, new Nav(page));
+    return new HomePage(page, new Nav(page), new Footer(page));
   }
 }

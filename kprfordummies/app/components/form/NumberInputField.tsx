@@ -55,8 +55,10 @@ function NumberInputField({
             value: min ?? 0,
             message: em.MINIMUM_NUMBER(min ?? 0)
         },
+        validate: {
+            validateIsNumber: (num: number) => !isNaN(num) || em.MUST_BE_NUMBER,
+        },
         onChange: () => trigger(id)
-
     }
 
     if (max) {
@@ -66,12 +68,10 @@ function NumberInputField({
         }
     }
 
-    const isRoundNumber: boolean = roundNumber ?? false
-
-    if (isRoundNumber) {
+    if (roundNumber ?? false) {
         options.validate = {
-            validateIsNumber: (num) => !isNaN(num) || em.MUST_BE_NUMBER,
-            validateRoundNumber: (num) => num % 1 === 0 || em.MUST_BE_ROUND_NUMBER,
+            ...options.validate,
+            validateRoundNumber: (num: number) => num % 1 === 0 || em.MUST_BE_ROUND_NUMBER,
         }
     }
 
@@ -85,20 +85,23 @@ function NumberInputField({
 
     return (
         <>
-            <div className={twMerge("mb-2", width, containerClassName)}>
-                <label htmlFor={id}>{label} {displayInputFormatterValue()}</label>
-                <input className={twMerge(
-                    "std-in",
-                    inputClassName,
-                    errors?.[id] && "has-error",
-                )}
-                    placeholder={placeholder}
-                    {...register(id, options)}
-                />
-                <div className="error-message">
-                    <ErrorMessage name={id} errors={errors} />
-                </div>
-            </div>
+            <div className={twMerge("mb-1", width, containerClassName)}>
+                <label htmlFor={id}>
+                    <span className={twMerge("mb-1", " block")}>{label} {displayInputFormatterValue()}</span>
+                    <input className={twMerge(
+                        "std-in",
+                        inputClassName,
+                        errors?.[id] && "has-error",
+                    )}
+                        placeholder={placeholder}
+                        {...register(id, options)}
+                    />
+
+                    <div className="error-message">
+                        <ErrorMessage name={id} errors={errors} />
+                    </div>
+                </label>
+            </div >
         </>
     )
 }

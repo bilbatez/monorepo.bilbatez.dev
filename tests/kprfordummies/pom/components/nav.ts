@@ -1,7 +1,6 @@
-import { Page } from "@playwright/test";
+import { expect, Page } from "@playwright/test";
 
 enum AvailableNav {
-  HOME = "Kalkulator KPR",
   FLAT = "Suku Bunga Flat",
   EFFECTIVE = "Suku Bunga Efektif",
   ANNUITY = "Suku Bunga Anuitas",
@@ -15,7 +14,7 @@ export class Nav {
   }
 
   async gotoHome() {
-    await this.page.getByRole("heading").getByText(AvailableNav.HOME).click();
+    await this.page.getByRole("heading").getByText("Kalkulator KPR").click();
   }
 
   async gotoFlat() {
@@ -35,7 +34,9 @@ export class Nav {
 
   async hasValidNavs() {
     for (const nav of Object.values(AvailableNav)) {
-      await expect(this.page.getByLabel(nav)).toBeVisible();
+      const navButton = this.page.getByText(nav);
+      await expect(navButton).toBeVisible();
+      await expect(navButton).toBeEnabled();
     }
   }
 }

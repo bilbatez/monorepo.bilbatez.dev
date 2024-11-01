@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 const enum AvailableInput {
   PRINCIPAL = "principal",
@@ -7,7 +7,19 @@ const enum AvailableInput {
 export class Form {
   constructor(public readonly page: Page) {}
 
+  private getInputField(selector: string): Locator {
+    return this.page.getByLabel(selector);
+  }
+
   async input(selector: string, value: string) {
-    await this.page.locator(selector).fill(value);
+    await this.getInputField(selector).fill(value);
+  }
+
+  async inputPrincipal(value: string) {
+    await this.input(AvailableInput.PRINCIPAL, value);
+  }
+
+  async inputInterestRate(value: string) {
+    await this.input("input[name='interestRate']", value);
   }
 }

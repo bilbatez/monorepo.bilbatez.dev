@@ -10,7 +10,9 @@ const test = base.extend<{ homePage: HomePage }>({
 });
 
 test.describe("Home page", async () => {
-  test("has title", async ({ homePage }) => {
+  test("has valid content", async ({ homePage }) => {
     await homePage.hasValidTitle();
+    await homePage.nav.hasValidNavs();
+    await homePage.footer.hasValidFooter();
   });
 });
