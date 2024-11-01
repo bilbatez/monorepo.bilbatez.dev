@@ -38,11 +38,11 @@ export default function Projects() {
     }
 
     return (
-        <>
+        <article id="projects">
             <p>Here are the tech projects that I&apos;ve worked on!</p>
             <ul className="mt-4 list-disc list-inside">
                 <ProjectItemComponents />
             </ul>
-        </>
+        </article>
     )
 }

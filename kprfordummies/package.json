@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
-    "@tanstack/react-table": "^8.19.1",
+    "@tanstack/react-table": "^8.20.5",
     "better-react-mathjax": "^2.0.3",
-    "mathjax": "3",
-    "react-hook-form": "^7.52.0",
-    "tailwind-merge": "^2.3.0"
+    "mathjax": "^3.2.2",
+    "react-hook-form": "^7.53.1",
+    "tailwind-merge": "^2.5.4"
   }
 }

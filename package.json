@@ -7,7 +7,9 @@
     "./kprfordummies"
   ],
   "scripts": {
-    "update-all": "concurrently \"bun hub-update\" \"bun kpr-update\"",
+    "test-ui-mode": "bun playwright test --ui",
+    "test-all": "bun playwright test && bunx playwright show-report",
+    "update-all": "concurrently \"bun update\" \"bun hub-update\" \"bun kpr-update\"",
     "install-all": "concurrently \"bun install\" \"bun run hub-install\" \"bun run kpr-install\"",
     "clean-all": "find . -type d \\( -name 'node_modules' -o -name '.next' \\) -exec rm -rf {} +",
     "refresh-all": "bun clean-all && bun install-all",
@@ -15,26 +17,30 @@
     "hub-update": "cd ./bilbatez.dev && bun update",
     "hub-dev": "cd ./bilbatez.dev && bun dev",
     "hub-install": "cd ./bilbatez.dev && bun install",
+    "hub-test": "bun playwright test tests/bilbatez.dev",
     "kpr-update": "cd ./kprfordummies && bun update",
     "kpr-dev": "cd ./kprfordummies && bun dev",
-    "kpr-install": "cd ./kprfordummies && bun install"
+    "kpr-install": "cd ./kprfordummies && bun install",
+    "kpr-test": "bun playwright test tests/kprfordummies"
   },
   "dependencies": {
-    "next": "^15.0.0-rc.0",
+    "next": "^15.0.2",
     "react": "^19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "^19.0.0-rc-fb9a90fa48-20240614"
   },
   "devDependencies": {
-    "@types/node": "^20.14.10",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.19",
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^20.17.5",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.20",
     "concurrently": "^8.2.2",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^15.0.0-rc.0",
-    "postcss": "^8.4.39",
-    "sass": "^1.77.6",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.3"
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.0.2",
+    "eslint-plugin-playwright": "^2.0.0",
+    "postcss": "^8.4.47",
+    "sass": "^1.80.5",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }

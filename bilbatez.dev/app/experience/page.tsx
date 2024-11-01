@@ -122,11 +122,11 @@ export default function Experience() {
     }
 
     return (
-        <>
+        <article id="experience">
             <p>Summary of my corpo experience, more details on linkedin.</p>
             <ul className="mt-4 list-disc list-inside">
                 <ExperiencesComponent />
             </ul>
-        </>
+        </article>
     )
 }

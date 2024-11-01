@@ -32,12 +32,13 @@ function DateInputField({
 
     return (
         <div className="mb-3">
-            <label htmlFor={id}>{label}</label>
-            <input type="date"
-                placeholder={placeholder}
-                className={twMerge("std-in", inputClassName)}
-                {...register(id, options)}
-            />
+            <label htmlFor={id}>{label}
+                <input type="date"
+                    placeholder={placeholder}
+                    className={twMerge("std-in", inputClassName)}
+                    {...register(id, options)}
+                />
+            </label>
 
             <div className="error-message">
                 <ErrorMessage name={id} errors={errors} />
