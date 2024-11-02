@@ -12,7 +12,7 @@ export class ProjectsPage {
   ) {}
 
   async hasProjectsContent() {
-    const projects = this.page.locator("#projects");
+    const projects = this.page.getByRole("article");
     await expect(projects).toBeVisible();
     await expect(projects.getByRole("listitem")).toHaveCount(3);
   }
