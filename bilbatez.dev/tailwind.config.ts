@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const defaultTheme = require('tailwindcss/defaultTheme')
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
   content: [
@@ -11,15 +11,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        serif: [
-          "MesloLGS-NF", 
-          ...defaultTheme.fontFamily.serif
-        ],
-        sans: [  
-          ...defaultTheme.fontFamily.sans
-        ]
-      }
-    }
+        serif: ["MesloLGS-NF", ...defaultTheme.fontFamily.serif],
+        sans: [...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };
