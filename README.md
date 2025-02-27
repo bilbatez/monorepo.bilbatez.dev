@@ -1,6 +1,6 @@
 # Bilbatez Personal Monorepo
 
-A collection of application I feel like making.
+A collection of applications I feel like making.
 
 - Bilbatez.dev: A simple personal page.
 - KPR for Dummies: KPR calculator. KPR is Indonesia's acronym for Mortgage. It's basically a mortgage calculator.
@@ -14,7 +14,15 @@ Make sure your local development environment have [`NodeJS`](https://nodejs.org)
 ### Node Dependencies Installation
 
 ```shell
-bun install-all
+bun install
+```
+
+### Running Applications Locally
+
+Change the `*` wildcard to package name to run certain application
+
+```shell
+bun --filter "*" dev
 ```
 
 ### Running Playwright Tests
@@ -22,7 +30,7 @@ bun install-all
 - From the terminal
 
 ```shell
-bun test-all
+bun test
 ```
 
 - Tests can also be ran by using VSCode plugins
