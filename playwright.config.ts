@@ -60,12 +60,12 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: "bun run hub-dev",
+      command: 'bun run --filter "bilbatez.dev" dev',
       url: "http://127.0.0.1:3001",
       reuseExistingServer: !process.env.CI,
     },
     {
-      command: "bun run kpr-dev",
+      command: 'bun run --filter "kprfordummies" dev',
       url: "http://127.0.0.1:3002",
       reuseExistingServer: !process.env.CI,
     },
