@@ -1,5 +1,8 @@
 # Bilbatez Personal Monorepo
 
+![Code Lint](https://github.com/bilbatez/monorepo.bilbatez.dev/actions/workflows/lint.yml/badge.svg)
+![Tests](https://github.com/bilbatez/monorepo.bilbatez.dev/actions/workflows/playwright.yml/badge.svg)
+
 A collection of applications I feel like making.
 
 - Bilbatez.dev: A simple personal page.
@@ -15,6 +18,12 @@ Make sure your local development environment have [`NodeJS`](https://nodejs.org)
 
 ```shell
 bun install
+```
+
+### Code Linting
+
+```shell
+bun --filter="*" lint
 ```
 
 ### Running Applications Locally
