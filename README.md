@@ -1,4 +1,4 @@
-# Bilbatez.dev Monorepo
+# Bilbatez Personal Monorepo
 
 A collection of application I feel like making.
 
