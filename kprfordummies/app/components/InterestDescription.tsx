@@ -1,24 +1,23 @@
-import { CurrentInterestType } from "@/types/context"
-import { memo, useContext } from "react"
-import { INTERESTS } from "../_constants/interest"
-import { CurrentInterestTypeContext } from "../context"
-import InterestFormula from "./InterestFormula"
+import { CurrentInterestType } from "@/types/context";
+import { memo, useContext } from "react";
+import { INTERESTS } from "../_constants/interest";
+import { CurrentInterestTypeContext } from "../context";
+import InterestFormula from "./InterestFormula";
 
 function InterestDescription() {
+  const { currentInterestType }: CurrentInterestType = useContext(
+    CurrentInterestTypeContext,
+  );
 
-    const { currentInterestType }: CurrentInterestType = useContext(CurrentInterestTypeContext)
+  const description = INTERESTS[currentInterestType].display?.description;
+  const formula = INTERESTS[currentInterestType].display?.formula;
 
-    const description = INTERESTS[currentInterestType].display?.description
-    const formula = INTERESTS[currentInterestType].display?.formula
-
-    return (
-        <div className="mb-5">
-            <span className="block mb-3">
-                {description}
-            </span>
-            {formula && <InterestFormula formula={formula} />}
-        </div>
-    )
+  return (
+    <div className="mb-5">
+      <span className="block mb-3">{description}</span>
+      {formula && <InterestFormula formula={formula} />}
+    </div>
+  );
 }
 
-export default memo(InterestDescription)
+export default memo(InterestDescription);

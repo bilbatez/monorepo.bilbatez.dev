@@ -8,108 +8,108 @@ $green-dark: #639131;
 $green-light: #dcedc8;
 
 html {
-    font-size: 100%;
-    background-color: $green-light;
-    color: $black;
+  font-size: 100%;
+  background-color: $green-light;
+  color: $black;
 
-    body {
-        @apply sm:mx-auto justify-between;
-        @apply p-4 sm:p-8 md:p-16 lg:p-24;
+  body {
+    @apply sm:mx-auto justify-between;
+    @apply p-4 sm:p-8 md:p-16 lg:p-24;
 
-        button {
-            @apply px-5 py-2 mr-2 rounded;
-            @apply shadow-md;
-            @apply transition duration-150;
+    button {
+      @apply px-5 py-2 mr-2 rounded;
+      @apply shadow-md;
+      @apply transition duration-150;
 
-            background-color: $green;
+      background-color: $green;
 
-            &.btn-sd {
-                @apply bg-gray-100;
-            }
+      &.btn-sd {
+        @apply bg-gray-100;
+      }
 
-            &:hover,
-            &:disabled {
-                @apply text-white;
-                background-color: $green-dark;
-            }
-        }
-        form {
-            @apply max-w-lg my-3 p-3;
-            @apply border-2 rounded-lg;
-            @apply shadow-md;
-
-            border-color: $green-dark;
-
-            label {
-                @apply block mb-2 w-full;
-            }
-
-            input {
-                @apply block w-full rounded p-2;
-                @apply border-gray-50;
-                @apply shadow-md;
-
-                &:focus {
-                    outline-color: $green-dark;
-                }
-            }
-
-            .error-message {
-                @apply h-4 text-xs mt-1;
-                @apply text-red-500;
-            }
-        }
-
-        .amortization-table {
-            table {
-                @apply table-auto w-full;
-                @apply shadow-md;
-
-                th,
-                td {
-                    @apply border;
-                    @apply px-3 py-1;
-                    @apply text-center;
-
-                    border-color: $green-dark;
-                }
-
-                th {
-                    background-color: $green;
-                }
-
-                tr:nth-child(even) {
-                    @apply bg-gray-100;
-                }
-            }
-
-            .pagination-input,
-            .pagination-max-item-selection {
-                @apply p-2 rounded shadow-md;
-
-                &:focus {
-                    outline-color: $green-dark;
-                }
-            }
-
-            .pagination-input {
-                @apply sm:mr-3;
-                @apply w-16;
-            }
-
-            .pagination-max-item-selection {
-                height: 40px;
-            }
-        }
-
-        .footer-hero {
-            @apply border-dashed border-2 rounded-md m-2 p-1;
-            @apply transition duration-75;
-            border-color: $green-dark;
-
-            &:hover {
-                @apply border-solid;
-            }
-        }
+      &:hover,
+      &:disabled {
+        @apply text-white;
+        background-color: $green-dark;
+      }
     }
+    form {
+      @apply max-w-lg my-3 p-3;
+      @apply border-2 rounded-lg;
+      @apply shadow-md;
+
+      border-color: $green-dark;
+
+      label {
+        @apply block mb-2 w-full;
+      }
+
+      input {
+        @apply block w-full rounded p-2;
+        @apply border-gray-50;
+        @apply shadow-md;
+
+        &:focus {
+          outline-color: $green-dark;
+        }
+      }
+
+      .error-message {
+        @apply h-4 text-xs mt-1;
+        @apply text-red-500;
+      }
+    }
+
+    .amortization-table {
+      table {
+        @apply table-auto w-full;
+        @apply shadow-md;
+
+        th,
+        td {
+          @apply border;
+          @apply px-3 py-1;
+          @apply text-center;
+
+          border-color: $green-dark;
+        }
+
+        th {
+          background-color: $green;
+        }
+
+        tr:nth-child(even) {
+          @apply bg-gray-100;
+        }
+      }
+
+      .pagination-input,
+      .pagination-max-item-selection {
+        @apply p-2 rounded shadow-md;
+
+        &:focus {
+          outline-color: $green-dark;
+        }
+      }
+
+      .pagination-input {
+        @apply sm:mr-3;
+        @apply w-16;
+      }
+
+      .pagination-max-item-selection {
+        height: 40px;
+      }
+    }
+
+    .footer-hero {
+      @apply border-dashed border-2 rounded-md m-2 p-1;
+      @apply transition duration-75;
+      border-color: $green-dark;
+
+      &:hover {
+        @apply border-solid;
+      }
+    }
+  }
 }

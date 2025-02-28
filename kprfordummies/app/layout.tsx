@@ -18,9 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={ptserif.className}>
-        {children}
-      </body>
+      <body className={ptserif.className}>{children}</body>
     </html>
   );
 }

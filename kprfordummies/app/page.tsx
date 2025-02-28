@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { LoanRequest } from "@/types/formula";
 import { InterestType } from "@/types/interest";
@@ -13,25 +13,32 @@ import AmortizationSchedule from "./components/table/AmortizationSchedule";
 import { CurrentFormDataContext, CurrentInterestTypeContext } from "./context";
 
 function Home() {
-
-  const [currentInterestType, setCurrentInterestType] = useState<InterestType>(InterestType.NONE)
-  const [currentFormData, setCurrentFormData] = useState<LoanRequest>()
+  const [currentInterestType, setCurrentInterestType] = useState<InterestType>(
+    InterestType.NONE,
+  );
+  const [currentFormData, setCurrentFormData] = useState<LoanRequest>();
 
   return (
     <MathJaxContext>
-      <CurrentInterestTypeContext.Provider value={{
-        currentInterestType,
-        setCurrentInterestType,
-      }}>
+      <CurrentInterestTypeContext.Provider
+        value={{
+          currentInterestType,
+          setCurrentInterestType,
+        }}
+      >
         <Title />
         <main>
           <InterestNav />
           <InterestDescription />
-          <CurrentFormDataContext.Provider value={{
-            currentFormData,
-            setCurrentFormData,
-          }}>
-            {currentInterestType !== InterestType.NONE && <InterestCalculator />}
+          <CurrentFormDataContext.Provider
+            value={{
+              currentFormData,
+              setCurrentFormData,
+            }}
+          >
+            {currentInterestType !== InterestType.NONE && (
+              <InterestCalculator />
+            )}
             <AmortizationSchedule />
           </CurrentFormDataContext.Provider>
         </main>
@@ -41,4 +48,4 @@ function Home() {
   );
 }
 
-export default memo(Home)
+export default memo(Home);

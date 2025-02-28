@@ -6,7 +6,7 @@ export class Footer {
   async hasValidFooter() {
     const footer = this.page.getByRole("contentinfo");
     await expect(footer.getByRole("heading", { level: 2 })).toHaveText(
-      /Socials/
+      /Socials/,
     );
     await expect(footer.getByRole("listitem")).toHaveCount(2);
   }

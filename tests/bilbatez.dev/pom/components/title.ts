@@ -6,7 +6,7 @@ export class Title {
   async hasValidTitle() {
     await expect(this.page).toHaveTitle(/Bilbatez.dev/);
     await expect(this.page.getByRole("heading", { level: 1 })).toHaveText(
-      /BILBATEZ\.DEV/
+      /BILBATEZ\.DEV/,
     );
   }
 }
