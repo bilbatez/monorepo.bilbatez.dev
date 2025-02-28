@@ -16,4 +16,4 @@ export enum InterestType {
   ANNUITY,
 }
 
-export type AvailableInterest = { [key in InterestType]: Interest }
+export type AvailableInterest = { [key in InterestType]: Interest };

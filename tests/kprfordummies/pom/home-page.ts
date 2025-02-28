@@ -6,7 +6,7 @@ export class HomePage {
   constructor(
     public readonly page: Page,
     public readonly nav: Nav,
-    public readonly footer: Footer
+    public readonly footer: Footer,
   ) {}
 
   async hasValidTitle() {

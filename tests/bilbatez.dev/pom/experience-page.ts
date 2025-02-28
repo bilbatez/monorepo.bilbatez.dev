@@ -8,7 +8,7 @@ export class ExperiencePage {
     public readonly page: Page,
     public readonly title: Title,
     public readonly nav: Nav,
-    public readonly footer: Footer
+    public readonly footer: Footer,
   ) {}
 
   async hasExperienceContent() {
@@ -22,7 +22,7 @@ export class ExperiencePage {
       page,
       new Title(page),
       new Nav(page),
-      new Footer(page)
+      new Footer(page),
     );
   }
 }

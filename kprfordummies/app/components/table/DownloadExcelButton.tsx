@@ -1,8 +1,7 @@
 import { memo } from "react";
 
 function DownloadExcelButton() {
-
-    return (<button></button>)
+  return <button></button>;
 }
 
-export default memo(DownloadExcelButton)
+export default memo(DownloadExcelButton);

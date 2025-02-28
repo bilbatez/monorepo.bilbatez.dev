@@ -1,17 +1,13 @@
-import { Interest } from "@/types/interest"
-import { MouseEventHandler, memo } from "react"
+import { Interest } from "@/types/interest";
+import { MouseEventHandler, memo } from "react";
 
 interface Props {
-  interest: Interest,
-  disabled: boolean,
-  onClick: MouseEventHandler<HTMLButtonElement>,
+  interest: Interest;
+  disabled: boolean;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-function InterestButton({
-  interest,
-  disabled,
-  onClick,
-}: Props) {
+function InterestButton({ interest, disabled, onClick }: Props) {
   return (
     <button
       key={interest.type}
@@ -21,7 +17,7 @@ function InterestButton({
     >
       {interest.display?.name}
     </button>
-  )
+  );
 }
 
-export default memo(InterestButton)
+export default memo(InterestButton);

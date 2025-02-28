@@ -8,7 +8,7 @@ export class ProjectsPage {
     public readonly page: Page,
     public readonly title: Title,
     public readonly nav: Nav,
-    public readonly footer: Footer
+    public readonly footer: Footer,
   ) {}
 
   async hasProjectsContent() {
@@ -22,7 +22,7 @@ export class ProjectsPage {
       page,
       new Title(page),
       new Nav(page),
-      new Footer(page)
+      new Footer(page),
     );
   }
 }

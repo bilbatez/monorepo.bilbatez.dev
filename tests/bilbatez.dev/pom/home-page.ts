@@ -8,7 +8,7 @@ export class HomePage {
     public readonly page: Page,
     public readonly title: Title,
     public readonly nav: Nav,
-    public readonly footer: Footer
+    public readonly footer: Footer,
   ) {}
 
   async hasIntroContent() {
