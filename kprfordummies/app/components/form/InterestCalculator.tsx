@@ -19,13 +19,12 @@ function InterestCalculator({ className }: Props) {
   const { currentInterestType } = useContext(CurrentInterestTypeContext);
   const { setCurrentFormData } = useContext(CurrentFormDataContext);
 
-  const FORM_DEFAULT_VALUES = {
-    interestPeriod: [{}],
-    startDate: DateUtils.htmlInputFormat(new Date()),
-  };
-
   const methods = useForm({
-    defaultValues: FORM_DEFAULT_VALUES,
+    defaultValues: {
+      principal: "",
+      interestPeriod: [{}],
+      startDate: DateUtils.htmlInputFormat(new Date()),
+    },
   });
 
   function submit(data: FieldValues) {
@@ -33,7 +32,7 @@ function InterestCalculator({ className }: Props) {
   }
 
   function handleReset() {
-    methods.reset(FORM_DEFAULT_VALUES);
+    methods.reset();
   }
 
   return (
@@ -55,7 +54,7 @@ function InterestCalculator({ className }: Props) {
           <InterestPeriodField />
           <DateInputField id="startDate" label="Tanggal Mulai" />
           <div className="flex">
-            <button type="reset" onClick={handleReset} className="w-1/2 btn-sd">
+            <button onClick={handleReset} className="w-1/2 btn-sd">
               Ulangi
             </button>
             <button type="submit" className="w-1/2 btn-sb">
