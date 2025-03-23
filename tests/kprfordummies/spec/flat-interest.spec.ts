@@ -31,7 +31,7 @@ test.describe("Flat Interest Calculator", async () => {
       );
     });
 
-    test.skip("has form resetted if rest button is clicked", async ({
+    test("has form resetted if rest button is clicked", async ({
       homePage,
     }) => {
       await (
