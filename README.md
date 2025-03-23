@@ -39,11 +39,11 @@ bun --filter "*" dev
 - From the terminal
 
 ```shell
-bun test
+bun run test
 ```
 
 - Tests can also be ran by using VSCode plugins
 
 ### Commiting
 
-Commit message convention are based on : [conventionalcommits.org](https://conventionalcommits.org)
+Commit message convention is based on : [conventionalcommits.org](https://conventionalcommits.org)
