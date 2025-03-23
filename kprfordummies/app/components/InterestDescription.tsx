@@ -1,7 +1,7 @@
+import { INTERESTS } from "@/app/_constants/interest";
+import { CurrentInterestTypeContext } from "@/app/context";
 import { CurrentInterestType } from "@/types/context";
 import { memo, useContext } from "react";
-import { INTERESTS } from "../_constants/interest";
-import { CurrentInterestTypeContext } from "../context";
 import InterestFormula from "./InterestFormula";
 
 function InterestDescription() {

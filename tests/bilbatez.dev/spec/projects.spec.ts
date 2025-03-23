@@ -1,5 +1,5 @@
+import { ProjectsPage } from "@/bilbatez.dev/pom/projects-page";
 import { test as base } from "@playwright/test";
-import { ProjectsPage } from "../pom/projects-page";
 
 const test = base.extend<{ projectsPage: ProjectsPage }>({
   projectsPage: async ({ page }, use) => {

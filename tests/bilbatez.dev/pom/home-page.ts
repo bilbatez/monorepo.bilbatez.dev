@@ -1,4 +1,5 @@
-import { expect, Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
+import { expect } from "@playwright/test";
 import { Footer } from "./components/footer";
 import { Nav } from "./components/nav";
 import { Title } from "./components/title";

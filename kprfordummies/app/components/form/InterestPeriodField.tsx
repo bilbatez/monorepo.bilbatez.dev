@@ -39,7 +39,7 @@ function InterestPeriodField() {
     return fields.map((field, index) => (
       <div className="sm:flex" key={field.id}>
         <NumberInputField
-          id={`interestPeriod.${index}].interest`}
+          id={`interestPeriod.${index}.interest`}
           label="Suku Bunga (%)"
           min={0}
           max={30}
@@ -47,7 +47,7 @@ function InterestPeriodField() {
           placeholder="5"
         />
         <NumberInputField
-          id={`interestPeriod.${index}].period`}
+          id={`interestPeriod.${index}.period`}
           label="Lama Pinjaman (Dalam Tahun)"
           min={1}
           max={150}

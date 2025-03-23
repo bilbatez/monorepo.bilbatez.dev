@@ -9,35 +9,37 @@
   "scripts": {
     "postinstall": "bun playwright install",
     "test": "bun playwright test",
+    "test:ui": "bun playwright test --ui",
     "ci": "bun install --frozen-lockfile",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.next' \\) -exec rm -rf {} +",
     "refresh": "bun clean && bun install",
     "prepare": "husky"
   },
   "dependencies": {
-    "next": "^15.2.0",
+    "next": "^15.2.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
-    "@playwright/test": "^1.50.1",
-    "@types/node": "^20.17.19",
-    "@types/react": "^18.3.18",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^20.17.25",
+    "@types/react": "^18.3.19",
     "@types/react-dom": "^18.3.5",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "eslint": "^8.57.1",
-    "eslint-config-next": "^15.2.0",
-    "eslint-config-prettier": "^10.0.2",
+    "eslint-config-next": "^15.2.3",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-playwright": "^2.2.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
+    "lint-staged": "^15.5.0",
     "postcss": "^8.5.3",
     "prettier": "3.5.2",
-    "sass": "^1.85.1",
+    "sass": "^1.86.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.8.2"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
