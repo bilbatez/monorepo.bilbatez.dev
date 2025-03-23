@@ -1,8 +1,8 @@
+import { ErrorMessage as em } from "@/app/_constants/error-messages";
 import { ErrorMessage } from "@hookform/error-message";
 import { memo } from "react";
 import { RegisterOptions, useFormContext } from "react-hook-form";
 import { twMerge } from "tailwind-merge";
-import { ErrorMessage as em } from "../../_constants/error-messages";
 
 interface Props {
   id: string;

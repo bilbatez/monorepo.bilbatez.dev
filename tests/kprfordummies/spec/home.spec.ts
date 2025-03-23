@@ -1,5 +1,5 @@
+import { HomePage } from "@/kprfordummies/pom/home-page";
 import { test as base } from "@playwright/test";
-import { HomePage } from "../pom/home-page";
 
 const test = base.extend<{ homePage: HomePage }>({
   homePage: async ({ page }, use) => {
