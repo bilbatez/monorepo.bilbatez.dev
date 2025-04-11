@@ -21,7 +21,7 @@ export default function Projects() {
       description: "A collection of small python scripts.",
     },
     {
-      title: "And other stuff on my github...",
+      title: "And other stuffs on my github...",
       link: "https://github.com/bilbatez",
       description: "I don't remember all of them hehe...",
     },

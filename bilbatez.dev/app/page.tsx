@@ -4,10 +4,10 @@ export default function Home() {
   return (
     <article id="intro">
       <p>
-        Yo! Nice to meet ya. I go with the alias <i>Bilbatez</i> on the net.
+        Hey! Nice to meet ya. I go with the alias <i>Bilbatez</i> on the net.
       </p>
       <p className="mt-2">
-        My real name however, is Albert. And I&apos;m just your average friendly
+        My real name however, is Albert. And I&apos;m just your friendly
         neighbourhood programmer! Most of the time, my work involves in making
         and maintaining websites. Whether it&apos;s the front facing side (the
         visuals you see on a site) or the back end side (which handles the
@@ -33,9 +33,7 @@ export default function Home() {
         You&apos;ll find more public information about me or the stuff I
         published on the net here.
       </p>
-      <p className="mt-2">
-        Anyways, that sums up my intro! pretty short huh? Cheers!
-      </p>
+      <p className="mt-2">Anyways, that sums up my intro. Peace out!</p>
     </article>
   );
 }
