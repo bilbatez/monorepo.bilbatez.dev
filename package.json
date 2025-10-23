@@ -13,7 +13,8 @@
     "ci": "bun install --frozen-lockfile",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.next' \\) -exec rm -rf {} +",
     "refresh": "bun clean && bun install",
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "16.0.0",

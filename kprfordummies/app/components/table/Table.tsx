@@ -1,7 +1,7 @@
-import { TableOptions, useReactTable } from "@tanstack/react-table";
-import TableBody from "./TableBody";
-import TableHeader from "./TableHeader";
-import TablePagination from "./TablePagination";
+import { TableOptions, useReactTable } from '@tanstack/react-table';
+import TableBody from './TableBody';
+import TableHeader from './TableHeader';
+import TablePagination from './TablePagination';
 
 interface Props<T> {
   tableOptions: TableOptions<T>;

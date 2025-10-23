@@ -1,4 +1,4 @@
-import { RowModel, flexRender } from "@tanstack/react-table";
+import { RowModel, flexRender } from '@tanstack/react-table';
 
 interface Props<T> {
   rowModel: RowModel<T>;

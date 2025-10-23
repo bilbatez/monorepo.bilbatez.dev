@@ -1,8 +1,8 @@
-import { ErrorMessage as em } from "@/app/_constants/error-messages";
-import { ErrorMessage } from "@hookform/error-message";
-import { memo } from "react";
-import { RegisterOptions, useFormContext } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
+import { ErrorMessage as em } from '@/app/_constants/error-messages';
+import { ErrorMessage } from '@hookform/error-message';
+import { memo } from 'react';
+import { RegisterOptions, useFormContext } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
 
 interface DisplayInputValueProps {
   displayInputValue: boolean;
@@ -85,16 +85,16 @@ function NumberInputField({
 
   return (
     <>
-      <div className={twMerge("mb-1", width, containerClassName)}>
+      <div className={twMerge('mb-1', width, containerClassName)}>
         <label htmlFor={id}>
-          <span className={twMerge("mb-1", " block")}>
+          <span className={twMerge('mb-1', ' block')}>
             {label} {displayInputFormatterValue()}
           </span>
           <input
             className={twMerge(
-              "std-in",
+              'std-in',
               inputClassName,
-              errors?.[id] && "has-error",
+              errors?.[id] && 'has-error'
             )}
             placeholder={placeholder}
             {...register(id, options)}

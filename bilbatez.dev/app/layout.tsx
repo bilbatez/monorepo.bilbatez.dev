@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Link from "next/link";
-import Image from "next/image";
+import type { Metadata } from 'next';
+import './globals.css';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Bilbatez.dev ( •⩊• )",
+  title: 'Bilbatez.dev ( •⩊• )',
 };
 
 export default function RootLayout({
@@ -23,16 +23,16 @@ export default function RootLayout({
   function NavComponent() {
     const navs = [
       {
-        name: "Intro",
-        link: "/",
+        name: 'Intro',
+        link: '/',
       },
       {
-        name: "Corpo Exp",
-        link: "/experience",
+        name: 'Corpo Exp',
+        link: '/experience',
       },
       {
-        name: "Prjx",
-        link: "/projects",
+        name: 'Prjx',
+        link: '/projects',
       },
     ];
 
@@ -43,7 +43,7 @@ export default function RootLayout({
             <Link
               key={nav.name}
               href={nav.link}
-              className={`py-3.5 ${index + 1 == navs.length || "border-r"}`}
+              className={`py-3.5 ${index + 1 == navs.length || 'border-r'}`}
             >
               {nav.name}
             </Link>
@@ -57,20 +57,20 @@ export default function RootLayout({
     function SocialsComponent() {
       const socials = [
         {
-          name: "Github",
+          name: 'Github',
           image: {
-            source: "/assets/github-mark.svg",
-            alt: "Github Icon",
+            source: '/assets/github-mark.svg',
+            alt: 'Github Icon',
           },
-          link: "/github",
+          link: '/github',
         },
         {
-          name: "Linkedin",
+          name: 'Linkedin',
           image: {
-            source: "/assets/linkedin-mark.svg",
-            alt: "Linkedin Icon",
+            source: '/assets/linkedin-mark.svg',
+            alt: 'Linkedin Icon',
           },
-          link: "/linkedin",
+          link: '/linkedin',
         },
       ];
 
@@ -80,7 +80,7 @@ export default function RootLayout({
           <ul>
             {socials.map((social, index) => {
               return (
-                <li className={index == 0 ? "mt-4" : "mt-2"} key={social.name}>
+                <li className={index == 0 ? 'mt-4' : 'mt-2'} key={social.name}>
                   <Link
                     className="inline-flex"
                     href={social.link}

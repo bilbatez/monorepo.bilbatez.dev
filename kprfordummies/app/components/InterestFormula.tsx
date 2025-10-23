@@ -1,5 +1,5 @@
-import { MathJax } from "better-react-mathjax";
-import { memo } from "react";
+import { MathJax } from 'better-react-mathjax';
+import { memo } from 'react';
 
 interface Props {
   formula: string;

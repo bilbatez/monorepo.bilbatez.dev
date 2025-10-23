@@ -1,5 +1,5 @@
-import { Interest } from "@/types/interest";
-import { MouseEventHandler, memo } from "react";
+import { Interest } from '@/types/interest';
+import { MouseEventHandler, memo } from 'react';
 
 interface Props {
   interest: Interest;

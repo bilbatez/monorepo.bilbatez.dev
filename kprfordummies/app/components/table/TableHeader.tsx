@@ -1,4 +1,4 @@
-import { HeaderGroup, flexRender } from "@tanstack/react-table";
+import { HeaderGroup, flexRender } from '@tanstack/react-table';
 
 interface Props<T> {
   headerGroups: HeaderGroup<T>[];
@@ -15,7 +15,7 @@ function TableHeader<T>({ headerGroups }: Props<T>) {
                 ? null
                 : flexRender(
                     header.column.columnDef.header,
-                    header.getContext(),
+                    header.getContext()
                   )}
             </th>
           ))}

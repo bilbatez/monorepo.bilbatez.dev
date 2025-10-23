@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 export default function Home() {
   return (
@@ -14,15 +14,15 @@ export default function Home() {
         operational side of things).
       </p>
       <p className="mt-2">
-        Currently, I&apos;m a software engineer at{" "}
+        Currently, I&apos;m a software engineer at{' '}
         <a href="https://www.bankofamerica.com/" target="_blank">
           <span className="text-sky-600">[Bank of America]</span>
-        </a>{" "}
-        in Singapore. In the past, I&apos;ve worked for{" "}
+        </a>{' '}
+        in Singapore. In the past, I&apos;ve worked for{' '}
         <a href="https://www.shopee.sg/" target="_blank">
           <span className="text-sky-600">[Shopee]</span>
-        </a>{" "}
-        and{" "}
+        </a>{' '}
+        and{' '}
         <a href="https://www.blibli.com" target="_blank">
           <span className="text-sky-600">[Blibli]</span>
         </a>

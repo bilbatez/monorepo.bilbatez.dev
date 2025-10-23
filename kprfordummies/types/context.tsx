@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-import { InterestType } from "./interest";
-import { LoanRequest } from "./formula";
+import { Dispatch, SetStateAction } from 'react';
+import { InterestType } from './interest';
+import { LoanRequest } from './formula';
 
 export class CurrentInterestType {
   currentInterestType!: InterestType;

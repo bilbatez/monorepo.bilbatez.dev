@@ -1,12 +1,12 @@
-import { INTERESTS } from "@/app/_constants/interest";
-import { CurrentInterestTypeContext } from "@/app/context";
-import { CurrentInterestType } from "@/types/context";
-import { memo, useContext } from "react";
-import InterestFormula from "./InterestFormula";
+import { INTERESTS } from '@/app/_constants/interest';
+import { CurrentInterestTypeContext } from '@/app/context';
+import { CurrentInterestType } from '@/types/context';
+import { memo, useContext } from 'react';
+import InterestFormula from './InterestFormula';
 
 function InterestDescription() {
   const { currentInterestType }: CurrentInterestType = useContext(
-    CurrentInterestTypeContext,
+    CurrentInterestTypeContext
   );
 
   const description = INTERESTS[currentInterestType].display?.description;
