@@ -6,15 +6,15 @@ const test = base.extend<{ homePage: HomePage }>({
   homePage: async ({ page }, use) => {
     const homePage = HomePage.factory(page);
     await homePage.nav.gotoWebsite();
-    await homePage.nav.gotoFlatInterestForm();
+    await homePage.nav.gotoEffectiveInterestForm();
     await use(homePage);
   },
 });
 
-test.describe('Flat Interest Calculator', async () => {
+test.describe('Effective Interest Calculator', async () => {
   test('has correct initial form interface', async ({ homePage }) => {
     await homePage.hasValidTitle();
-    await homePage.nav.hasValidNavsForFlatInterestForm();
+    await homePage.nav.hasValidNavsForEffectiveInterestForm();
     await homePage.form.hasValidInitialForm();
     await homePage.footer.hasValidFooter();
   });
@@ -134,40 +134,40 @@ test.describe('Flat Interest Calculator', async () => {
 
       await homePage.form.validateCalculationSummary(
         'Rp 1.800.000.000,00',
-        'Rp 1.440.000.000,00',
-        'Rp 3.240.000.000,00'
+        'Rp 726.000.000,00',
+        'Rp 2.526.000.000,00'
       );
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        1,
-        '20/02/2024',
-        'Rp 27.000.000,00',
+        4,
+        '20/05/2024',
+        'Rp 26.700.000,00',
         'Rp 15.000.000,00',
-        'Rp 12.000.000,00',
-        'Rp 1.800.000.000,00',
-        'Rp 1.785.000.000,00'
+        'Rp 11.700.000,00',
+        'Rp 1.755.000.000,00',
+        'Rp 1.740.000.000,00'
       );
       await (await homePage.form.getNextPageButton()).click();
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        62,
-        '20/03/2029',
-        'Rp 27.000.000,00',
+        71,
+        '20/12/2029',
+        'Rp 20.000.000,00',
         'Rp 15.000.000,00',
-        'Rp 12.000.000,00',
-        'Rp 885.000.000,00',
-        'Rp 870.000.000,00'
+        'Rp 5.000.000,00',
+        'Rp 750.000.000,00',
+        'Rp 735.000.000,00'
       );
       await (await homePage.form.getLastPageButton()).click();
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        119,
-        '20/12/2033',
-        'Rp 27.000.000,00',
+        118,
+        '20/11/2033',
+        'Rp 15.300.000,00',
         'Rp 15.000.000,00',
-        'Rp 12.000.000,00',
-        'Rp 30.000.000,00',
-        'Rp 15.000.000,00'
+        'Rp 300.000,00',
+        'Rp 45.000.000,00',
+        'Rp 30.000.000,00'
       );
     });
 
@@ -194,40 +194,40 @@ test.describe('Flat Interest Calculator', async () => {
 
       await homePage.form.validateCalculationSummary(
         'Rp 1.800.000.000,00',
-        'Rp 1.832.000.000,00',
-        'Rp 3.632.000.000,00'
+        'Rp 1.391.158.333,33',
+        'Rp 3.191.158.333,33'
       );
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        1,
-        '10/05/2023',
-        'Rp 20.333.333,33',
+        10,
+        '10/02/2024',
+        'Rp 19.833.333,33',
         'Rp 8.333.333,33',
-        'Rp 12.000.000,00',
-        'Rp 1.800.000.000,00',
-        'Rp 1.791.666.666,67'
+        'Rp 11.500.000,00',
+        'Rp 1.725.000.000,00',
+        'Rp 1.716.666.666,67'
       );
       await (await homePage.form.getNextPageButton()).click();
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        54,
-        '10/10/2027',
-        'Rp 20.333.333,33',
+        44,
+        '10/12/2026',
+        'Rp 17.944.444,44',
         'Rp 8.333.333,33',
-        'Rp 12.000.000,00',
-        'Rp 1.358.333.333,33',
-        'Rp 1.350.000.000,00'
+        'Rp 9.611.111,11',
+        'Rp 1.441.666.666,67',
+        'Rp 1.433.333.333,33'
       );
       await (await homePage.form.getLastPageButton()).click();
 
       await homePage.form.validateAmortizationScheduleTableRow(
-        213,
-        '10/01/2041',
-        'Rp 10.333.333,33',
+        188,
+        '10/12/2038',
+        'Rp 10.810.416,67',
         'Rp 8.333.333,33',
-        'Rp 2.000.000,00',
-        'Rp 33.333.333,33',
-        'Rp 25.000.000,00'
+        'Rp 2.477.083,33',
+        'Rp 241.666.666,67',
+        'Rp 233.333.333,33'
       );
     });
   });
