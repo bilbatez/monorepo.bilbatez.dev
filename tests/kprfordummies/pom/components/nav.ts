@@ -18,30 +18,30 @@ export class Nav {
     await this.page.getByRole('heading').getByText('Kalkulator KPR').click();
   }
 
-  async gotoFlatForm() {
+  async gotoFlatInterestForm() {
     await this.page.getByRole('button').getByText(AvailableNav.FLAT).click();
   }
 
-  async gotoEffective() {
+  async gotoEffectiveInterestForm() {
     await this.page
       .getByRole('button')
       .getByText(AvailableNav.EFFECTIVE)
       .click();
   }
 
-  async gotoAnnuity() {
+  async gotoAnnuityInterestForm() {
     await this.page.getByRole('button').getByText(AvailableNav.ANNUITY).click();
   }
 
-  async hasValidNavsForFlatForm() {
+  async hasValidNavsForFlatInterestForm() {
     await this.hasValidNavs(AvailableNav.FLAT);
   }
 
-  async hasValidNavsForEffective() {
+  async hasValidNavsForEffectiveInterestForm() {
     await this.hasValidNavs(AvailableNav.EFFECTIVE);
   }
 
-  async hasValidNavsForAnnuity() {
+  async hasValidNavsForAnnuityInterestForm() {
     await this.hasValidNavs(AvailableNav.ANNUITY);
   }
 
