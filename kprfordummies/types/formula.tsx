@@ -1,18 +1,13 @@
-import { FieldValues } from "react-hook-form";
-import { InterestType } from "./interest";
+import { FieldValues } from 'react-hook-form';
+import { InterestType } from './interest';
 
 export class InterestPeriod {
   readonly interestRate!: number;
   readonly period!: number;
 
-  constructor();
-  constructor(interestRate: number, period: number);
-
-  constructor(interestRate?: any, period?: any) {
-    if (interestRate && period) {
-      this.interestRate = parseFloat(interestRate);
-      this.period = parseInt(period);
-    }
+  constructor(interestRate: number, period: number) {
+    this.interestRate = interestRate;
+    this.period = period;
   }
 }
 
@@ -33,7 +28,7 @@ export class LoanRequest {
       for (let index = 0; index < data.interestPeriod.length; index++) {
         this.interestPeriod[index] = new InterestPeriod(
           data.interestPeriod[index].interest,
-          data.interestPeriod[index].period,
+          data.interestPeriod[index].period
         );
       }
     }
@@ -45,7 +40,7 @@ export class LoanRequest {
         .map((interestPeriod) => interestPeriod.period)
         .reduce(
           (accumulator: number, currentValue: number) =>
-            accumulator + currentValue,
+            accumulator + currentValue
         ) * 12
     );
   }
@@ -68,7 +63,7 @@ export class PaymentSchedule {
     payment: number,
     interest: number,
     repayment: number,
-    finalLoanBalance: number,
+    finalLoanBalance: number
   );
 
   constructor(
@@ -78,7 +73,7 @@ export class PaymentSchedule {
     payment?: number,
     interest?: number,
     repayment?: number,
-    finalLoanBalance?: number,
+    finalLoanBalance?: number
   ) {
     this.period = period ?? 0;
     this.date = date ?? new Date();
@@ -101,14 +96,14 @@ export class PaymentDetails {
     paymentSchedules: PaymentSchedule[],
     totalPrincipal: number,
     totalPaidInterest: number,
-    totalPaid: number,
+    totalPaid: number
   );
 
   constructor(
     paymentSchedules?: PaymentSchedule[],
     totalPrincipal?: number,
     totalPaidInterest?: number,
-    totalPaid?: number,
+    totalPaid?: number
   ) {
     this.paymentSchedules = paymentSchedules ?? [];
     this.totalPrincipal = totalPrincipal ?? 0;

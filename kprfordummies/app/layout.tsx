@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
-import { PT_Serif } from "next/font/google";
-import "./globals.scss";
-const ptserif = PT_Serif({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
+import type { Metadata } from 'next';
+import './globals.scss';
 export const metadata: Metadata = {
-  title: "KPR for Dummies",
-  description: "Hitung simulasi KPR",
+  title: 'KPR for Dummies',
+  description: 'Hitung simulasi KPR',
 };
 
 export default function RootLayout({
@@ -18,7 +12,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
-      <body className={ptserif.className}>{children}</body>
+      <body className="font-serif">{children}</body>
     </html>
   );
 }
