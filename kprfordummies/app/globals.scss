@@ -7,6 +7,34 @@ $green: #9ccc65;
 $green-dark: #639131;
 $green-light: #dcedc8;
 
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-Italic.ttf');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Spectral';
+  src: url('/fonts/Spectral-BoldItalic.ttf');
+  font-weight: bold;
+  font-style: italic;
+}
+
 html {
   font-size: 100%;
   background-color: $green-light;

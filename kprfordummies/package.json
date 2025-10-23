@@ -3,9 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "next lint",
-    "dev": "next lint && next dev -p 3002",
-    "prod": "next lint && next build && next start -p 3002",
+    "dev": "next dev -p 3002",
+    "prod": "next build && next start -p 3002",
     "test": "cd .. && bun playwright test tests/kprfordummies"
   },
   "dependencies": {
