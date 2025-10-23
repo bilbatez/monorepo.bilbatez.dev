@@ -90,6 +90,7 @@ export class PaymentDetails {
   readonly totalPaidInterest!: number;
   readonly totalPaid!: number;
 
+  constructor();
   constructor(
     paymentSchedules: PaymentSchedule[],
     totalPrincipal: number,

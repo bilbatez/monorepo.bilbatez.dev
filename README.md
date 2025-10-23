@@ -5,14 +5,14 @@
 
 A collection of applications I feel like making.
 
-- Bilbatez.dev: A simple personal page.
-- KPR for Dummies: KPR calculator. KPR is Indonesia's acronym for Mortgage. It's basically a mortgage calculator.
+- Bilbatez.dev: My personal page.
+- KPR for Dummies: A KPR (mortgage) calculator. KPR is Indonesia's acronym for mortgage.
 
 ## Contributing
 
 ### Local Environment Setup
 
-Make sure your local development environment have [`NodeJS`](https://nodejs.org) and [`Bun`](https://bun.sh/) installed
+Make sure your local development environment has [`NodeJS`](https://nodejs.org) and [`Bun`](https://bun.sh/) installed.
 
 ### Node Dependencies Installation
 
@@ -23,7 +23,7 @@ bun install
 ### Code Linting
 
 ```shell
-bun --filter="*" lint
+bun eslint
 ```
 
 ### Running Applications Locally
