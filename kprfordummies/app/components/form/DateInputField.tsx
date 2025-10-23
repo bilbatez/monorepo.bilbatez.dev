@@ -1,8 +1,8 @@
-import { ErrorMessage as em } from "@/app/_constants/error-messages";
-import { ErrorMessage } from "@hookform/error-message";
-import { memo } from "react";
-import { RegisterOptions, useFormContext } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
+import { ErrorMessage as em } from '@/app/_constants/error-messages';
+import { ErrorMessage } from '@hookform/error-message';
+import { memo } from 'react';
+import { RegisterOptions, useFormContext } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
 
 interface Props {
   id: string;
@@ -31,7 +31,7 @@ function DateInputField({ id, label, placeholder, inputClassName }: Props) {
         <input
           type="date"
           placeholder={placeholder}
-          className={twMerge("std-in", inputClassName)}
+          className={twMerge('std-in', inputClassName)}
           {...register(id, options)}
         />
       </label>

@@ -1,21 +1,21 @@
-import type { Page } from "@playwright/test";
-import { expect } from "@playwright/test";
-import { Footer } from "./components/footer";
-import { Nav } from "./components/nav";
-import { Title } from "./components/title";
+import type { Page } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { Footer } from './components/footer';
+import { Nav } from './components/nav';
+import { Title } from './components/title';
 
 export class ExperiencePage {
   constructor(
     public readonly page: Page,
     public readonly title: Title,
     public readonly nav: Nav,
-    public readonly footer: Footer,
+    public readonly footer: Footer
   ) {}
 
   async hasExperienceContent() {
-    const experience = this.page.locator("#experience");
+    const experience = this.page.locator('#experience');
     await expect(experience).toBeVisible();
-    await expect(experience.getByRole("listitem")).toHaveCount(12);
+    await expect(experience.getByRole('listitem')).toHaveCount(50);
   }
 
   static factory(page: Page): ExperiencePage {
@@ -23,7 +23,7 @@ export class ExperiencePage {
       page,
       new Title(page),
       new Nav(page),
-      new Footer(page),
+      new Footer(page)
     );
   }
 }

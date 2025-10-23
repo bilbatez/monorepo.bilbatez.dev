@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
 type Project = {
   title: string;
@@ -11,18 +11,18 @@ type Project = {
 export default function Projects() {
   const projects: readonly Project[] = [
     {
-      title: "KPR for Dummies",
-      link: "https://github.com/bilbatez/monorepo.bilbatez.dev/tree/main/kprfordummies",
-      description: "Home mortgage calculator based on Indonesia.",
+      title: 'KPR for Dummies',
+      link: 'https://github.com/bilbatez/monorepo.bilbatez.dev/tree/main/kprfordummies',
+      description: 'Home mortgage calculator based on Indonesia.',
     },
     {
-      title: "Impractical Python Projects",
-      link: "https://github.com/bilbatez/impractical-python-projects",
-      description: "A collection of small python scripts.",
+      title: 'Impractical Python Projects',
+      link: 'https://github.com/bilbatez/impractical-python-projects',
+      description: 'A collection of small python scripts.',
     },
     {
-      title: "And other stuffs on my github...",
-      link: "https://github.com/bilbatez",
+      title: 'And other stuffs on my github...',
+      link: 'https://github.com/bilbatez',
       description: "I don't remember all of them hehe...",
     },
   ];

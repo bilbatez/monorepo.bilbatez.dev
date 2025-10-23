@@ -3,8 +3,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/bilbatez.dev",
-        destination: "https://bilbatez.dev",
+        source: '/bilbatez.dev',
+        destination: 'https://bilbatez.dev',
         permanent: false,
       },
     ];

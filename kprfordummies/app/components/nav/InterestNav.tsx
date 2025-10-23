@@ -1,9 +1,9 @@
-import { INTERESTS } from "@/app/_constants/interest";
-import { CurrentInterestTypeContext } from "@/app/context";
-import { CurrentInterestType } from "@/types/context";
-import { Interest, InterestType } from "@/types/interest";
-import { memo, useContext } from "react";
-import InterestButton from "./InterestNavButton";
+import { INTERESTS } from '@/app/_constants/interest';
+import { CurrentInterestTypeContext } from '@/app/context';
+import { CurrentInterestType } from '@/types/context';
+import { Interest, InterestType } from '@/types/interest';
+import { memo, useContext } from 'react';
+import InterestButton from './InterestNavButton';
 
 function InterestNav() {
   const { currentInterestType, setCurrentInterestType }: CurrentInterestType =

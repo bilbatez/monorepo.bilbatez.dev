@@ -1,5 +1,5 @@
-import { HomePage } from "@/bilbatez.dev/pom/home-page";
-import { test as base } from "@playwright/test";
+import { HomePage } from '@/bilbatez.dev/pom/home-page';
+import { test as base } from '@playwright/test';
 
 const test = base.extend<{ homePage: HomePage }>({
   homePage: async ({ page }, use) => {
@@ -9,24 +9,24 @@ const test = base.extend<{ homePage: HomePage }>({
   },
 });
 
-test.describe("Home page", async () => {
-  test("has title", async ({ homePage }) => {
+test.describe('Home page', async () => {
+  test('has title', async ({ homePage }) => {
     await homePage.title.hasValidTitle();
   });
 
-  test("has navbar", async ({ homePage }) => {
+  test('has navbar', async ({ homePage }) => {
     await homePage.nav.hasValidNavs();
   });
 
-  test("has intro content", async ({ homePage }) => {
+  test('has intro content', async ({ homePage }) => {
     await homePage.hasIntroContent();
   });
 
-  test("has footer", async ({ homePage }) => {
+  test('has footer', async ({ homePage }) => {
     await homePage.footer.hasValidFooter();
   });
 
-  test("navbar redirection is correct", async ({ homePage }) => {
+  test('navbar redirection is correct', async ({ homePage }) => {
     await homePage.nav.gotoHome();
     await homePage.title.hasValidTitle();
     await homePage.nav.hasValidNavs();

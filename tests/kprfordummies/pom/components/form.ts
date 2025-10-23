@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from "@playwright/test";
+import { expect, type Locator, type Page } from '@playwright/test';
 
 export class Form {
   constructor(public readonly page: Page) {}
@@ -8,11 +8,11 @@ export class Form {
   }
 
   private async getButton(name: string): Promise<Locator> {
-    return this.page.getByRole("button").getByText(name);
+    return this.page.getByRole('button').getByText(name);
   }
 
   async getPrincipalInputField(): Promise<Locator> {
-    return this.getInputField("principal");
+    return this.getInputField('principal');
   }
 
   async getInterestInputField(index: number = 0): Promise<Locator> {
@@ -24,35 +24,35 @@ export class Form {
   }
 
   async getAddInterestPeriodButton(): Promise<Locator> {
-    return this.getButton("Tambah Suku Bunga");
+    return this.getButton('Tambah Suku Bunga');
   }
 
   async getRemoveInterestPeriodButton(): Promise<Locator> {
-    return this.getButton("Hapus Suku Bunga");
+    return this.getButton('Hapus Suku Bunga');
   }
 
   async getStartDateInputField(): Promise<Locator> {
-    return this.getInputField("startDate");
+    return this.getInputField('startDate');
   }
 
   async getCalculateButton(): Promise<Locator> {
-    return this.getButton("Kalkulasi");
+    return this.getButton('Kalkulasi');
   }
 
   async getResetButton(): Promise<Locator> {
-    return this.getButton("Ulangi");
+    return this.getButton('Ulangi');
   }
 
   async validateErrorMessage(field: string, em: string) {
     const el = this.page
       .locator(`label[for="${field}"]`)
-      .locator(".error-message");
+      .locator('.error-message');
     await expect(el).toBeVisible();
     await expect(el).toHaveText(em);
   }
 
   async validatePrincipalErrorMessage(em: string) {
-    await this.validateErrorMessage("principal", em);
+    await this.validateErrorMessage('principal', em);
   }
 
   async validateInterestErrorMessage(index: number = 0, em: string) {
@@ -70,8 +70,8 @@ export class Form {
   async validateStartDateInitialValue() {
     const today = new Date();
     const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
     const expectedDate = `${year}-${month}-${day}`;
     await expect(await this.getStartDateInputField()).toBeVisible();
     await expect(await this.getStartDateInputField()).toHaveValue(expectedDate);
@@ -84,7 +84,7 @@ export class Form {
       this.getPeriodInputField(),
     ]) {
       await expect(await element).toBeVisible();
-      await expect(await element).toHaveValue("");
+      await expect(await element).toHaveValue('');
     }
 
     await this.validateStartDateInitialValue();

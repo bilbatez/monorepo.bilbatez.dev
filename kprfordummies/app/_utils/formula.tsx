@@ -1,9 +1,9 @@
-import { LoanRequest, PaymentDetails, PaymentSchedule } from "@/types/formula";
-import { InterestType } from "@/types/interest";
-import { DateUtils } from ".";
+import { LoanRequest, PaymentDetails, PaymentSchedule } from '@/types/formula';
+import { InterestType } from '@/types/interest';
+import { DateUtils } from '.';
 
 function generateAmortizationTableWithFlatInterestRate(
-  request: LoanRequest,
+  request: LoanRequest
 ): PaymentDetails {
   let totalMonths: number = request.calculateTotalMonths();
   let initialLoanBalance = request.principal;
@@ -26,7 +26,7 @@ function generateAmortizationTableWithFlatInterestRate(
     for (let index = 0; index < totalMonthsPeriod; index++) {
       const periodDate = DateUtils.addMonth(
         request.startDate,
-        index + indexOffset,
+        index + indexOffset
       );
       const finalLoanBalance =
         initialLoanBalance - monthlyRepayment < 0
@@ -39,7 +39,7 @@ function generateAmortizationTableWithFlatInterestRate(
         monthlyPayment,
         monthlyInterest,
         monthlyRepayment,
-        finalLoanBalance,
+        finalLoanBalance
       );
       paymentSchedules[indexOffset + index] = paymentSchedule;
       initialLoanBalance = finalLoanBalance;
@@ -55,12 +55,12 @@ function generateAmortizationTableWithFlatInterestRate(
     paymentSchedules,
     request.principal,
     totalPaidInterest,
-    totalPaid,
+    totalPaid
   );
 }
 
 function generateAmortizationTableWithEffectiveInterestRate(
-  request: LoanRequest,
+  request: LoanRequest
 ): PaymentDetails {
   const totalMonths = request.calculateTotalMonths();
   const monthlyRepayment = request.principal / totalMonths;
@@ -81,7 +81,7 @@ function generateAmortizationTableWithEffectiveInterestRate(
     for (let index = 0; index < totalMonthsPeriod; index++) {
       const periodDate = DateUtils.addMonth(
         request.startDate,
-        index + indexOffset,
+        index + indexOffset
       );
       const monthlyInterest = initialLoanBalance * monthlyInterestRate;
       const monthlyPayment = monthlyRepayment + monthlyInterest;
@@ -96,7 +96,7 @@ function generateAmortizationTableWithEffectiveInterestRate(
         monthlyPayment,
         monthlyInterest,
         monthlyRepayment,
-        finalLoanBalance,
+        finalLoanBalance
       );
       paymentSchedules[index + indexOffset] = paymentSchedule;
 
@@ -111,17 +111,17 @@ function generateAmortizationTableWithEffectiveInterestRate(
     paymentSchedules,
     request.principal,
     totalPaidInterest,
-    totalPaid,
+    totalPaid
   );
 }
 
 function generateAmortizationTableWithAnnuityInterestRate(
-  request: LoanRequest,
+  request: LoanRequest
 ): PaymentDetails {
   function calculateMonthlyPayment(
     principal: number,
     monthlyInterestRate: number,
-    totalMonths: number,
+    totalMonths: number
   ) {
     const numerator =
       principal *
@@ -145,13 +145,13 @@ function generateAmortizationTableWithAnnuityInterestRate(
     const monthlyPayment = calculateMonthlyPayment(
       initialLoanBalance,
       monthlyInterestRate,
-      totalMonths,
+      totalMonths
     );
 
     for (let index = 0; index < totalMonthsPeriod; index++) {
       const periodDate = DateUtils.addMonth(
         request.startDate,
-        index + indexOffset,
+        index + indexOffset
       );
       const monthlyInterest = initialLoanBalance * monthlyInterestRate;
       const monthlyRepayment = monthlyPayment - monthlyInterest;
@@ -166,7 +166,7 @@ function generateAmortizationTableWithAnnuityInterestRate(
         monthlyPayment,
         monthlyInterest,
         monthlyRepayment,
-        finalLoanBalance,
+        finalLoanBalance
       );
       paymentSchedules[index + indexOffset] = paymentSchedule;
 
@@ -183,13 +183,13 @@ function generateAmortizationTableWithAnnuityInterestRate(
     paymentSchedules,
     request.principal,
     totalPaidInterest,
-    totalPaid,
+    totalPaid
   );
 }
 
 export function generateAmortizationTable(
   loanRequest: LoanRequest,
-  interestType: InterestType,
+  interestType: InterestType
 ): PaymentDetails {
   switch (interestType) {
     case InterestType.FLAT:

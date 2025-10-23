@@ -1,4 +1,4 @@
-import { Table } from "@tanstack/react-table";
+import { Table } from '@tanstack/react-table';
 
 interface Props<T> {
   table: Table<T>;
@@ -12,25 +12,25 @@ function TablePagination<T>({ table }: Props<T>) {
           onClick={() => table.firstPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          {"<<"}
+          {'<<'}
         </button>
         <button
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
-          {"<"}
+          {'<'}
         </button>
         <button
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          {">"}
+          {'>'}
         </button>
         <button
           onClick={() => table.lastPage()}
           disabled={!table.getCanNextPage()}
         >
-          {">>"}
+          {'>>'}
         </button>
       </div>
 
@@ -38,7 +38,7 @@ function TablePagination<T>({ table }: Props<T>) {
         <div className="flex items-center gap-1 max-lg:mb-3">
           <div>Halaman</div>
           <strong>
-            {table.getState().pagination.pageIndex + 1} dari{" "}
+            {table.getState().pagination.pageIndex + 1} dari{' '}
             {table.getPageCount().toLocaleString()}
           </strong>
         </div>

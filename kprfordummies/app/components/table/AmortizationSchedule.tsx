@@ -1,12 +1,12 @@
-import { CurrencyUtils, FormulaUtils } from "@/app/_utils";
+import { CurrencyUtils, FormulaUtils } from '@/app/_utils';
 import {
   CurrentFormDataContext,
   CurrentInterestTypeContext,
-} from "@/app/context";
-import { PaymentDetails } from "@/types/formula";
-import { InterestType } from "@/types/interest";
-import { memo, useContext, useMemo } from "react";
-import AmortizationScheduleTable from "./AmortizationScheduleTable";
+} from '@/app/context';
+import { PaymentDetails } from '@/types/formula';
+import { InterestType } from '@/types/interest';
+import { memo, useContext, useMemo } from 'react';
+import AmortizationScheduleTable from './AmortizationScheduleTable';
 
 function AmortizationSchedule() {
   const { currentInterestType } = useContext(CurrentInterestTypeContext);
@@ -16,7 +16,7 @@ function AmortizationSchedule() {
     if (InterestType.NONE != currentInterestType && !!currentFormData) {
       return FormulaUtils.generateAmortizationTable(
         currentFormData,
-        currentInterestType,
+        currentInterestType
       );
     }
   }, [currentFormData, currentInterestType]);

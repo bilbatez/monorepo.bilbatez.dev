@@ -1,7 +1,7 @@
-import { memo } from "react";
-import { useFieldArray, useFormContext } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
-import NumberInputField from "./NumberInputField";
+import { memo } from 'react';
+import { useFieldArray, useFormContext } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
+import NumberInputField from './NumberInputField';
 
 function InterestPeriodField() {
   const MIN_FIELD = 1;
@@ -10,7 +10,7 @@ function InterestPeriodField() {
   const { control } = useFormContext();
   const { fields, append, remove } = useFieldArray({
     control: control,
-    name: "interestPeriod",
+    name: 'interestPeriod',
   });
 
   const currentNumberOfField = fields.length;
@@ -63,14 +63,14 @@ function InterestPeriodField() {
   return (
     <>
       {getFields()}
-      <div className={twMerge("flex mb-5")}>
+      <div className={twMerge('flex mb-5')}>
         {hasDeletableField() && (
           <button
             type="button"
             onClick={handleClickDelete}
             className={twMerge(
-              "btn-sd",
-              isMaximumNumberOfField() ? "w-full" : "w-1/2",
+              'btn-sd',
+              isMaximumNumberOfField() ? 'w-full' : 'w-1/2'
             )}
           >
             Hapus Suku Bunga
@@ -81,8 +81,8 @@ function InterestPeriodField() {
             type="button"
             onClick={handleClickAdd}
             className={twMerge(
-              "btn-sd",
-              isMinimumNumberOfField() ? "w-full" : "w-1/2",
+              'btn-sd',
+              isMinimumNumberOfField() ? 'w-full' : 'w-1/2'
             )}
           >
             Tambah Suku Bunga

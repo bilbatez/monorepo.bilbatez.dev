@@ -1,5 +1,5 @@
-import { ProjectsPage } from "@/bilbatez.dev/pom/projects-page";
-import { test as base } from "@playwright/test";
+import { ProjectsPage } from '@/bilbatez.dev/pom/projects-page';
+import { test as base } from '@playwright/test';
 
 const test = base.extend<{ projectsPage: ProjectsPage }>({
   projectsPage: async ({ page }, use) => {
@@ -10,20 +10,20 @@ const test = base.extend<{ projectsPage: ProjectsPage }>({
   },
 });
 
-test.describe("Projects page", async () => {
-  test("has title", async ({ projectsPage }) => {
+test.describe('Projects page', async () => {
+  test('has title', async ({ projectsPage }) => {
     await projectsPage.title.hasValidTitle();
   });
 
-  test("has navbar", async ({ projectsPage }) => {
+  test('has navbar', async ({ projectsPage }) => {
     await projectsPage.nav.hasValidNavs();
   });
 
-  test("has projects content", async ({ projectsPage }) => {
+  test('has projects content', async ({ projectsPage }) => {
     await projectsPage.hasProjectsContent();
   });
 
-  test("has footer", async ({ projectsPage }) => {
+  test('has footer', async ({ projectsPage }) => {
     await projectsPage.footer.hasValidFooter();
   });
 });

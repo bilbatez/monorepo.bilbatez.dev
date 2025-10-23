@@ -1,15 +1,15 @@
-import { CurrencyUtils, DateUtils } from "@/app/_utils";
+import { CurrencyUtils, DateUtils } from '@/app/_utils';
 import {
   CurrentFormDataContext,
   CurrentInterestTypeContext,
-} from "@/app/context";
-import { LoanRequest } from "@/types/formula";
-import { memo, useContext } from "react";
-import { FieldValues, FormProvider, useForm } from "react-hook-form";
-import { twMerge } from "tailwind-merge";
-import DateInputField from "./DateInputField";
-import InterestPeriodField from "./InterestPeriodField";
-import NumberInputField from "./NumberInputField";
+} from '@/app/context';
+import { LoanRequest } from '@/types/formula';
+import { memo, useContext } from 'react';
+import { FieldValues, FormProvider, useForm } from 'react-hook-form';
+import { twMerge } from 'tailwind-merge';
+import DateInputField from './DateInputField';
+import InterestPeriodField from './InterestPeriodField';
+import NumberInputField from './NumberInputField';
 
 interface Props {
   className?: string;
@@ -21,7 +21,7 @@ function InterestCalculator({ className }: Props) {
 
   const methods = useForm({
     defaultValues: {
-      principal: "",
+      principal: '',
       interestPeriod: [{}],
       startDate: DateUtils.htmlInputFormat(new Date()),
     },
