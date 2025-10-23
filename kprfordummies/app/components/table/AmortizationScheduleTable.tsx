@@ -49,20 +49,21 @@ function AmortizationScheduleTable({ paymentDetails }: Props) {
     pageIndex: 0,
     pageSize: 36,
   });
+
+  const tableOptions = {
+    data: paymentDetails.paymentSchedules,
+    columns: columns,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination,
+    state: {
+      pagination,
+    },
+  };
+
   return (
     <div className="amortization-table">
-      <Table<PaymentSchedule>
-        tableOptions={{
-          data: paymentDetails.paymentSchedules,
-          columns: columns,
-          getCoreRowModel: getCoreRowModel(),
-          getPaginationRowModel: getPaginationRowModel(),
-          onPaginationChange: setPagination,
-          state: {
-            pagination,
-          },
-        }}
-      />
+      <Table<PaymentSchedule> tableOptions={tableOptions} />
     </div>
   );
 }

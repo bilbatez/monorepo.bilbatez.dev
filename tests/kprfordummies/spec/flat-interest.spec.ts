@@ -121,19 +121,116 @@ test.describe('Flat Interest Calculator', async () => {
   });
 
   test.describe('calculation', async () => {
-    test.skip('has correct table result with a single flat interest period', async ({
+    test('has correct table result with a single flat interest period', async ({
       homePage,
     }) => {
       await (
         await homePage.form.getPrincipalInputField()
       ).fill(`${1_800_000_000}`);
+
       await (await homePage.form.getInterestInputField()).fill('8');
       await (await homePage.form.getPeriodInputField()).fill('10');
+
+      await (await homePage.form.getStartDateInputField()).fill('2024-02-20');
       await (await homePage.form.getCalculateButton()).click();
+
+      await homePage.form.validateCalculationSummary(
+        'Rp 1.800.000.000,00',
+        'Rp 1.440.000.000,00',
+        'Rp 3.240.000.000,00'
+      );
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        1,
+        '20/02/2024',
+        'Rp 27.000.000,00',
+        'Rp 15.000.000,00',
+        'Rp 12.000.000,00',
+        'Rp 1.800.000.000,00',
+        'Rp 1.785.000.000,00'
+      );
+      await (await homePage.form.getNextPageButton()).click();
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        62,
+        '20/03/2029',
+        'Rp 27.000.000,00',
+        'Rp 15.000.000,00',
+        'Rp 12.000.000,00',
+        'Rp 885.000.000,00',
+        'Rp 870.000.000,00'
+      );
+      await (await homePage.form.getLastPageButton()).click();
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        119,
+        '20/12/2033',
+        'Rp 27.000.000,00',
+        'Rp 15.000.000,00',
+        'Rp 12.000.000,00',
+        'Rp 30.000.000,00',
+        'Rp 15.000.000,00'
+      );
     });
 
-    //test.skip("has correct table result with multiple flat interest periods", async ({
-    //  homePage,
-    //}) => {});
+    test('has correct table result with multiple flat interest periods', async ({
+      homePage,
+    }) => {
+      await (
+        await homePage.form.getPrincipalInputField()
+      ).fill(`${1_800_000_000}`);
+
+      await (await homePage.form.getInterestInputField()).fill('8');
+      await (await homePage.form.getPeriodInputField()).fill('10');
+
+      await (await homePage.form.getAddInterestPeriodButton()).click();
+      await (await homePage.form.getInterestInputField(1)).fill('10.5');
+      await (await homePage.form.getPeriodInputField(1)).fill('5');
+
+      await (await homePage.form.getAddInterestPeriodButton()).click();
+      await (await homePage.form.getInterestInputField(2)).fill('12.3');
+      await (await homePage.form.getPeriodInputField(2)).fill('3');
+
+      await (await homePage.form.getStartDateInputField()).fill('2023-05-10');
+      await (await homePage.form.getCalculateButton()).click();
+
+      await homePage.form.validateCalculationSummary(
+        'Rp 1.800.000.000,00',
+        'Rp 1.832.000.000,00',
+        'Rp 3.632.000.000,00'
+      );
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        1,
+        '10/05/2023',
+        'Rp 20.333.333,33',
+        'Rp 8.333.333,33',
+        'Rp 12.000.000,00',
+        'Rp 1.800.000.000,00',
+        'Rp 1.791.666.666,67'
+      );
+      await (await homePage.form.getNextPageButton()).click();
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        54,
+        '10/10/2027',
+        'Rp 20.333.333,33',
+        'Rp 8.333.333,33',
+        'Rp 12.000.000,00',
+        'Rp 1.358.333.333,33',
+        'Rp 1.350.000.000,00'
+      );
+      await (await homePage.form.getLastPageButton()).click();
+
+      await homePage.form.validateAmortizationScheduleTableRow(
+        213,
+        '10/01/2041',
+        'Rp 10.333.333,33',
+        'Rp 8.333.333,33',
+        'Rp 2.000.000,00',
+        'Rp 33.333.333,33',
+        'Rp 25.000.000,00'
+      );
+    });
   });
 });

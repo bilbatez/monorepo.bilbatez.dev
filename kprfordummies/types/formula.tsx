@@ -55,7 +55,6 @@ export class PaymentSchedule {
   readonly repayment!: number;
   readonly finalLoanBalance!: number;
 
-  constructor();
   constructor(
     period: number,
     date: Date,
@@ -91,7 +90,6 @@ export class PaymentDetails {
   readonly totalPaidInterest!: number;
   readonly totalPaid!: number;
 
-  constructor();
   constructor(
     paymentSchedules: PaymentSchedule[],
     totalPrincipal: number,

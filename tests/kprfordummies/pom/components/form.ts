@@ -8,7 +8,7 @@ export class Form {
   }
 
   private async getButton(name: string): Promise<Locator> {
-    return this.page.getByRole('button').getByText(name);
+    return this.page.getByRole('button').getByText(name, { exact: true });
   }
 
   async getPrincipalInputField(): Promise<Locator> {
@@ -43,6 +43,14 @@ export class Form {
     return this.getButton('Ulangi');
   }
 
+  async getNextPageButton(): Promise<Locator> {
+    return this.getButton('>');
+  }
+
+  async getLastPageButton(): Promise<Locator> {
+    return this.getButton('>>');
+  }
+
   async validateErrorMessage(field: string, em: string) {
     const el = this.page
       .locator(`label[for="${field}"]`)
@@ -67,6 +75,24 @@ export class Form {
     await this.validateErrorMessage(`interestPeriod.${index}.period`, em);
   }
 
+  async validateCalculationSummary(
+    principal: string,
+    totalInterest: string,
+    totalPayment: string
+  ) {
+    const pairs = {
+      'Pokok Pinjaman:': principal,
+      'Total Bunga yang dibayarkan:': totalInterest,
+      'Total Keseluruhan:': totalPayment,
+    };
+    for (const [label, expectedValue] of Object.entries(pairs)) {
+      const value = this.page.locator(
+        `//div[text()="${label}"]/following-sibling::div[1]`
+      );
+      await expect(value).toHaveText(expectedValue);
+    }
+  }
+
   async validateStartDateInitialValue() {
     const today = new Date();
     const year = today.getFullYear();
@@ -75,6 +101,28 @@ export class Form {
     const expectedDate = `${year}-${month}-${day}`;
     await expect(await this.getStartDateInputField()).toBeVisible();
     await expect(await this.getStartDateInputField()).toHaveValue(expectedDate);
+  }
+
+  async validateAmortizationScheduleTableRow(
+    period: number,
+    date: string,
+    payment: string,
+    principal: string,
+    interest: string,
+    initialBalance: string,
+    finalBalance: string
+  ) {
+    const row = this.page.locator(`//tr[
+  td[1][normalize-space(text())="${period}"] and
+  td[2][normalize-space(translate(text(), '\u00A0', ' '))="${date}"] and
+  td[3][normalize-space(translate(text(), '\u00A0', ' '))="${payment}"] and
+  td[4][normalize-space(translate(text(), '\u00A0', ' '))="${principal}"] and
+  td[5][normalize-space(translate(text(), '\u00A0', ' '))="${interest}"] and
+  td[6][normalize-space(translate(text(), '\u00A0', ' '))="${initialBalance}"] and
+  td[7][normalize-space(translate(text(), '\u00A0', ' '))="${finalBalance}"]
+]`);
+
+    await expect(row).toHaveCount(1);
   }
 
   async hasValidInitialForm() {
