@@ -57,6 +57,7 @@ function NumberInputField({
     validate: {
       validateIsNumber: (num: number) => !isNaN(num) || em.MUST_BE_NUMBER,
     },
+    valueAsNumber: true,
     onChange: () => trigger(id),
   };
 

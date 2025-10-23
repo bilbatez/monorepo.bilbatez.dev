@@ -32,11 +32,11 @@ function AmortizationSchedule() {
           <div className="font-bold">
             {CurrencyUtils.format(paymentDetails.totalPrincipal)}
           </div>
-          <div>Total Bunga yang dibayarkan: </div>
+          <div>Total Bunga yang dibayarkan:</div>
           <div className="font-bold">
             {CurrencyUtils.format(paymentDetails.totalPaidInterest)}
           </div>
-          <div>Total Keseluruhan: </div>
+          <div>Total Keseluruhan:</div>
           <div className="font-bold">
             {CurrencyUtils.format(paymentDetails.totalPaid)}
           </div>
