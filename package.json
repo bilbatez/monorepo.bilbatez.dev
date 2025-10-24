@@ -17,8 +17,8 @@
   },
   "dependencies": {
     "next": "16.0.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
@@ -27,8 +27,8 @@
     "@next/eslint-plugin-next": "^16.0.0",
     "@playwright/test": "^1.56.1",
     "@types/node": "^20.19.23",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.38.0",
     "eslint-config-next": "16.0.0",
