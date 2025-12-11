@@ -40,14 +40,13 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
     {
+      name: 'Firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
       name: 'Safari',
       use: { ...devices['Desktop Safari'] },
     },
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-
     /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
