@@ -28,10 +28,8 @@ bun eslint
 
 ### Running Applications Locally
 
-Change the `*` wildcard to package name to run certain application
-
 ```shell
-bun --filter "*" dev
+bun dev
 ```
 
 ### Running Playwright Tests

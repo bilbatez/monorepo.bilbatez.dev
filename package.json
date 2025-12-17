@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "postinstall": "bun playwright install",
+    "dev:all": "bun --filter '*' dev",
     "test": "bun playwright test",
     "test:ui": "bun playwright test --ui",
     "clean": "find . -type d \\( -name 'node_modules' -o -name '.next' \\) -exec rm -rf {} +",
@@ -17,33 +18,33 @@
   },
   "dependencies": {
     "next": "16.0.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.38.0",
-    "@next/eslint-plugin-next": "^16.0.0",
-    "@playwright/test": "^1.56.1",
-    "@types/node": "^20.19.23",
+    "@eslint/js": "^9.39.2",
+    "@next/eslint-plugin-next": "^16.0.10",
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^20.19.27",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.38.0",
+    "autoprefixer": "^10.4.23",
+    "eslint": "^9.39.2",
     "eslint-config-next": "16.0.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-playwright": "^2.2.2",
+    "eslint-plugin-playwright": "^2.4.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "postcss": "^8.5.6",
     "postcss-import": "^16.1.1",
     "prettier": "3.5.2",
-    "sass": "^1.93.2",
-    "tailwindcss": "^3.4.18",
+    "sass": "^1.97.0",
+    "tailwindcss": "^3.4.19",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2"
+    "typescript-eslint": "^8.50.0"
   },
   "lint-staged": {
     "**/*": [
