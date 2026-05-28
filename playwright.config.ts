@@ -19,7 +19,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 3 : 2,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: process.env.CI
     ? [['dot'], ['html', { open: 'never' }]]
@@ -34,41 +34,33 @@ export default defineConfig({
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      name: 'Firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    {
-      name: 'Safari',
-      use: { ...devices['Desktop Safari'] },
-    },
-    /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
-  ],
+  projects: process.env.CI
+    ? [{ name: 'Google Chrome', use: { ...devices['Desktop Chrome'] } }]
+    : [
+        { name: 'Google Chrome', use: { ...devices['Desktop Chrome'] } },
+        { name: 'Firefox', use: { ...devices['Desktop Firefox'] } },
+        { name: 'Safari', use: { ...devices['Desktop Safari'] } },
+        { name: 'Mobile Chrome', use: { ...devices['Pixel 5'] } },
+        { name: 'Mobile Safari', use: { ...devices['iPhone 12'] } },
+      ],
 
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: 'bun run --filter "bilbatez.dev" dev',
+      command: process.env.CI
+        ? 'bun run --filter "bilbatez.dev" preview'
+        : 'bun run --filter "bilbatez.dev" dev',
       url: 'http://127.0.0.1:3001',
       reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
     },
     {
-      command: 'bun run --filter "kprfordummies" dev',
+      command: process.env.CI
+        ? 'bun run --filter "kprfordummies" preview'
+        : 'bun run --filter "kprfordummies" dev',
       url: 'http://127.0.0.1:3002',
       reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
     },
   ],
 });

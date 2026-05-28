@@ -1,8 +1,7 @@
 import { CurrentInterestType } from '@/types/context';
 import { InterestType } from '@/types/interest';
-import Image from 'next/image';
-import Link from 'next/link';
 import { memo, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CurrentInterestTypeContext } from '../context';
 
 function Title() {
@@ -16,8 +15,8 @@ function Title() {
 
   return (
     <div>
-      <Link href="/" className="inline-flex items-center" onClick={handleClick}>
-        <Image
+      <Link to="/" className="inline-flex items-center" onClick={handleClick}>
+        <img
           src="/assets/house.svg"
           width={40}
           height={40}

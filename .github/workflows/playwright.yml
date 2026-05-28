@@ -6,20 +6,28 @@ on:
     branches: [main, master]
 jobs:
   test:
-    timeout-minutes: 10
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
       - name: Install dependencies
         run: bun install
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('bun.lock') }}
       - name: Install Playwright Browsers
-        run: bun playwright install --with-deps
+        run: bunx playwright install --with-deps
+      - name: Build apps
+        run: |
+          bun run --filter "bilbatez.dev" build
+          bun run --filter "kprfordummies" build
       - name: Run Playwright tests
         run: bun run test
       - uses: actions/upload-artifact@v4

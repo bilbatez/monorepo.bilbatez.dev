@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 export default function NotFound() {
   return (
@@ -6,7 +6,7 @@ export default function NotFound() {
       Oops! Salah jalan. Kita kembali ke beranda, yuk!
       <br />
       <div className="mt-3">
-        <Link href="/">
+        <Link to="/">
           <button>Kembali ke beranda</button>
         </Link>
       </div>

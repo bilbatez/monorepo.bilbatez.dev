@@ -1,6 +1,4 @@
-'use client';
-
-export default function Home() {
+export function Home() {
   return (
     <article id="intro">
       <p>
@@ -15,15 +13,27 @@ export default function Home() {
       </p>
       <p className="mt-2">
         Currently, I&apos;m a software engineer at{' '}
-        <a href="https://www.bankofamerica.com/" target="_blank">
+        <a
+          href="https://www.bankofamerica.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="text-sky-600">[Bank of America]</span>
         </a>{' '}
         in Singapore. In the past, I&apos;ve worked for{' '}
-        <a href="https://www.shopee.sg/" target="_blank">
+        <a
+          href="https://www.shopee.sg/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="text-sky-600">[Shopee]</span>
         </a>{' '}
         and{' '}
-        <a href="https://www.blibli.com" target="_blank">
+        <a
+          href="https://www.blibli.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="text-sky-600">[Blibli]</span>
         </a>
         .
