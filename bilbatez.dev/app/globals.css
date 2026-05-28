@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-serif:
+    'MesloLGS-NF', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
 
 @font-face {
   font-family: 'MesloLGS-NF';

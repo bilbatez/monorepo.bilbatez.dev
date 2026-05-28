@@ -1,11 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-$black: #212121;
-$green: #9ccc65;
-$green-dark: #639131;
-$green-light: #dcedc8;
+:root {
+  --color-app-black: #212121;
+  --color-app-green: #9ccc65;
+  --color-app-green-dark: #639131;
+  --color-app-green-light: #dcedc8;
+}
+
+@theme {
+  --font-serif:
+    'Spectral', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
 
 @font-face {
   font-family: 'Spectral';
@@ -37,8 +42,8 @@ $green-light: #dcedc8;
 
 html {
   font-size: 100%;
-  background-color: $green-light;
-  color: $black;
+  background-color: var(--color-app-green-light);
+  color: var(--color-app-black);
 
   body {
     @apply sm:mx-auto justify-between;
@@ -49,7 +54,7 @@ html {
       @apply shadow-md;
       @apply transition duration-150;
 
-      background-color: $green;
+      background-color: var(--color-app-green);
 
       &.btn-sd {
         @apply bg-gray-100;
@@ -58,15 +63,16 @@ html {
       &:hover,
       &:disabled {
         @apply text-white;
-        background-color: $green-dark;
+        background-color: var(--color-app-green-dark);
       }
     }
+
     form {
       @apply max-w-lg my-3 p-3;
       @apply border-2 rounded-lg;
       @apply shadow-md;
 
-      border-color: $green-dark;
+      border-color: var(--color-app-green-dark);
 
       label {
         @apply block mb-2 w-full;
@@ -78,7 +84,7 @@ html {
         @apply shadow-md;
 
         &:focus {
-          outline-color: $green-dark;
+          outline-color: var(--color-app-green-dark);
         }
       }
 
@@ -99,11 +105,11 @@ html {
           @apply px-3 py-1;
           @apply text-center;
 
-          border-color: $green-dark;
+          border-color: var(--color-app-green-dark);
         }
 
         th {
-          background-color: $green;
+          background-color: var(--color-app-green);
         }
 
         tr:nth-child(even) {
@@ -116,7 +122,7 @@ html {
         @apply p-2 rounded shadow-md;
 
         &:focus {
-          outline-color: $green-dark;
+          outline-color: var(--color-app-green-dark);
         }
       }
 
@@ -133,7 +139,7 @@ html {
     .footer-hero {
       @apply border-dashed border-2 rounded-md m-2 p-1;
       @apply transition duration-75;
-      border-color: $green-dark;
+      border-color: var(--color-app-green-dark);
 
       &:hover {
         @apply border-solid;

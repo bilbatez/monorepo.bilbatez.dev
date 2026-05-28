@@ -11,7 +11,7 @@ export class Nav {
   constructor(public readonly page: Page) {}
 
   async gotoWebsite() {
-    await this.page.goto('http://localhost:3001');
+    await this.page.goto('http://127.0.0.1:3001');
   }
 
   async gotoHome() {

@@ -1,42 +1,45 @@
 import eslint from '@eslint/js';
-import eslintNextPlugin from '@next/eslint-plugin-next';
 import prettierConfig from 'eslint-config-prettier';
 import { defineConfig, globalIgnores } from 'eslint/config';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
-
-const bilbatezdevConfig = {
-  plugins: {
-    next: eslintNextPlugin,
-  },
-  settings: {
-    next: {
-      rootDir: 'bilbatez.dev/',
-    },
-  },
-};
-
-const kprfordummiesConfig = {
-  plugins: {
-    next: eslintNextPlugin,
-  },
-  settings: {
-    next: {
-      rootDir: 'kprfordummies/',
-    },
-  },
-};
-
-const projectConfigs = [bilbatezdevConfig, kprfordummiesConfig];
 
 export default defineConfig([
   globalIgnores([
-    '**/.next/**',
-    '**/out/**',
+    '**/dist/**',
     '**/build/**',
-    '**/next-env.d.ts',
+    '**/node_modules/**',
+    '**/.claude/**',
   ]),
   eslint.configs.recommended,
   tseslint.configs.recommended,
-  ...projectConfigs,
+  {
+    files: ['**/*.{ts,tsx}'],
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooksPlugin,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+      },
+    },
+    rules: {
+      ...reactPlugin.configs.recommended.rules,
+      ...reactHooksPlugin.configs.recommended.rules,
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+    },
+    settings: {
+      react: { version: 'detect' },
+    },
+  },
+  {
+    files: ['tests/**/*.{ts,tsx}'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'off',
+    },
+  },
   prettierConfig,
 ]);

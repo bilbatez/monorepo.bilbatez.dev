@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
-    "prod": "next build && next start -p 3001",
+    "dev": "vite --port 3001 --strictPort",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --port 3001 --strictPort",
+    "prod": "bun run build && bun run preview",
     "test": "cd .. && bun playwright test tests/bilbatez.dev"
   }
 }

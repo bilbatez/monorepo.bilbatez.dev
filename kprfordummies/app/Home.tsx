@@ -1,5 +1,3 @@
-'use client';
-
 import { LoanRequest } from '@/types/formula';
 import { InterestType } from '@/types/interest';
 import { MathJaxContext } from 'better-react-mathjax';
