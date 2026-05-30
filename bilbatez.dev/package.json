@@ -8,5 +8,12 @@
     "preview": "vite preview --port 3001 --strictPort",
     "prod": "bun run build && bun run preview",
     "test": "cd .. && bun playwright test tests/bilbatez.dev"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1",
+    "marked": "^18.0.4"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9"
   }
 }

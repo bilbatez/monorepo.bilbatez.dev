@@ -1,27 +1,22 @@
 import { Link, Outlet } from 'react-router-dom';
+import ui from '../content/en/ui.json';
 
 function TitleComponent() {
   return (
     <div className="py-4 mt-4 text-center">
-      <h1>BILBATEZ.DEV | Wazzup (˵ •̀ ᴗ - ˵ ) ✧</h1>
+      <h1>{ui.title}</h1>
     </div>
   );
 }
 
 function NavComponent() {
-  const navs = [
-    { name: 'Intro', link: '/' },
-    { name: 'Corpo Exp', link: '/experience' },
-    { name: 'Prjx', link: '/projects' },
-  ];
-
   return (
     <nav className="grid grid-cols-3 text-center">
-      {navs.map((nav, index) => (
+      {ui.nav.map((nav, index) => (
         <Link
           key={nav.name}
           to={nav.link}
-          className={`py-3.5 ${index + 1 == navs.length ? '' : 'border-r'}`}
+          className={`py-3.5 ${index + 1 == ui.nav.length ? '' : 'border-r'}`}
         >
           {nav.name}
         </Link>
@@ -31,24 +26,11 @@ function NavComponent() {
 }
 
 function FooterComponent() {
-  const socials = [
-    {
-      name: 'Github',
-      image: { source: '/assets/github-mark.svg', alt: 'Github Icon' },
-      link: '/github',
-    },
-    {
-      name: 'Linkedin',
-      image: { source: '/assets/linkedin-mark.svg', alt: 'Linkedin Icon' },
-      link: '/linkedin',
-    },
-  ];
-
   return (
     <footer className="container mx-auto mt-4 grid grid-cols-1">
-      <h2>✧ Socials ～( ■ _ ■ )～ ✧</h2>
+      <h2>{ui.footer.heading}</h2>
       <ul>
-        {socials.map((social, index) => (
+        {ui.footer.socials.map((social, index) => (
           <li className={index == 0 ? 'mt-4' : 'mt-2'} key={social.name}>
             <Link
               className="inline-flex"
@@ -57,10 +39,10 @@ function FooterComponent() {
               rel="noopener noreferrer"
             >
               <img
-                src={social.image.source}
+                src={social.icon}
                 width={24}
                 height={24}
-                alt={social.image.alt}
+                alt={social.iconAlt}
               />
               <span className="ml-2">{social.name}</span>
             </Link>
