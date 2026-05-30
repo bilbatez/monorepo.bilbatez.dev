@@ -1,0 +1,25 @@
+{
+  "title": "BILBATEZ.DEV | Wazzup (˵ •̀ ᴗ - ˵ ) ✧",
+  "nav": [
+    { "name": "Intro", "link": "/" },
+    { "name": "Corpo Exp", "link": "/experience" },
+    { "name": "Prjx", "link": "/projects" }
+  ],
+  "footer": {
+    "heading": "✧ Socials ～( ■ _ ■ )～ ✧",
+    "socials": [
+      {
+        "name": "Github",
+        "icon": "/assets/github-mark.svg",
+        "iconAlt": "Github Icon",
+        "link": "/github"
+      },
+      {
+        "name": "Linkedin",
+        "icon": "/assets/linkedin-mark.svg",
+        "iconAlt": "Linkedin Icon",
+        "link": "/linkedin"
+      }
+    ]
+  }
+}

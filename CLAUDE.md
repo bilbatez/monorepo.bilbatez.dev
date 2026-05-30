@@ -18,7 +18,14 @@ monorepo.bilbatez.dev/
 ├── bilbatez.dev/          # Personal portfolio site, port 3001
 │   ├── index.html         # Vite entry HTML
 │   ├── src/main.tsx       # React entry — BrowserRouter + Routes
-│   ├── app/               # Page components (Home, Experience, Projects, Layout, NotFound, ExternalRedirect)
+│   ├── app/               # Page components + content.ts loader
+│   │   ├── content.ts     # Typed loader: parses ?raw markdown imports via js-yaml + marked
+│   │   └── ...            # Home, Experience, Projects, Layout, NotFound, ExternalRedirect
+│   ├── content/en/        # Editable content files (i18n-ready: one subfolder per locale)
+│   │   ├── home.md        # Bio prose (markdown body → dangerouslySetInnerHTML)
+│   │   ├── experience.md  # Work history (YAML frontmatter only)
+│   │   ├── projects.md    # Projects list (YAML frontmatter: intro + projects array)
+│   │   └── ui.json        # UI strings: h1 title, nav labels, footer heading + socials
 │   ├── public/            # Static assets (favicon, manifest.webmanifest, fonts, social icons)
 │   └── vite.config.ts
 ├── kprfordummies/         # KPR (mortgage) calculator app, port 3002
@@ -72,6 +79,8 @@ bun format                 # Prettier across all workspaces
 
 ## Gotchas
 
+- `bilbatez.dev` content deps: `js-yaml` (browser-safe YAML) + `marked` (markdown→HTML). **Do NOT use `gray-matter`** — it requires `Buffer` (Node.js global), which is undefined in WebKit/Safari and causes the entire React app to silently fail to render. `js-yaml` v4 has no such dependency.
+- `bilbatez.dev/content/en/` files are loaded via Vite `?raw` imports (build-time bundle, no runtime fetch). `content.ts` parses YAML frontmatter with a manual `---` regex split + `js-yaml.load()`. To add a new locale: create `content/<locale>/` with the same four files and update `content.ts` to import them.
 - `@playwright/test` is **pinned to `1.56.1`** (not `^1.56.1`). Newer Chromium ships V8 with updated CLDR data that drops the `,00` cents from `Intl.NumberFormat('id-ID', { currency: 'IDR' })`, breaking kpr currency assertions. Bumping requires also fixing `kprfordummies/app/_utils/currency.tsx` to force `minimumFractionDigits: 2`.
 - Tailwind v4 reads config from CSS via `@import 'tailwindcss'` + `@theme { … }` blocks. There is no `tailwind.config.ts`.
 - `bilbatez.dev/public/contents/` is untracked (gitignored / drafts).
