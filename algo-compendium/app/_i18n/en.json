@@ -1,0 +1,376 @@
+{
+  "site": {
+    "title": "Algorithm Compendium",
+    "subtitle": "Interactive visualizations and explanations for classic algorithms"
+  },
+  "nav": {
+    "collapse": "Collapse",
+    "expand": "Expand sidebar",
+    "home_tooltip": "Go to home"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "id": "Indonesian"
+  },
+  "home": {
+    "algorithms": "algorithms"
+  },
+  "categories": {
+    "sorting": {
+      "name": "Sorting",
+      "description": "Algorithms that order elements by comparison or counting methods."
+    },
+    "searching": {
+      "name": "Searching",
+      "description": "Algorithms that locate elements within data structures."
+    },
+    "graph": {
+      "name": "Graph",
+      "description": "Algorithms that traverse and find paths in networks."
+    },
+    "tree": {
+      "name": "Tree",
+      "description": "Algorithms that traverse and manipulate tree structures."
+    },
+    "dynamic-programming": {
+      "name": "Dynamic Programming",
+      "description": "Algorithms that solve overlapping subproblems optimally."
+    },
+    "string-matching": {
+      "name": "String Matching",
+      "description": "Algorithms that find patterns within text efficiently."
+    },
+    "backtracking": {
+      "name": "Backtracking",
+      "description": "Algorithms that explore solution spaces systematically."
+    },
+    "math": {
+      "name": "Mathematics",
+      "description": "Classic mathematical algorithms and number theory."
+    }
+  },
+  "category_list": {
+    "coming_soon": "Coming soon",
+    "coming_soon_desc": "Algorithms for this category are being added.",
+    "avg_label": "Avg"
+  },
+  "detail": {
+    "overview": "Overview",
+    "complexity": "Complexity",
+    "pseudocode": "Pseudocode",
+    "visualizer": "Visualizer",
+    "not_found": "Algorithm not found",
+    "not_found_desc": "This algorithm doesn't exist or hasn't been added yet.",
+    "back_home": "← Back to home"
+  },
+  "complexity": {
+    "best": "Best",
+    "average": "Average",
+    "worst": "Worst",
+    "space": "Space",
+    "stable": "Stable",
+    "unstable": "Unstable",
+    "in_place": "In-place",
+    "extra_space": "Extra space"
+  },
+  "controls": {
+    "play": "Play",
+    "pause": "Pause",
+    "step_back": "Step back",
+    "step_forward": "Step forward",
+    "reset": "Reset",
+    "speed": "Speed",
+    "steps": "Steps",
+    "randomize": "Randomize",
+    "apply": "Apply"
+  },
+  "visualizer": {
+    "sort_legend": {
+      "unsorted": "Unsorted",
+      "comparing": "Comparing",
+      "swapping": "Swapping",
+      "pivot": "Pivot",
+      "sorted": "Sorted"
+    },
+    "search_legend": {
+      "unsearched": "Unsearched",
+      "current": "Current",
+      "midpoint": "Midpoint",
+      "bounds": "Bounds",
+      "eliminated": "Eliminated",
+      "found": "Found",
+      "target": "Target",
+      "found_at_index": "Found at index"
+    },
+    "string": {
+      "text_label": "Text",
+      "pattern_label": "Pattern (offset:",
+      "found_at": "Found at positions:"
+    },
+    "math": {
+      "steps_label": "Steps",
+      "sequence_label": "Sequence",
+      "binary_steps_label": "Binary Exponentiation Steps",
+      "result_label": "Result:"
+    },
+    "grid": {
+      "result_label": "Result:"
+    },
+    "coming_soon": "Visualizer coming soon"
+  },
+  "algorithms": {
+    "bubble-sort": {
+      "name": "Bubble Sort",
+      "description": "Repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until no swaps are needed."
+    },
+    "selection-sort": {
+      "name": "Selection Sort",
+      "description": "Divides the list into a sorted and unsorted portion. On each pass, finds the minimum element from the unsorted portion and places it at the end of the sorted portion."
+    },
+    "insertion-sort": {
+      "name": "Insertion Sort",
+      "description": "Builds the sorted array one element at a time by picking each element and inserting it into its correct position in the already-sorted portion."
+    },
+    "shell-sort": {
+      "name": "Shell Sort",
+      "description": "An extension of insertion sort that allows the exchange of far-apart elements. Uses a decreasing sequence of gaps to progressively reduce the disorder before a final insertion sort pass."
+    },
+    "cocktail-shaker-sort": {
+      "name": "Cocktail Shaker Sort",
+      "description": "A bidirectional variant of bubble sort that traverses the list in both directions alternately. This helps move small elements at the end of the list to the front more quickly."
+    },
+    "merge-sort": {
+      "name": "Merge Sort",
+      "description": "A divide-and-conquer algorithm that divides the array into halves, recursively sorts each half, and then merges the sorted halves. Guarantees O(n log n) in all cases."
+    },
+    "quick-sort": {
+      "name": "Quick Sort",
+      "description": "A divide-and-conquer algorithm that selects a pivot element and partitions the array around it, recursively sorting the sub-arrays. Very efficient in practice with O(n log n) average case."
+    },
+    "heap-sort": {
+      "name": "Heap Sort",
+      "description": "Builds a max-heap from the array, then repeatedly extracts the maximum element and places it at the end of the sorted portion. Achieves O(n log n) in all cases with O(1) space."
+    },
+    "counting-sort": {
+      "name": "Counting Sort",
+      "description": "A non-comparison integer sorting algorithm that counts the occurrences of each value and uses those counts to place elements directly in their final positions. Efficient for small integer ranges."
+    },
+    "radix-sort": {
+      "name": "Radix Sort",
+      "description": "A non-comparison integer sorting algorithm that sorts elements digit by digit from the least significant digit (LSD) to the most significant digit (MSD) using counting sort as a stable subroutine."
+    },
+    "linear-search": {
+      "name": "Linear Search",
+      "description": "Sequentially checks each element of the list until a match is found or the whole list has been searched. Works on both sorted and unsorted arrays."
+    },
+    "binary-search": {
+      "name": "Binary Search",
+      "description": "Efficiently searches a sorted array by repeatedly dividing the search interval in half. If the target is less than the midpoint, search the left half; otherwise search the right half."
+    },
+    "jump-search": {
+      "name": "Jump Search",
+      "description": "Works on sorted arrays by jumping ahead by fixed steps of √n, then performing a linear search backwards in the identified block. Faster than linear search for large sorted arrays."
+    },
+    "interpolation-search": {
+      "name": "Interpolation Search",
+      "description": "An improved variant of binary search for uniformly distributed sorted arrays. Uses interpolation to estimate the position of the target, potentially finding it faster than binary search."
+    },
+    "exponential-search": {
+      "name": "Exponential Search",
+      "description": "Finds the range where the target may exist by exponentially doubling the bound, then performs binary search within that range. Useful for unbounded or infinite sorted arrays."
+    },
+    "ternary-search": {
+      "name": "Ternary Search",
+      "description": "Divides the sorted array into three parts by computing two midpoints, then eliminates two-thirds of the search space each iteration. Similar to binary search but with three partitions."
+    },
+    "bfs": {
+      "name": "Breadth-First Search",
+      "description": "Explores a graph level by level from the start node, visiting all neighbors before moving deeper. Finds shortest path in unweighted graphs."
+    },
+    "dfs": {
+      "name": "Depth-First Search",
+      "description": "Explores as far as possible along each branch before backtracking. Useful for topological sorting, cycle detection, and finding connected components."
+    },
+    "dijkstra": {
+      "name": "Dijkstra's Algorithm",
+      "description": "Finds the shortest path from a source node to all other nodes in a weighted graph with non-negative edge weights. Uses a greedy approach with a priority queue."
+    },
+    "bellman-ford": {
+      "name": "Bellman-Ford",
+      "description": "Finds shortest paths from a source to all vertices, handling negative edge weights. Detects negative cycles. Slower than Dijkstra but more versatile."
+    },
+    "floyd-warshall": {
+      "name": "Floyd-Warshall",
+      "description": "Computes shortest paths between all pairs of vertices. Works with negative edge weights (but not negative cycles). Time complexity O(V³)."
+    },
+    "kruskal": {
+      "name": "Kruskal's Algorithm",
+      "description": "Builds a Minimum Spanning Tree by sorting all edges and greedily adding the smallest edge that does not create a cycle, using Union-Find for cycle detection."
+    },
+    "prim": {
+      "name": "Prim's Algorithm",
+      "description": "Builds a Minimum Spanning Tree by starting from one node and greedily growing the MST one edge at a time, always picking the minimum-weight edge that connects a new vertex."
+    },
+    "topological-sort": {
+      "name": "Topological Sort",
+      "description": "Orders vertices in a Directed Acyclic Graph (DAG) such that for every directed edge u → v, u appears before v. Uses DFS with a post-order stack."
+    },
+    "inorder-traversal": {
+      "name": "In-order Traversal",
+      "description": "Visits nodes in Left → Root → Right order, producing sorted output for a BST."
+    },
+    "preorder-traversal": {
+      "name": "Pre-order Traversal",
+      "description": "Visits nodes in Root → Left → Right order. Useful for creating a copy of the tree or prefix expression evaluation."
+    },
+    "postorder-traversal": {
+      "name": "Post-order Traversal",
+      "description": "Visits nodes in Left → Right → Root order. Useful for deleting a tree or evaluating postfix expressions."
+    },
+    "level-order-traversal": {
+      "name": "Level-order Traversal",
+      "description": "Visits nodes level by level using a queue (BFS). Explores all nodes at depth d before nodes at depth d+1."
+    },
+    "bst-insert": {
+      "name": "BST Insert",
+      "description": "Inserts a new value into a Binary Search Tree by comparing at each node to find the correct position."
+    },
+    "bst-search": {
+      "name": "BST Search",
+      "description": "Searches for a value in a Binary Search Tree by comparing at each node and moving left or right accordingly."
+    },
+    "bst-delete": {
+      "name": "BST Delete",
+      "description": "Deletes a value from a Binary Search Tree, handling three cases: leaf node, one child, and two children (in-order successor)."
+    },
+    "fibonacci": {
+      "name": "Fibonacci",
+      "description": "Computes the nth Fibonacci number using bottom-up dynamic programming, storing all values in a 1D table to avoid redundant computation."
+    },
+    "lcs": {
+      "name": "Longest Common Subsequence",
+      "description": "Finds the longest subsequence common to two strings. Uses a 2D DP table where dp[i][j] is the LCS length of the first i characters of s1 and first j characters of s2."
+    },
+    "knapsack": {
+      "name": "0/1 Knapsack",
+      "description": "Given items with weights and values, find the maximum total value that fits in a knapsack of capacity W. Each item can be taken at most once."
+    },
+    "coin-change": {
+      "name": "Coin Change",
+      "description": "Finds the minimum number of coins needed to make up a given amount. Uses a 1D DP array where dp[i] is the minimum coins required for amount i."
+    },
+    "lis": {
+      "name": "Longest Increasing Subsequence",
+      "description": "Finds the length of the longest strictly increasing subsequence in an array. Uses O(n²) DP where dp[i] is the LIS length ending at index i."
+    },
+    "edit-distance": {
+      "name": "Edit Distance",
+      "description": "Computes the minimum number of single-character edits (insertions, deletions, substitutions) required to transform one string into another."
+    },
+    "naive-search": {
+      "name": "Naive String Search",
+      "description": "The simplest string matching algorithm that checks for the pattern at each position in the text by comparing characters one by one. Simple but inefficient for large inputs."
+    },
+    "kmp-search": {
+      "name": "KMP Search",
+      "description": "Knuth-Morris-Pratt algorithm preprocesses the pattern to build a failure function that allows skipping redundant comparisons. Achieves linear time complexity by never re-examining characters."
+    },
+    "rabin-karp-search": {
+      "name": "Rabin-Karp Search",
+      "description": "Uses rolling hash to efficiently scan the text. Computes a hash for each window of the text and compares it against the pattern hash. Only performs character-by-character verification on hash matches."
+    },
+    "boyer-moore-search": {
+      "name": "Boyer-Moore Search",
+      "description": "Compares the pattern right-to-left and uses the bad character heuristic to skip large portions of the text. Often the fastest practical string matching algorithm for large alphabets."
+    },
+    "n-queens": {
+      "name": "N-Queens",
+      "description": "Place N queens on an N×N chessboard so that no two queens attack each other (no shared row, column, or diagonal). Uses backtracking to find the first valid arrangement."
+    },
+    "sudoku-solver": {
+      "name": "Sudoku Solver",
+      "description": "Solve a 4×4 Sudoku puzzle using backtracking. Each row, column, and 2×2 box must contain each digit from 1 to 4 exactly once."
+    },
+    "permutations": {
+      "name": "Permutations",
+      "description": "Generate all permutations of [1, 2, 3] using backtracking with in-place swapping. Each row in the grid shows one permutation."
+    },
+    "subsets": {
+      "name": "Subsets",
+      "description": "Generate all subsets (power set) of [1, 2, 3] using backtracking. Each row shows one subset, with included elements filled in."
+    },
+    "sieve-of-eratosthenes": {
+      "name": "Sieve of Eratosthenes",
+      "description": "Efficiently finds all prime numbers up to N by iteratively marking multiples of each prime as composite."
+    },
+    "euclidean-gcd": {
+      "name": "Euclidean GCD",
+      "description": "Computes the Greatest Common Divisor of two numbers using repeated division. Each step reduces the problem until the remainder is zero."
+    },
+    "fast-power": {
+      "name": "Fast Power (Binary Exponentiation)",
+      "description": "Computes base^exp in O(log exp) time by squaring the base at each step and multiplying into the result only when the corresponding bit of the exponent is set."
+    },
+    "prime-factorization": {
+      "name": "Prime Factorization",
+      "description": "Decomposes a number into its prime factors by trial division up to the square root of n."
+    },
+    "fibonacci-variants": {
+      "name": "Fibonacci Variants",
+      "description": "Demonstrates iterative Fibonacci computation with memoization. Each value is computed from the two preceding values, building the sequence step by step."
+    },
+    "comb-sort": {
+      "name": "Comb Sort",
+      "description": "An improvement over bubble sort that eliminates turtles (small values near the end of the list) by using a gap larger than 1. The gap shrinks by a factor of 1.3 each pass until it reaches 1."
+    },
+    "tim-sort": {
+      "name": "Tim Sort",
+      "description": "A hybrid stable sorting algorithm derived from merge sort and insertion sort. Used as the default sort in Python and Java. Divides data into small runs sorted by insertion sort, then merges them."
+    },
+    "pancake-sort": {
+      "name": "Pancake Sort",
+      "description": "Sorts by performing a series of 'pancake flips': reversing a prefix of the array. The only operation allowed is flipping the first k elements. Named after the pancake sorting problem."
+    },
+    "fibonacci-search": {
+      "name": "Fibonacci Search",
+      "description": "Searches a sorted array using Fibonacci numbers to divide the search space. Creates an offset using Fibonacci sequence values, eliminating roughly 1/3 of the remaining elements each step."
+    },
+    "tarjan-scc": {
+      "name": "Tarjan's SCC",
+      "description": "Finds all Strongly Connected Components in a directed graph using a single DFS pass. Uses a stack and low-link values to identify SCCs. Named after Robert Tarjan."
+    },
+    "a-star": {
+      "name": "A* Search",
+      "description": "Heuristic-guided shortest path algorithm that combines Dijkstra's guaranteed shortest path with a heuristic estimate of the remaining distance. Uses f(n) = g(n) + h(n) to prioritize exploration."
+    },
+    "avl-insert": {
+      "name": "AVL Tree Insert",
+      "description": "Inserts a value into an AVL tree (self-balancing BST). After insertion, checks balance factors and performs LL, RR, LR, or RL rotations to maintain the height-balance property."
+    },
+    "kadane": {
+      "name": "Kadane's Algorithm",
+      "description": "Finds the maximum sum contiguous subarray in O(n) time. Tracks the maximum sum ending at the current position and the global maximum seen so far."
+    },
+    "matrix-chain": {
+      "name": "Matrix Chain Multiplication",
+      "description": "Finds the optimal parenthesization to minimize the number of scalar multiplications when multiplying a chain of matrices. Uses a 2D DP table where dp[i][j] is the minimum cost for matrices i through j."
+    },
+    "z-algorithm": {
+      "name": "Z-Algorithm",
+      "description": "Computes the Z-array where Z[i] is the length of the longest substring starting at position i that is also a prefix of the string. Used for linear-time pattern matching by searching in the concatenated string P+$+T."
+    },
+    "knights-tour": {
+      "name": "Knight's Tour",
+      "description": "Finds a sequence of moves where a chess knight visits every square on the board exactly once. Uses backtracking with Warnsdorff's heuristic: always move to the square with the fewest onward moves."
+    },
+    "extended-gcd": {
+      "name": "Extended Euclidean GCD",
+      "description": "Extends the Euclidean algorithm to find integers x and y such that ax + by = gcd(a, b). Essential in modular arithmetic, cryptography (RSA), and solving linear Diophantine equations."
+    },
+    "miller-rabin": {
+      "name": "Miller-Rabin Primality Test",
+      "description": "A probabilistic primality test that determines whether a number is composite or probably prime. Tests multiple witness values (2, 3, 5, 7) — if all pass, the number is almost certainly prime."
+    }
+  }
+}
