@@ -1,0 +1,13 @@
+import './bubble';
+import './selection';
+import './insertion';
+import './shell';
+import './cocktail-shaker';
+import './merge';
+import './quick';
+import './heap';
+import './counting';
+import './radix';
+import './comb-sort';
+import './tim-sort';
+import './pancake-sort';

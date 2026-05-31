@@ -1,0 +1,376 @@
+{
+  "site": {
+    "title": "Kumpulan Algoritma",
+    "subtitle": "Visualisasi interaktif dan penjelasan untuk algoritma klasik"
+  },
+  "nav": {
+    "collapse": "Ciutkan",
+    "expand": "Perluas bilah sisi",
+    "home_tooltip": "Ke beranda"
+  },
+  "language": {
+    "label": "Bahasa",
+    "en": "Inggris",
+    "id": "Indonesia"
+  },
+  "home": {
+    "algorithms": "algoritma"
+  },
+  "categories": {
+    "sorting": {
+      "name": "Pengurutan",
+      "description": "Algoritma yang mengurutkan elemen menggunakan perbandingan atau metode penghitungan."
+    },
+    "searching": {
+      "name": "Pencarian",
+      "description": "Algoritma yang menemukan elemen di dalam struktur data."
+    },
+    "graph": {
+      "name": "Graf",
+      "description": "Algoritma yang menelusuri dan menemukan jalur dalam jaringan."
+    },
+    "tree": {
+      "name": "Pohon",
+      "description": "Algoritma yang menelusuri dan memanipulasi struktur pohon."
+    },
+    "dynamic-programming": {
+      "name": "Pemrograman Dinamis",
+      "description": "Algoritma yang memecahkan submasalah yang tumpang tindih secara optimal."
+    },
+    "string-matching": {
+      "name": "Pencocokan String",
+      "description": "Algoritma yang menemukan pola dalam teks secara efisien."
+    },
+    "backtracking": {
+      "name": "Runut Balik",
+      "description": "Algoritma yang mengeksplorasi ruang solusi secara sistematis."
+    },
+    "math": {
+      "name": "Matematika",
+      "description": "Algoritma matematika klasik dan teori bilangan."
+    }
+  },
+  "category_list": {
+    "coming_soon": "Segera hadir",
+    "coming_soon_desc": "Algoritma untuk kategori ini sedang ditambahkan.",
+    "avg_label": "Rata-rata"
+  },
+  "detail": {
+    "overview": "Ikhtisar",
+    "complexity": "Kompleksitas",
+    "pseudocode": "Kode Semu",
+    "visualizer": "Visualisasi",
+    "not_found": "Algoritma tidak ditemukan",
+    "not_found_desc": "Algoritma ini tidak ada atau belum ditambahkan.",
+    "back_home": "← Kembali ke beranda"
+  },
+  "complexity": {
+    "best": "Terbaik",
+    "average": "Rata-rata",
+    "worst": "Terburuk",
+    "space": "Ruang",
+    "stable": "Stabil",
+    "unstable": "Tidak Stabil",
+    "in_place": "Di Tempat",
+    "extra_space": "Ruang Tambahan"
+  },
+  "controls": {
+    "play": "Putar",
+    "pause": "Jeda",
+    "step_back": "Langkah mundur",
+    "step_forward": "Langkah maju",
+    "reset": "Ulang",
+    "speed": "Kecepatan",
+    "steps": "Langkah",
+    "randomize": "Acak",
+    "apply": "Terapkan"
+  },
+  "visualizer": {
+    "sort_legend": {
+      "unsorted": "Belum Terurut",
+      "comparing": "Membandingkan",
+      "swapping": "Menukar",
+      "pivot": "Pivot",
+      "sorted": "Terurut"
+    },
+    "search_legend": {
+      "unsearched": "Belum Dicari",
+      "current": "Saat Ini",
+      "midpoint": "Titik Tengah",
+      "bounds": "Batas",
+      "eliminated": "Dieliminasi",
+      "found": "Ditemukan",
+      "target": "Target",
+      "found_at_index": "Ditemukan di indeks"
+    },
+    "string": {
+      "text_label": "Teks",
+      "pattern_label": "Pola (offset:",
+      "found_at": "Ditemukan di posisi:"
+    },
+    "math": {
+      "steps_label": "Langkah",
+      "sequence_label": "Urutan",
+      "binary_steps_label": "Langkah Eksponensiasi Biner",
+      "result_label": "Hasil:"
+    },
+    "grid": {
+      "result_label": "Hasil:"
+    },
+    "coming_soon": "Visualisasi segera hadir"
+  },
+  "algorithms": {
+    "bubble-sort": {
+      "name": "Pengurutan Gelembung",
+      "description": "Berulang kali melewati daftar, membandingkan elemen berdekatan, dan menukarnya jika urutannya salah. Proses diulang hingga tidak ada pertukaran yang diperlukan."
+    },
+    "selection-sort": {
+      "name": "Pengurutan Seleksi",
+      "description": "Membagi daftar menjadi bagian terurut dan belum terurut. Pada setiap langkah, mencari elemen minimum dari bagian belum terurut dan menempatkannya di akhir bagian terurut."
+    },
+    "insertion-sort": {
+      "name": "Pengurutan Penyisipan",
+      "description": "Membangun larik terurut satu elemen sekaligus dengan mengambil setiap elemen dan menyisipkannya ke posisi yang benar dalam bagian yang sudah terurut."
+    },
+    "shell-sort": {
+      "name": "Pengurutan Shell",
+      "description": "Perluasan dari pengurutan penyisipan yang memungkinkan pertukaran elemen yang berjauhan. Menggunakan urutan celah yang semakin berkurang sebelum pass penyisipan terakhir."
+    },
+    "cocktail-shaker-sort": {
+      "name": "Pengurutan Koktail",
+      "description": "Varian dua arah dari pengurutan gelembung yang menelusuri daftar secara bergantian dari dua arah. Membantu memindahkan elemen kecil di akhir daftar ke depan lebih cepat."
+    },
+    "merge-sort": {
+      "name": "Pengurutan Gabung",
+      "description": "Algoritma bagi-dan-taklukkan yang membagi larik menjadi dua, mengurutkan setiap setengah secara rekursif, lalu menggabungkan hasilnya. Menjamin O(n log n) di semua kasus."
+    },
+    "quick-sort": {
+      "name": "Pengurutan Cepat",
+      "description": "Algoritma bagi-dan-taklukkan yang memilih elemen pivot dan mempartisi larik di sekitarnya, lalu mengurutkan sub-larik secara rekursif. Sangat efisien dengan rata-rata O(n log n)."
+    },
+    "heap-sort": {
+      "name": "Pengurutan Heap",
+      "description": "Membangun max-heap dari larik, lalu berulang kali mengekstrak elemen maksimum dan menempatkannya di akhir bagian terurut. Mencapai O(n log n) di semua kasus dengan O(1) ruang."
+    },
+    "counting-sort": {
+      "name": "Pengurutan Cacahan",
+      "description": "Algoritma pengurutan bilangan bulat tanpa perbandingan yang menghitung kemunculan setiap nilai dan menggunakannya untuk menempatkan elemen langsung ke posisi akhirnya."
+    },
+    "radix-sort": {
+      "name": "Pengurutan Radix",
+      "description": "Algoritma pengurutan bilangan bulat tanpa perbandingan yang mengurutkan elemen digit per digit dari digit paling tidak signifikan menggunakan counting sort sebagai subrutin stabil."
+    },
+    "linear-search": {
+      "name": "Pencarian Linear",
+      "description": "Memeriksa setiap elemen daftar secara berurutan hingga kecocokan ditemukan atau seluruh daftar telah diperiksa. Bekerja pada larik terurut maupun tidak terurut."
+    },
+    "binary-search": {
+      "name": "Pencarian Biner",
+      "description": "Mencari larik terurut secara efisien dengan membagi interval pencarian menjadi dua secara berulang. Jika target kurang dari titik tengah, cari di setengah kiri; jika tidak, cari di setengah kanan."
+    },
+    "jump-search": {
+      "name": "Pencarian Lompat",
+      "description": "Bekerja pada larik terurut dengan melompat maju sebesar langkah tetap √n, lalu melakukan pencarian linear mundur dalam blok yang teridentifikasi."
+    },
+    "interpolation-search": {
+      "name": "Pencarian Interpolasi",
+      "description": "Varian pencarian biner yang lebih baik untuk larik terurut yang terdistribusi merata. Menggunakan interpolasi untuk memperkirakan posisi target."
+    },
+    "exponential-search": {
+      "name": "Pencarian Eksponensial",
+      "description": "Menemukan rentang di mana target mungkin berada dengan menggandakan batas secara eksponensial, lalu melakukan pencarian biner dalam rentang tersebut."
+    },
+    "ternary-search": {
+      "name": "Pencarian Terner",
+      "description": "Membagi larik terurut menjadi tiga bagian dengan menghitung dua titik tengah, lalu mengeliminasi dua per tiga ruang pencarian setiap iterasi."
+    },
+    "bfs": {
+      "name": "Penelusuran Lebar Pertama",
+      "description": "Mengeksplorasi graf level demi level dari simpul awal, mengunjungi semua tetangga sebelum bergerak lebih dalam. Menemukan jalur terpendek dalam graf tak berbobot."
+    },
+    "dfs": {
+      "name": "Penelusuran Kedalaman Pertama",
+      "description": "Mengeksplorasi sejauh mungkin di setiap cabang sebelum mundur. Berguna untuk pengurutan topologi, deteksi siklus, dan menemukan komponen terhubung."
+    },
+    "dijkstra": {
+      "name": "Algoritma Dijkstra",
+      "description": "Menemukan jalur terpendek dari simpul sumber ke semua simpul lain dalam graf berbobot dengan bobot sisi non-negatif menggunakan pendekatan serakah dengan antrian prioritas."
+    },
+    "bellman-ford": {
+      "name": "Bellman-Ford",
+      "description": "Menemukan jalur terpendek dari sumber ke semua simpul, menangani bobot sisi negatif. Mendeteksi siklus negatif. Lebih lambat dari Dijkstra namun lebih serbaguna."
+    },
+    "floyd-warshall": {
+      "name": "Floyd-Warshall",
+      "description": "Menghitung jalur terpendek antara semua pasang simpul. Bekerja dengan bobot sisi negatif (tetapi bukan siklus negatif). Kompleksitas waktu O(V³)."
+    },
+    "kruskal": {
+      "name": "Algoritma Kruskal",
+      "description": "Membangun Pohon Rentang Minimum dengan mengurutkan semua sisi dan menambahkan sisi terkecil yang tidak membentuk siklus menggunakan Union-Find untuk deteksi siklus."
+    },
+    "prim": {
+      "name": "Algoritma Prim",
+      "description": "Membangun Pohon Rentang Minimum mulai dari satu simpul dan secara serakah menambahkan satu sisi sekaligus, selalu memilih sisi berbobot minimum yang menghubungkan simpul baru."
+    },
+    "topological-sort": {
+      "name": "Pengurutan Topologi",
+      "description": "Mengurutkan simpul dalam Graf Asiklik Berarah (DAG) sehingga untuk setiap sisi berarah u → v, u muncul sebelum v. Menggunakan DFS dengan tumpukan post-order."
+    },
+    "inorder-traversal": {
+      "name": "Penelusuran In-order",
+      "description": "Mengunjungi simpul dalam urutan Kiri → Akar → Kanan, menghasilkan keluaran terurut untuk BST."
+    },
+    "preorder-traversal": {
+      "name": "Penelusuran Pre-order",
+      "description": "Mengunjungi simpul dalam urutan Akar → Kiri → Kanan. Berguna untuk membuat salinan pohon atau evaluasi ekspresi prefiks."
+    },
+    "postorder-traversal": {
+      "name": "Penelusuran Post-order",
+      "description": "Mengunjungi simpul dalam urutan Kiri → Kanan → Akar. Berguna untuk menghapus pohon atau mengevaluasi ekspresi postfiks."
+    },
+    "level-order-traversal": {
+      "name": "Penelusuran Level-order",
+      "description": "Mengunjungi simpul level demi level menggunakan antrian (BFS). Mengeksplorasi semua simpul pada kedalaman d sebelum simpul pada kedalaman d+1."
+    },
+    "bst-insert": {
+      "name": "Penyisipan BST",
+      "description": "Menyisipkan nilai baru ke dalam Pohon Pencarian Biner dengan membandingkan di setiap simpul untuk menemukan posisi yang tepat."
+    },
+    "bst-search": {
+      "name": "Pencarian BST",
+      "description": "Mencari nilai dalam Pohon Pencarian Biner dengan membandingkan di setiap simpul dan bergerak ke kiri atau kanan sesuai kebutuhan."
+    },
+    "bst-delete": {
+      "name": "Penghapusan BST",
+      "description": "Menghapus nilai dari Pohon Pencarian Biner, menangani tiga kasus: simpul daun, satu anak, dan dua anak (penerus in-order)."
+    },
+    "fibonacci": {
+      "name": "Fibonacci",
+      "description": "Menghitung bilangan Fibonacci ke-n menggunakan pemrograman dinamis bottom-up, menyimpan semua nilai dalam tabel 1D untuk menghindari komputasi berulang."
+    },
+    "lcs": {
+      "name": "Subsequens Terpanjang Bersama",
+      "description": "Menemukan subsequens terpanjang yang sama untuk dua string. Menggunakan tabel DP 2D di mana dp[i][j] adalah panjang LCS dari i karakter pertama s1 dan j karakter pertama s2."
+    },
+    "knapsack": {
+      "name": "Ransel 0/1",
+      "description": "Diberikan item dengan bobot dan nilai, temukan total nilai maksimum yang muat dalam ransel berkapasitas W. Setiap item hanya dapat diambil paling banyak satu kali."
+    },
+    "coin-change": {
+      "name": "Penukaran Koin",
+      "description": "Menemukan jumlah minimum koin yang diperlukan untuk membuat jumlah tertentu. Menggunakan larik DP 1D di mana dp[i] adalah jumlah koin minimum yang diperlukan untuk jumlah i."
+    },
+    "lis": {
+      "name": "Subsequens Meningkat Terpanjang",
+      "description": "Menemukan panjang subsequens meningkat ketat terpanjang dalam larik. Menggunakan DP O(n²) di mana dp[i] adalah panjang LIS yang berakhir di indeks i."
+    },
+    "edit-distance": {
+      "name": "Jarak Edit",
+      "description": "Menghitung jumlah minimum pengeditan karakter tunggal (penyisipan, penghapusan, substitusi) yang diperlukan untuk mengubah satu string menjadi string lain."
+    },
+    "naive-search": {
+      "name": "Pencarian String Naif",
+      "description": "Algoritma pencocokan string paling sederhana yang memeriksa pola di setiap posisi dalam teks dengan membandingkan karakter satu per satu. Sederhana namun tidak efisien untuk masukan besar."
+    },
+    "kmp-search": {
+      "name": "Pencarian KMP",
+      "description": "Algoritma Knuth-Morris-Pratt memproses pola terlebih dahulu untuk membangun fungsi kegagalan yang memungkinkan melewati perbandingan berulang. Mencapai kompleksitas waktu linear."
+    },
+    "rabin-karp-search": {
+      "name": "Pencarian Rabin-Karp",
+      "description": "Menggunakan hash bergulir untuk memindai teks secara efisien. Menghitung hash untuk setiap jendela teks dan membandingkannya dengan hash pola."
+    },
+    "boyer-moore-search": {
+      "name": "Pencarian Boyer-Moore",
+      "description": "Membandingkan pola dari kanan ke kiri dan menggunakan heuristik karakter buruk untuk melewatkan bagian besar teks. Sering menjadi algoritma pencocokan string praktis tercepat."
+    },
+    "n-queens": {
+      "name": "N-Ratu",
+      "description": "Tempatkan N ratu di papan catur N×N sehingga tidak ada dua ratu yang saling menyerang (tidak berbagi baris, kolom, atau diagonal). Menggunakan runut balik untuk menemukan susunan yang valid."
+    },
+    "sudoku-solver": {
+      "name": "Pemecah Sudoku",
+      "description": "Memecahkan teka-teki Sudoku 4×4 menggunakan runut balik. Setiap baris, kolom, dan kotak 2×2 harus berisi setiap digit dari 1 hingga 4 tepat satu kali."
+    },
+    "permutations": {
+      "name": "Permutasi",
+      "description": "Menghasilkan semua permutasi dari [1, 2, 3] menggunakan runut balik dengan penukaran di tempat. Setiap baris dalam grid menunjukkan satu permutasi."
+    },
+    "subsets": {
+      "name": "Himpunan Bagian",
+      "description": "Menghasilkan semua himpunan bagian (himpunan kuasa) dari [1, 2, 3] menggunakan runut balik. Setiap baris menunjukkan satu himpunan bagian."
+    },
+    "sieve-of-eratosthenes": {
+      "name": "Saringan Eratosthenes",
+      "description": "Menemukan semua bilangan prima hingga N secara efisien dengan secara iteratif menandai kelipatan setiap prima sebagai komposit."
+    },
+    "euclidean-gcd": {
+      "name": "FPB Euclidean",
+      "description": "Menghitung Faktor Persekutuan Terbesar dari dua bilangan menggunakan pembagian berulang. Setiap langkah mereduksi masalah hingga sisa bagi menjadi nol."
+    },
+    "fast-power": {
+      "name": "Eksponen Cepat (Eksponensiasi Biner)",
+      "description": "Menghitung base^exp dalam O(log exp) dengan mengkuadratkan basis di setiap langkah dan mengalikan ke hasil hanya ketika bit eksponen yang sesuai aktif."
+    },
+    "prime-factorization": {
+      "name": "Faktorisasi Prima",
+      "description": "Menguraikan bilangan menjadi faktor-faktor primanya menggunakan pembagian percobaan hingga akar kuadrat dari n."
+    },
+    "fibonacci-variants": {
+      "name": "Varian Fibonacci",
+      "description": "Mendemonstrasikan komputasi Fibonacci iteratif dengan memoization. Setiap nilai dihitung dari dua nilai sebelumnya, membangun urutan langkah demi langkah."
+    },
+    "comb-sort": {
+      "name": "Pengurutan Sisir",
+      "description": "Perbaikan dari pengurutan gelembung yang mengeliminasi 'kura-kura' (nilai kecil di dekat akhir daftar) menggunakan celah lebih besar dari 1. Celah menyusut dengan faktor 1.3 setiap pass."
+    },
+    "tim-sort": {
+      "name": "Tim Sort",
+      "description": "Algoritma pengurutan stabil hibrida turunan dari merge sort dan insertion sort. Digunakan sebagai pengurutan default di Python dan Java. Membagi data menjadi run kecil lalu menggabungkannya."
+    },
+    "pancake-sort": {
+      "name": "Pengurutan Pancake",
+      "description": "Mengurutkan dengan melakukan serangkaian 'pembalikan pancake': membalik prefiks larik. Satu-satunya operasi yang diizinkan adalah membalik k elemen pertama."
+    },
+    "fibonacci-search": {
+      "name": "Pencarian Fibonacci",
+      "description": "Mencari larik terurut menggunakan bilangan Fibonacci untuk membagi ruang pencarian. Menggunakan offset berdasarkan urutan Fibonacci, mengeliminasi sekitar 1/3 elemen yang tersisa setiap langkah."
+    },
+    "tarjan-scc": {
+      "name": "SCC Tarjan",
+      "description": "Menemukan semua Komponen Sangat Terhubung dalam graf berarah menggunakan satu pass DFS. Menggunakan tumpukan dan nilai low-link untuk mengidentifikasi SCC."
+    },
+    "a-star": {
+      "name": "Pencarian A*",
+      "description": "Algoritma jalur terpendek berbasis heuristik yang menggabungkan Dijkstra dengan estimasi jarak tersisa. Menggunakan f(n) = g(n) + h(n) untuk memprioritaskan eksplorasi."
+    },
+    "avl-insert": {
+      "name": "Penyisipan Pohon AVL",
+      "description": "Menyisipkan nilai ke pohon AVL (BST yang menyeimbangkan diri). Setelah penyisipan, memeriksa faktor keseimbangan dan melakukan rotasi LL, RR, LR, atau RL untuk mempertahankan sifat keseimbangan tinggi."
+    },
+    "kadane": {
+      "name": "Algoritma Kadane",
+      "description": "Menemukan sub-larik kontinu dengan jumlah maksimum dalam O(n). Melacak jumlah maksimum yang berakhir di posisi saat ini dan maksimum global yang terlihat sejauh ini."
+    },
+    "matrix-chain": {
+      "name": "Perkalian Rantai Matriks",
+      "description": "Menemukan parentisasi optimal untuk meminimalkan jumlah perkalian skalar saat mengalikan rantai matriks. Menggunakan tabel DP 2D di mana dp[i][j] adalah biaya minimum untuk matriks i hingga j."
+    },
+    "z-algorithm": {
+      "name": "Algoritma Z",
+      "description": "Menghitung larik Z di mana Z[i] adalah panjang substring terpanjang yang dimulai di posisi i yang juga merupakan prefiks string. Digunakan untuk pencocokan pola waktu linear."
+    },
+    "knights-tour": {
+      "name": "Tur Kuda",
+      "description": "Menemukan urutan langkah di mana kuda catur mengunjungi setiap kotak papan tepat satu kali. Menggunakan runut balik dengan heuristik Warnsdorff: selalu bergerak ke kotak dengan paling sedikit langkah ke depan."
+    },
+    "extended-gcd": {
+      "name": "FPB Euclidean Diperluas",
+      "description": "Memperluas algoritma Euclidean untuk menemukan bilangan bulat x dan y sehingga ax + by = gcd(a, b). Penting dalam aritmatika modular, kriptografi (RSA), dan penyelesaian persamaan Diophantine linear."
+    },
+    "miller-rabin": {
+      "name": "Uji Primalitas Miller-Rabin",
+      "description": "Uji primalitas probabilistik yang menentukan apakah suatu bilangan adalah komposit atau kemungkinan prima. Menguji beberapa nilai saksi (2, 3, 5, 7) — jika semua lulus, bilangan tersebut hampir pasti prima."
+    }
+  }
+}

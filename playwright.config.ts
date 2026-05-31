@@ -62,5 +62,13 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },
+    {
+      command: process.env.CI
+        ? 'bun run --filter "algo-compendium" preview'
+        : 'bun run --filter "algo-compendium" dev',
+      url: 'http://127.0.0.1:3003',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
   ],
 });

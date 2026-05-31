@@ -4,7 +4,8 @@
   "private": true,
   "workspaces": [
     "./bilbatez.dev",
-    "./kprfordummies"
+    "./kprfordummies",
+    "./algo-compendium"
   ],
   "scripts": {
     "postinstall": "[ \"$PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD\" = \"1\" ] || bun playwright install",
