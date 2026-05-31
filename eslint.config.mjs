@@ -30,6 +30,13 @@ export default defineConfig([
       ...reactHooksPlugin.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
+      // react-hooks v7 new rules — disabled: set-state-in-effect fires on
+      // intentional prop-to-state sync patterns; purity fires on Date.now()
+      // in PDF filename (harmless); incompatible-library fires on TanStack
+      // Table's known non-memoizable API (informational, not actionable)
+      'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/purity': 'off',
+      'react-hooks/incompatible-library': 'off',
     },
     settings: {
       react: { version: 'detect' },

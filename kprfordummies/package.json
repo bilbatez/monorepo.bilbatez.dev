@@ -7,15 +7,17 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview --port 3002 --strictPort",
     "prod": "bun run build && bun run preview",
-    "test": "cd .. && bun playwright test tests/kprfordummies"
+    "test": "cd .. && bun playwright test tests/kprfordummies",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest"
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
-    "@react-pdf/renderer": "^4.3.1",
-    "@tanstack/react-table": "^8.21.2",
-    "better-react-mathjax": "^2.2.0",
-    "mathjax": "^3.2.2",
-    "react-hook-form": "^7.55.0",
-    "tailwind-merge": "^2.6.0"
+    "@react-pdf/renderer": "^4.5.1",
+    "@tanstack/react-table": "^8.21.3",
+    "better-react-mathjax": "^3.0.1",
+    "mathjax": "^4.1.2",
+    "react-hook-form": "^7.77.0",
+    "tailwind-merge": "^3.6.0"
   }
 }
