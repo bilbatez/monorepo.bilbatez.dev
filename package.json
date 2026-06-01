@@ -5,7 +5,8 @@
   "workspaces": [
     "./bilbatez.dev",
     "./kprfordummies",
-    "./algo-compendium"
+    "./algo-compendium",
+    "./again"
   ],
   "scripts": {
     "postinstall": "[ \"$PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD\" = \"1\" ] || bun playwright install",

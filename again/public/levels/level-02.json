@@ -1,0 +1,94 @@
+{
+  "width": 32,
+  "height": 18,
+  "tilewidth": 60,
+  "tileheight": 60,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "version": "1.10",
+  "type": "map",
+  "layers": [
+    {
+      "type": "objectgroup",
+      "name": "entities",
+      "objects": [
+        {
+          "id": 1,
+          "name": "",
+          "type": "solid",
+          "x": 0,
+          "y": 1020,
+          "width": 780,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 2,
+          "name": "",
+          "type": "solid",
+          "x": 1080,
+          "y": 1020,
+          "width": 840,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 3,
+          "name": "",
+          "type": "start",
+          "x": 60,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 4,
+          "name": "",
+          "type": "exit",
+          "x": 1800,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 5,
+          "name": "",
+          "type": "platform",
+          "x": 840,
+          "y": 960,
+          "width": 120,
+          "height": 30,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 1020
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 960
+            },
+            {
+              "name": "speed",
+              "type": "int",
+              "value": 150
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tilesets": [],
+  "nextlayerid": 2,
+  "nextobjectid": 6,
+  "infinite": false
+}

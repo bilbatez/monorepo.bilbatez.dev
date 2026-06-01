@@ -7,6 +7,8 @@ A collection of applications I feel like making.
 
 - Bilbatez.dev: My personal page.
 - KPR for Dummies: A KPR (mortgage) calculator. KPR is Indonesia's acronym for mortgage.
+- Algorithm Compendium: Interactive visualizer for 63 algorithms across 8 categories.
+- Again: A browser platformer game with Tiled-JSON level authoring and proximity triggers.
 
 ## Contributing
 
@@ -32,6 +34,15 @@ Change the `*` wildcard to package name to run certain application
 
 ```shell
 bun --filter "*" dev
+```
+
+Or run a specific app by name:
+
+```bash
+bun run --filter "bilbatez.dev" dev     # http://localhost:3001
+bun run --filter "kprfordummies" dev    # http://localhost:3002
+bun run --filter "algo-compendium" dev  # http://localhost:3003
+bun run --filter "again" dev            # http://localhost:3004
 ```
 
 ### Running Playwright Tests
