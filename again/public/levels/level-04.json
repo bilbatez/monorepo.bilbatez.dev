@@ -1,0 +1,99 @@
+{
+  "width": 32,
+  "height": 18,
+  "tilewidth": 60,
+  "tileheight": 60,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "version": "1.10",
+  "type": "map",
+  "layers": [
+    {
+      "type": "objectgroup",
+      "name": "entities",
+      "objects": [
+        {
+          "id": 1,
+          "name": "",
+          "type": "solid",
+          "x": 0,
+          "y": 1020,
+          "width": 600,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 2,
+          "name": "",
+          "type": "solid",
+          "x": 960,
+          "y": 1020,
+          "width": 960,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 3,
+          "name": "",
+          "type": "mover",
+          "x": 360,
+          "y": 960,
+          "width": 240,
+          "height": 60,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 600
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 960
+            },
+            {
+              "name": "radius",
+              "type": "int",
+              "value": 200
+            },
+            {
+              "name": "rideable",
+              "type": "bool",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "",
+          "type": "start",
+          "x": 60,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 5,
+          "name": "",
+          "type": "exit",
+          "x": 1800,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        }
+      ]
+    }
+  ],
+  "tilesets": [],
+  "nextlayerid": 2,
+  "nextobjectid": 6,
+  "infinite": false
+}

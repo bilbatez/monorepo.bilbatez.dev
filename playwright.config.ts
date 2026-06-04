@@ -70,5 +70,13 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },
+    {
+      command: process.env.CI
+        ? 'bun run --filter "again" preview'
+        : 'bun run --filter "again" dev',
+      url: 'http://127.0.0.1:3004',
+      reuseExistingServer: !process.env.CI,
+      timeout: 120_000,
+    },
   ],
 });

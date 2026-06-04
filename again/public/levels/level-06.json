@@ -1,0 +1,196 @@
+{
+  "width": 32,
+  "height": 18,
+  "tilewidth": 60,
+  "tileheight": 60,
+  "orientation": "orthogonal",
+  "renderorder": "right-down",
+  "version": "1.10",
+  "type": "map",
+  "layers": [
+    {
+      "type": "objectgroup",
+      "name": "entities",
+      "objects": [
+        {
+          "id": 1,
+          "name": "",
+          "type": "solid",
+          "x": 0,
+          "y": 1020,
+          "width": 300,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 2,
+          "name": "",
+          "type": "solid",
+          "x": 1620,
+          "y": 1020,
+          "width": 300,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 3,
+          "name": "",
+          "type": "hazard",
+          "x": 300,
+          "y": 1020,
+          "width": 1320,
+          "height": 60,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "hazardKind",
+              "type": "string",
+              "value": "lava"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "name": "",
+          "type": "platform",
+          "x": 420,
+          "y": 900,
+          "width": 120,
+          "height": 30,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 600
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 900
+            },
+            {
+              "name": "speed",
+              "type": "int",
+              "value": 120
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "name": "",
+          "type": "platform",
+          "x": 780,
+          "y": 840,
+          "width": 120,
+          "height": 30,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 960
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 840
+            },
+            {
+              "name": "speed",
+              "type": "int",
+              "value": 160
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "name": "",
+          "type": "platform",
+          "x": 1140,
+          "y": 900,
+          "width": 120,
+          "height": 30,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 1320
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 900
+            },
+            {
+              "name": "speed",
+              "type": "int",
+              "value": 140
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "name": "",
+          "type": "platform",
+          "x": 1440,
+          "y": 840,
+          "width": 120,
+          "height": 30,
+          "visible": true,
+          "rotation": 0,
+          "properties": [
+            {
+              "name": "toX",
+              "type": "int",
+              "value": 1560
+            },
+            {
+              "name": "toY",
+              "type": "int",
+              "value": 840
+            },
+            {
+              "name": "speed",
+              "type": "int",
+              "value": 120
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "",
+          "type": "start",
+          "x": 60,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        },
+        {
+          "id": 9,
+          "name": "",
+          "type": "exit",
+          "x": 1800,
+          "y": 960,
+          "width": 60,
+          "height": 60,
+          "visible": true,
+          "rotation": 0
+        }
+      ]
+    }
+  ],
+  "tilesets": [],
+  "nextlayerid": 2,
+  "nextobjectid": 10,
+  "infinite": false
+}

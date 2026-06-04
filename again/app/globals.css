@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-game-bg: #0f0f1a;
+  --color-game-surface: #1a1a2e;
+  --color-game-accent: #22c55e;
+  --color-game-text: #f8fafc;
+  --color-game-muted: #94a3b8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f0f1a;
+  color: #f8fafc;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
