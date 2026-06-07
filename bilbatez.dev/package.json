@@ -12,7 +12,7 @@
     "test:unit:watch": "vitest"
   },
   "dependencies": {
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.2.0",
     "marked": "^18.0.4"
   },
   "devDependencies": {
