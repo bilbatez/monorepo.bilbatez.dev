@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.1",
-    "marked": "^18.0.4"
+    "marked": "^18.0.5"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9"
