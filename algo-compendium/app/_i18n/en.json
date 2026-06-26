@@ -91,6 +91,9 @@
       "comparing": "Comparing",
       "swapping": "Swapping",
       "pivot": "Pivot",
+      "key": "Key",
+      "min": "Min",
+      "max": "Max",
       "sorted": "Sorted"
     },
     "search_legend": {

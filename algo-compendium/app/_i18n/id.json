@@ -91,6 +91,9 @@
       "comparing": "Membandingkan",
       "swapping": "Menukar",
       "pivot": "Pivot",
+      "key": "Kunci",
+      "min": "Min",
+      "max": "Maks",
       "sorted": "Terurut"
     },
     "search_legend": {

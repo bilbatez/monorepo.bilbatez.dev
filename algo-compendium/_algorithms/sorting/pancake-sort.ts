@@ -120,6 +120,7 @@ registerAlgorithm({
       flip(a, maxIdx)  // bring max to front
     flip(a, size-1)    // move max to final position`,
   visualizerType: 'array',
+  legendLabels: { pivot: 'max' },
   defaultInput: makeSortState([3, 6, 2, 7, 4, 9, 1, 5]),
   run: (state) => pancakeSortCommands(state.array),
   reduce: sortReducer,

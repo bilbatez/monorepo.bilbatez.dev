@@ -150,6 +150,7 @@ while size < n:
     merge(a, left, mid, right)
   size *= 2`,
   visualizerType: 'array',
+  legendLabels: { pivot: 'key' },
   defaultInput: makeSortState([64, 34, 25, 12, 22, 11, 90, 42, 78, 5, 8, 37]),
   run: (state) => timSortCommands(state.array),
   reduce: sortReducer,

@@ -49,7 +49,7 @@ export function GraphVisualizer({
         stroke: 'var(--color-turquoise-dark)',
       };
     if (currentState.visited.includes(nodeId))
-      return { fill: '#a5f3fc', stroke: '#0ea5e9' };
+      return { fill: '#ddd6fe', stroke: '#7c3aed' };
     return { fill: '#e5e7eb', stroke: '#9ca3af' };
   }
 
@@ -182,7 +182,7 @@ export function GraphVisualizer({
           Current
         </span>
         <span className="flex items-center gap-1">
-          <span className="inline-block w-3 h-3 rounded-full bg-cyan-200 border border-cyan-500" />
+          <span className="inline-block w-3 h-3 rounded-full bg-violet-200 border border-violet-600" />
           Visited
         </span>
         <span className="flex items-center gap-1">

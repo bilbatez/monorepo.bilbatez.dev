@@ -29,6 +29,7 @@ export type AlgorithmMeta<C, S> = {
   inPlace?: boolean;
   pseudocode: string;
   visualizerType: VisualizerType;
+  legendLabels?: { pivot?: string };
   defaultInput: S;
   run: (input: S) => C[];
   reduce: (state: S, cmd: C) => S;

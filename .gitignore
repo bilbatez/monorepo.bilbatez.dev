@@ -56,3 +56,5 @@ metals.sbt
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+.claude/worktrees/**

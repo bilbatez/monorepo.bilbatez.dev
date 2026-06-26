@@ -80,6 +80,7 @@ registerAlgorithm({
   if minIdx != i
     swap(a[i], a[minIdx])`,
   visualizerType: 'array',
+  legendLabels: { pivot: 'min' },
   defaultInput: makeSortState([64, 34, 25, 12, 22, 11, 90]),
   run: (state) => selectionSortCommands(state.array),
   reduce: sortReducer,

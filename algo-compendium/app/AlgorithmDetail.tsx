@@ -180,6 +180,7 @@ function ArrayVisualizerWrapper({
 }: {
   algo: NonNullable<ReturnType<typeof getAlgorithm>>;
 }) {
+  const { t } = useI18n();
   const [commands, setCommands] = useState<SortCommand[]>(
     () => algo.run(algo.defaultInput) as SortCommand[]
   );
@@ -202,6 +203,10 @@ function ArrayVisualizerWrapper({
     [algo]
   );
 
+  const pivotLabel = algo.legendLabels?.pivot
+    ? t(`visualizer.sort_legend.${algo.legendLabels.pivot}`)
+    : undefined;
+
   return (
     <ArrayVisualizer
       mode="sort"
@@ -209,6 +214,7 @@ function ArrayVisualizerWrapper({
       initialState={initialState}
       onNewCommands={handleNewCommands}
       generateCommands={generateCommands}
+      pivotLabel={pivotLabel}
     />
   );
 }

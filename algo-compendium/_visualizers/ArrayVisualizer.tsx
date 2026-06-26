@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useMemo } from 'react';
 import { useAlgorithmPlayer } from '../_components/hooks/useAlgorithmPlayer';
 import { Controls } from '../_components/Controls';
 import { LegendRow } from '../_components/composed/LegendRow';
@@ -23,6 +23,7 @@ type SortProps = {
   initialState: SortState;
   onNewCommands: (commands: SortCommand[], newState: SortState) => void;
   generateCommands: (arr: number[]) => SortCommand[];
+  pivotLabel?: string;
 };
 
 // ─── Search mode ─────────────────────────────────────────────────────────────
@@ -53,6 +54,7 @@ function SortArrayVisualizer({
   initialState,
   onNewCommands,
   generateCommands,
+  pivotLabel,
 }: Omit<SortProps, 'mode'>) {
   const { t } = useI18n();
   const player = useAlgorithmPlayer(initialState, commands, sortReducer);
@@ -92,6 +94,37 @@ function SortArrayVisualizer({
   const { currentState } = player;
   const maxVal = Math.max(...currentState.array, 1);
 
+  const commandTypes = useMemo(
+    () => new Set(commands.map((c) => c.type)),
+    [commands]
+  );
+
+  const legend = useMemo(() => {
+    const items = [
+      { dotClass: 'bg-gray-300', label: t('visualizer.sort_legend.unsorted') },
+    ];
+    if (commandTypes.has('compare'))
+      items.push({
+        dotClass: 'bg-yellow-400',
+        label: t('visualizer.sort_legend.comparing'),
+      });
+    if (commandTypes.has('swap'))
+      items.push({
+        dotClass: 'bg-rose-400',
+        label: t('visualizer.sort_legend.swapping'),
+      });
+    if (commandTypes.has('set_pivot'))
+      items.push({
+        dotClass: 'bg-purple-500',
+        label: pivotLabel ?? t('visualizer.sort_legend.pivot'),
+      });
+    items.push({
+      dotClass: 'bg-[var(--color-turquoise)]',
+      label: t('visualizer.sort_legend.sorted'),
+    });
+    return items;
+  }, [commandTypes, t, pivotLabel]);
+
   return (
     <div className="flex flex-col gap-4 w-full">
       {/* Bar chart */}
@@ -99,7 +132,7 @@ function SortArrayVisualizer({
         {currentState.array.map((val, i) => {
           let color = 'bg-gray-300';
           if (currentState.pivot === i) color = 'bg-purple-500';
-          else if (currentState.swapping.includes(i)) color = 'bg-orange-400';
+          else if (currentState.swapping.includes(i)) color = 'bg-rose-400';
           else if (currentState.comparing.includes(i)) color = 'bg-yellow-400';
           else if (currentState.sorted.includes(i))
             color = 'bg-[var(--color-turquoise)]';
@@ -115,30 +148,7 @@ function SortArrayVisualizer({
         })}
       </div>
 
-      <LegendRow
-        items={[
-          {
-            dotClass: 'bg-gray-300',
-            label: t('visualizer.sort_legend.unsorted'),
-          },
-          {
-            dotClass: 'bg-yellow-400',
-            label: t('visualizer.sort_legend.comparing'),
-          },
-          {
-            dotClass: 'bg-orange-400',
-            label: t('visualizer.sort_legend.swapping'),
-          },
-          {
-            dotClass: 'bg-purple-500',
-            label: t('visualizer.sort_legend.pivot'),
-          },
-          {
-            dotClass: 'bg-[var(--color-turquoise)]',
-            label: t('visualizer.sort_legend.sorted'),
-          },
-        ]}
-      />
+      <LegendRow items={legend} />
 
       {/* Controls */}
       <Controls
@@ -230,6 +240,44 @@ function SearchArrayVisualizer({
   const { currentState } = player;
   const maxVal = Math.max(...currentState.array, 1);
 
+  const searchCommandTypes = useMemo(
+    () => new Set(commands.map((c) => c.type)),
+    [commands]
+  );
+
+  const searchLegend = useMemo(() => {
+    const items = [
+      {
+        dotClass: 'bg-gray-300',
+        label: t('visualizer.search_legend.unsearched'),
+      },
+      {
+        dotClass: 'bg-yellow-400',
+        label: t('visualizer.search_legend.current'),
+      },
+    ];
+    if (searchCommandTypes.has('set_mid'))
+      items.push({
+        dotClass: 'bg-purple-500',
+        label: t('visualizer.search_legend.midpoint'),
+      });
+    if (searchCommandTypes.has('set_bounds'))
+      items.push({
+        dotClass: 'bg-sky-400',
+        label: t('visualizer.search_legend.bounds'),
+      });
+    if (searchCommandTypes.has('eliminate'))
+      items.push({
+        dotClass: 'bg-slate-300 border border-slate-400',
+        label: t('visualizer.search_legend.eliminated'),
+      });
+    items.push({
+      dotClass: 'bg-green-500',
+      label: t('visualizer.search_legend.found'),
+    });
+    return items;
+  }, [searchCommandTypes, t]);
+
   return (
     <div className="flex flex-col gap-4 w-full">
       <TargetIndicator
@@ -253,9 +301,9 @@ function SearchArrayVisualizer({
           } else if (currentState.current === i) {
             color = 'bg-yellow-400';
           } else if (currentState.eliminated.includes(i)) {
-            color = 'bg-gray-100';
+            color = 'bg-slate-300';
           } else if (currentState.low === i || currentState.high === i) {
-            color = 'bg-orange-300';
+            color = 'bg-sky-400';
           }
           const height = Math.max(4, Math.round((val / maxVal) * 100));
           return (
@@ -269,34 +317,7 @@ function SearchArrayVisualizer({
         })}
       </div>
 
-      <LegendRow
-        items={[
-          {
-            dotClass: 'bg-gray-300',
-            label: t('visualizer.search_legend.unsearched'),
-          },
-          {
-            dotClass: 'bg-yellow-400',
-            label: t('visualizer.search_legend.current'),
-          },
-          {
-            dotClass: 'bg-purple-500',
-            label: t('visualizer.search_legend.midpoint'),
-          },
-          {
-            dotClass: 'bg-orange-300',
-            label: t('visualizer.search_legend.bounds'),
-          },
-          {
-            dotClass: 'bg-gray-100 border border-gray-300',
-            label: t('visualizer.search_legend.eliminated'),
-          },
-          {
-            dotClass: 'bg-green-500',
-            label: t('visualizer.search_legend.found'),
-          },
-        ]}
-      />
+      <LegendRow items={searchLegend} />
 
       {/* Controls */}
       <Controls

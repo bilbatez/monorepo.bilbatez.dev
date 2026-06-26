@@ -18,6 +18,12 @@ export function radixSortCommands(input: number[]): SortCommand[] {
     for (let i = 0; i < n; i++) {
       const digit = Math.floor(a[i] / exp) % 10;
       count[digit]++;
+      cmds.push({
+        type: 'compare',
+        i,
+        j: i,
+        description: `Count digit ${digit} from a[${i}]=${a[i]} (place ${exp})`,
+      });
     }
 
     // Change count[i] so that it contains the actual position
@@ -35,6 +41,12 @@ export function radixSortCommands(input: number[]): SortCommand[] {
     // Copy output back and emit set commands
     for (let i = 0; i < n; i++) {
       a[i] = output[i];
+      cmds.push({
+        type: 'compare',
+        i,
+        j: i,
+        description: `Place ${output[i]} at position ${i} (place ${exp})`,
+      });
       cmds.push({
         type: 'set',
         index: i,

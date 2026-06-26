@@ -88,6 +88,7 @@ for each gap in gaps
       j -= gap
     a[j] = temp`,
   visualizerType: 'array',
+  legendLabels: { pivot: 'key' },
   defaultInput: makeSortState([64, 34, 25, 12, 22, 11, 90]),
   run: (state) => shellSortCommands(state.array),
   reduce: sortReducer,

@@ -26,6 +26,12 @@ export function countingSortCommands(input: number[]): SortCommand[] {
     while (count[i] > 0) {
       const value = i + min;
       cmds.push({
+        type: 'compare',
+        i: outIdx,
+        j: outIdx,
+        description: `Place value ${value} at position ${outIdx}`,
+      });
+      cmds.push({
         type: 'set',
         index: outIdx,
         value,

@@ -95,9 +95,9 @@ export function Controls({
           </label>
           <input
             type="range"
-            min={1}
-            max={20}
-            step={1}
+            min={0.5}
+            max={3}
+            step={0.5}
             value={speed}
             onChange={(e) => onSpeedChange(Number(e.target.value))}
             className="w-24 accent-[var(--color-turquoise)]"

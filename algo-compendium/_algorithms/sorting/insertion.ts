@@ -80,6 +80,7 @@ registerAlgorithm({
     j = j - 1
   a[j+1] = key`,
   visualizerType: 'array',
+  legendLabels: { pivot: 'key' },
   defaultInput: makeSortState([64, 34, 25, 12, 22, 11, 90]),
   run: (state) => insertionSortCommands(state.array),
   reduce: sortReducer,
