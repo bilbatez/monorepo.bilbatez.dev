@@ -1,7 +1,6 @@
 import { ErrorMessage as em } from '@/app/_constants/error-messages';
-import { ErrorMessage } from '@hookform/error-message';
 import { memo } from 'react';
-import { RegisterOptions, useFormContext } from 'react-hook-form';
+import { RegisterOptions, useFormContext, useFormState } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 
 interface DisplayInputValueProps {
@@ -41,12 +40,10 @@ function NumberInputField({
   displayInputValue,
   inputValueFormatter,
 }: Props) {
-  const {
-    register,
-    trigger,
-    getValues,
-    formState: { errors },
-  } = useFormContext();
+  const { register, trigger, getValues, control, getFieldState } =
+    useFormContext();
+  const formState = useFormState({ control, name: id });
+  const fieldError = getFieldState(id, formState).error;
 
   const options: RegisterOptions = {
     required: em.REQUIRED,
@@ -95,15 +92,13 @@ function NumberInputField({
             className={twMerge(
               'std-in',
               inputClassName,
-              errors?.[id] && 'has-error'
+              fieldError && 'has-error'
             )}
             placeholder={placeholder}
             {...register(id, options)}
           />
 
-          <div className="error-message">
-            <ErrorMessage name={id} errors={errors} />
-          </div>
+          <div className="error-message">{fieldError?.message?.toString()}</div>
         </label>
       </div>
     </>

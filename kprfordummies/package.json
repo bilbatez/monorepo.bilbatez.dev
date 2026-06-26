@@ -12,12 +12,11 @@
     "test:unit:watch": "vitest"
   },
   "dependencies": {
-    "@hookform/error-message": "^2.0.1",
     "@react-pdf/renderer": "^4.5.1",
     "@tanstack/react-table": "^8.21.3",
     "better-react-mathjax": "^3.0.1",
     "mathjax": "^4.1.2",
-    "react-hook-form": "^7.77.0",
+    "react-hook-form": "^7.80.0",
     "tailwind-merge": "^3.6.0"
   }
 }

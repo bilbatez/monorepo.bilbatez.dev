@@ -19,20 +19,20 @@ function InterestCalculator({ className }: Props) {
   const { currentInterestType } = useContext(CurrentInterestTypeContext);
   const { setCurrentFormData } = useContext(CurrentFormDataContext);
 
-  const methods = useForm({
-    defaultValues: {
-      principal: '',
-      interestPeriod: [{}],
-      startDate: DateUtils.htmlInputFormat(new Date()),
-    },
-  });
+  const defaultValues = {
+    principal: '',
+    interestPeriod: [{}],
+    startDate: DateUtils.htmlInputFormat(new Date()),
+  };
+
+  const methods = useForm({ defaultValues });
 
   function submit(data: FieldValues) {
     setCurrentFormData(new LoanRequest(data, currentInterestType));
   }
 
   function handleReset() {
-    methods.reset();
+    methods.reset(defaultValues);
   }
 
   return (

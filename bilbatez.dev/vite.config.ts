@@ -1,17 +1,3 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import tailwindcss from '@tailwindcss/vite';
+import { sharedViteConfig } from '../vite.shared';
 
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  server: {
-    host: '127.0.0.1',
-    port: 3001,
-    strictPort: true,
-  },
-  preview: {
-    host: '127.0.0.1',
-    port: 3001,
-    strictPort: true,
-  },
-});
+export default sharedViteConfig(3001, __dirname);
